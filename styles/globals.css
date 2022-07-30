@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  box-sizing: border-box;
+  line-height: 2rem;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+hr {
+  @apply my-8;
+}
+
+/* about js  */
+.js-post-about h1 {
+  @apply text-red-500 text-xl font-bold mb-6;
+}
+
+.js-post-about h2 {
+  @apply text-red-400 text-lg  mb-4;
+}
+
+.js-post-about ul {
+  @apply mb-4;
+}
+
+.js-post-about li {
+  @apply mb-2;
+}
+
+/*  */

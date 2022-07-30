@@ -1,9 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import logo from "../public/logo/logo.png";
-import { AnimatePresence, motion, Variants } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useAnimation,
+  useViewportScroll,
+  Variants,
+} from "framer-motion";
 import Link from "next/link";
 
 interface LayoutProps {
@@ -24,6 +30,15 @@ const navTitle: NavTitle[] = [
   { name: "About", id: "about", path: "/about" },
 ];
 
+const scrollVariant: Variants = {
+  top: {
+    opacity: 0,
+  },
+  scroll: {
+    opacity: 0.6,
+  },
+};
+
 const Layout: React.FC<LayoutProps> = ({ children, head }) => {
   const router = useRouter();
   const navPage = (path: string) => {
@@ -34,7 +49,7 @@ const Layout: React.FC<LayoutProps> = ({ children, head }) => {
   };
   const [windowSize, setWindowSize] = useState(0);
   const [showingNav, setShowingNav] = useState(false);
-
+  const navRef = useRef<HTMLDivElement>(null);
   const handleSize = useCallback(() => {
     setWindowSize(window.innerWidth);
   }, []);
@@ -62,14 +77,37 @@ const Layout: React.FC<LayoutProps> = ({ children, head }) => {
     },
   };
 
+  const goBack = () => {
+    router.back();
+  };
+
+  const scrollAnimation = useAnimation();
+  const { scrollY } = useViewportScroll();
+  useEffect(() => {
+    scrollY.onChange(() => {
+      if (scrollY.get() < window.innerHeight / 2) {
+        scrollAnimation.start("top");
+      } else {
+        scrollAnimation.start("scroll");
+      }
+    });
+  }, [scrollY, scrollAnimation]);
+
+  const onTop = () => {
+    navRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section className="bg-neutral-900 text-white">
       <Head>
-        <title>{head}</title>
+        <title>{`${head} | Blog`}</title>
       </Head>
-      <nav className="flex items-center justify-between p-4 bg-neutral-900">
+      <nav
+        ref={navRef}
+        className="flex items-center justify-between p-4 bg-neutral-900"
+      >
         <div className="flex items-center space-x-4">
-          <Link href={"/"}>
+          <Link href="/">
             <a className="relative w-10 h-10">
               <Image src={logo} layout="fill" objectFit="cover" alt="" />
             </a>
@@ -137,7 +175,37 @@ const Layout: React.FC<LayoutProps> = ({ children, head }) => {
 
       {/* main */}
       <main onClick={() => setShowingNav(false)} className="px-6">
-        <div className="mt-24 min-h-screen ">{children}</div>
+        <div className="my-8 w-7 h-7 border-2 rounded-md flex justify-center items-center border-slate-300 cursor-pointer">
+          <svg
+            onClick={() => goBack()}
+            className="h-5 w-5 text-gray-400 hover:text-gray-700  transition-all cursor-pointer"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+          </svg>
+        </div>
+        <div className="mt-12 min-h-screen px-4 pb-2">
+          {children}
+          <motion.div
+            onClick={() => onTop()}
+            variants={scrollVariant}
+            initial="top"
+            animate={scrollAnimation}
+            className="fixed w-6 h-6 bg-red-500 opacity-60 hover:opacity-100 transition-all bottom-2 right-4 rounded-full cursor-pointer flex justify-center items-center"
+          >
+            <svg
+              className="h-5 w-5 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M7 11l5-5m0 0l5 5m-5-5v12" />
+            </svg>
+          </motion.div>
+        </div>
       </main>
     </section>
   );

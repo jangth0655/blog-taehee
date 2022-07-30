@@ -1,12 +1,36 @@
-import { NextPage } from "next";
+import { readdirSync, readFileSync } from "fs";
+import matter from "gray-matter";
+import { GetStaticProps, NextPage } from "next";
 import Layout from "../../../components/Layout";
+import { Post } from "../../shared/shared";
 
-const NextJsPage: NextPage = () => {
+const NextJsPage: NextPage<{ allNextJsFiles: Post[] }> = ({
+  allNextJsFiles,
+}) => {
   return (
-    <Layout>
-      <h1>NextJspage</h1>
+    <Layout head="NextJS">
+      <div>
+        {allNextJsFiles?.map((file, i) => (
+          <div key={i}>
+            <span>{file.title}</span>
+          </div>
+        ))}
+      </div>
     </Layout>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const allNextJsFiles = readdirSync("./data/nextjs").map((file) => {
+    const content = readFileSync(`./data/nextjs/${file}`, "utf-8");
+    return matter(content).data;
+  });
+
+  return {
+    props: {
+      allNextJsFiles,
+    },
+  };
 };
 
 export default NextJsPage;

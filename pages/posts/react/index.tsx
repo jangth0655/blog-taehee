@@ -5,7 +5,7 @@ import Layout from "../../../components/Layout";
 
 const ReactPage: NextPage = () => {
   return (
-    <Layout>
+    <Layout head="React">
       <h1>React Page</h1>
     </Layout>
   );
