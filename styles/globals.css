@@ -15,20 +15,20 @@ hr {
   @apply my-8;
 }
 
-/* about js  */
-.js-post-about h1 {
+/*js  */
+.js-post h1 {
   @apply text-red-500 text-xl font-bold mb-6;
 }
 
-.js-post-about h2 {
+.js-post h2 {
   @apply text-red-400 text-lg  mb-4;
 }
 
-.js-post-about ul {
+.js-post ul {
   @apply mb-4;
 }
 
-.js-post-about li {
+.js-post li {
   @apply mb-2;
 }
 

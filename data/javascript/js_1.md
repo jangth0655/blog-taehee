@@ -34,7 +34,7 @@ name: ""
 ## 3. Javascript
 
 - lightweight, interpreted language(가벼운 스크립트 언어)이며,
-- Just-in-time compiled programing language :  
+- <span className="actvie" style="color:blue">Just-in-time compiled programing language</span> :  
   → 사전에 미리 컴파일링 하는 것이 아니라 필요할 때 실시간으로 런타임시에 컴파일하는 언어
 - 프로토타입을 기반으로 한 멀티패러다임(다양한 스타일 ) 이다.  
   → 절차지향, 객체지향, 함수형 언어, 동적인 언어라고도 할 수 있다.

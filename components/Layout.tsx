@@ -7,7 +7,7 @@ import {
   AnimatePresence,
   motion,
   useAnimation,
-  useViewportScroll,
+  useScroll,
   Variants,
 } from "framer-motion";
 import Link from "next/link";
@@ -82,7 +82,7 @@ const Layout: React.FC<LayoutProps> = ({ children, head }) => {
   };
 
   const scrollAnimation = useAnimation();
-  const { scrollY } = useViewportScroll();
+  const { scrollY } = useScroll();
   useEffect(() => {
     scrollY.onChange(() => {
       if (scrollY.get() < window.innerHeight / 2) {
@@ -175,10 +175,10 @@ const Layout: React.FC<LayoutProps> = ({ children, head }) => {
 
       {/* main */}
       <main onClick={() => setShowingNav(false)} className="px-6">
-        <div className="my-8 w-7 h-7 border-2 rounded-md flex justify-center items-center border-slate-300 cursor-pointer">
+        <div className="my-4 w-6 h-6 border-2 rounded-lg flex justify-center items-center border-slate-300 cursor-pointer">
           <svg
             onClick={() => goBack()}
-            className="h-5 w-5 text-gray-400 hover:text-gray-700  transition-all cursor-pointer"
+            className="h-4 w-4 text-gray-400 hover:text-gray-700  transition-all cursor-pointer"
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth="2"

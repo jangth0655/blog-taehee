@@ -11,11 +11,10 @@ const JsFileDetail: NextPage<{ post: string; data: any }> = ({
   data,
 }) => {
   return (
-    <Layout head="aboutJS">
-      <div
-        className="js-post-about"
-        dangerouslySetInnerHTML={{ __html: post }}
-      />
+    <Layout head="AboutJS">
+      <div className="max-w-3xl m-auto">
+        <div className="js-post" dangerouslySetInnerHTML={{ __html: post }} />
+      </div>
     </Layout>
   );
 };
