@@ -1,0 +1,74 @@
+---
+title: 비동기
+category: js
+name: ""
+---
+
+# <비동기>
+
+## 1. 개념
+
+- Javascript 엔진은 크게 구분할 수 있는데  
+  ○ memory Heap : 동적으로 객체를 저장  
+  ○ call Stack : 함수의 실행을 기억하고 실행한다.  
+  → 콜스택은 한번에 하나의 일만 처리할 수 있다. 싱글 쓰레드라고도 하며 동기적으로 실행된다.
+- Javascritp는 동기적 처리만 할 수 있지만, **Web,Node의 API를 활용하여 비동기적 처리**가 가능하다.  
+  ✓ 비동기적으로 수행되는 등록된 콜백함수를 Task Queue에 담아둔다.  
+   → Task Queue에 등록된 동안 나머지 콜스택에 있는 함수들이 처리된다.  
+  ✓ 콜스텍에서 하나의 일을 하나씩 처리하고, 모든일이 다 수행된다면  
+  ✓ 콜스택과 Task Queue를 감시하는 이벤트 루프가 Task Queue에 있는 콜백함수를 콜스택으로 가져온다.
+
+---
+
+## 2. Promise object
+
+- **비동기적으로 수행하여 성공 또는 실패의 결과값이 완료되었음 알려주는 오브젝트**  
+   ○ pending : 초기상태, 대기상태  
+   ○ fulfiiled : 수행이 성공적으로 완료된 상태  
+   ○ rejected: 수행이 실패했을 경우
+
+```javascript
+fuction runInDelay(seconds) {
+  return new Promise((resolve, reject) => {
+    if(!seconds || seconds < 0){
+      reject(new Error("seconds error"))
+    }
+    setTimeout(resolve, seconds * 1000)
+  })
+}
+runInDelay(2)
+.then(() => console.log("done"))
+.catch(console.error)
+.finally(console.log("finally"))
+```
+
+<br />
+
+**✓ Promise 병렬처리**
+
+```javascript
+Promise.all([promise1, promise2]).then((allPromise) => console.log(allPromise));
+// output : [promise1, promise2]
+
+// promise.race : 주어진 promise중 제일 빨리 수행된 것
+Promise.race([promise1, promise2]).then((firstPromise) =>
+  console.log(firstPromise)
+);
+// output : firstPromise
+```
+
+---
+
+## 3. Async, Await
+
+- promise의 then을 계속 이어나가면 한번에 이해하기 어려움이 있다.
+- **비동기적은 코드를 동기적인 형태로, 절차적으로 사용할 수 있다.**
+
+```javascript
+async function fetchPromise() {
+  // async - 비동기적인 코드를 동기적으로 사용할 수 있다.
+  const promise1 = await fetchPromise1(); // 동기적으로 진행됨.
+  const promise2 = await fetchPromise2(); // 동기적으로 진행됨.
+  return [promise1, promise2];
+}
+```

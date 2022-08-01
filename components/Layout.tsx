@@ -98,13 +98,13 @@ const Layout: React.FC<LayoutProps> = ({ children, head }) => {
   };
 
   return (
-    <section className="bg-neutral-900 text-white">
+    <section className="bg-gray-900 text-white">
       <Head>
         <title>{`${head} | Blog`}</title>
       </Head>
       <nav
         ref={navRef}
-        className="flex items-center justify-between p-4 bg-neutral-900"
+        className="flex items-center justify-between p-4 bg-gray-900"
       >
         <div className="flex items-center space-x-4">
           <Link href="/">
@@ -119,15 +119,15 @@ const Layout: React.FC<LayoutProps> = ({ children, head }) => {
           <div className="space-x-2 flex items-center">
             {navTitle.map((title) => (
               <div key={title.id} onClick={() => navPage(title.path)}>
-                <span className="relative px-2 text-gray-400 hover:text-white transition-all cursor-pointer">
-                  {title.name}
+                <div className="relative px-2 text-gray-400 hover:text-white transition-all cursor-pointer">
+                  <span>{title.name}</span>
                   {router.pathname === title.path && (
                     <motion.span
-                      className="w-1 h-1 rounded-full bg-rose-500 absolute right-0 m-auto -bottom-3 left-0 "
+                      className="w-1 h-1 rounded-full bg-rose-500 absolute right-0 m-auto -bottom-1 left-0 "
                       layoutId="circle"
                     />
                   )}
-                </span>
+                </div>
               </div>
             ))}
           </div>
@@ -175,10 +175,10 @@ const Layout: React.FC<LayoutProps> = ({ children, head }) => {
 
       {/* main */}
       <main onClick={() => setShowingNav(false)} className="px-6">
-        <div className="my-4 w-6 h-6 border-2 rounded-lg flex justify-center items-center border-slate-300 cursor-pointer">
+        <div className="my-4 w-6 h-6 border-2 rounded-lg flex justify-center items-center border-slate-300 hover:bg-gray-200 transition-all hover:text-gray-800 text-gray-400 cursor-pointer ">
           <svg
             onClick={() => goBack()}
-            className="h-4 w-4 text-gray-400 hover:text-gray-700  transition-all cursor-pointer"
+            className="h-4 w-4"
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth="2"

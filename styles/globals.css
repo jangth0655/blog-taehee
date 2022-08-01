@@ -32,4 +32,16 @@ hr {
   @apply mb-2;
 }
 
+.js-post code {
+  @apply text-xs;
+}
+
+strong {
+  @apply text-orange-300;
+}
+
+.js-post p {
+  @apply mt-4;
+}
+
 /*  */
