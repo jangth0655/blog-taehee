@@ -42,7 +42,7 @@ runInDelay(2)
 .finally(console.log("finally"))
 ```
 
-<br />
+-- <br />
 
 **✓ Promise 병렬처리**
 
@@ -63,6 +63,8 @@ Promise.race([promise1, promise2]).then((firstPromise) =>
 
 - promise의 then을 계속 이어나가면 한번에 이해하기 어려움이 있다.
 - **비동기적은 코드를 동기적인 형태로, 절차적으로 사용할 수 있다.**
+
+-- <br />
 
 ```javascript
 async function fetchPromise() {
