@@ -6,12 +6,18 @@ import remarkParse from "remark-parse/lib";
 import { unified } from "unified";
 import Layout from "../../../components/Layout";
 
-const JsFileDetail: NextPage<{ post: string; data: any }> = ({
+interface Data {
+  title: string;
+  category: string;
+  name: string;
+}
+
+const JsFileDetail: NextPage<{ post: string; data: Data }> = ({
   post,
   data,
 }) => {
   return (
-    <Layout head="AboutJS">
+    <Layout head="AboutJS" category={data.category}>
       <div className="max-w-3xl m-auto">
         <div className="js-post" dangerouslySetInnerHTML={{ __html: post }} />
       </div>

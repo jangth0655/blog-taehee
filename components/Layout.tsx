@@ -15,6 +15,7 @@ import Link from "next/link";
 interface LayoutProps {
   children: React.ReactNode;
   head?: string;
+  category: string;
 }
 
 type NavTitle = {
@@ -39,7 +40,7 @@ const scrollVariant: Variants = {
   },
 };
 
-const Layout: React.FC<LayoutProps> = ({ children, head }) => {
+const Layout: React.FC<LayoutProps> = ({ children, head, category }) => {
   const router = useRouter();
   const navPage = (path: string) => {
     if (!path) {
@@ -122,6 +123,12 @@ const Layout: React.FC<LayoutProps> = ({ children, head }) => {
                 <div className="relative px-2 text-gray-400 hover:text-white transition-all cursor-pointer">
                   <span>{title.name}</span>
                   {router.pathname === title.path && (
+                    <motion.span
+                      className="w-1 h-1 rounded-full bg-rose-500 absolute right-0 m-auto -bottom-1 left-0 "
+                      layoutId="circle"
+                    />
+                  )}
+                  {title.id === category && (
                     <motion.span
                       className="w-1 h-1 rounded-full bg-rose-500 absolute right-0 m-auto -bottom-1 left-0 "
                       layoutId="circle"

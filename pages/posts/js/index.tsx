@@ -8,7 +8,7 @@ import { Post } from "../../shared/shared";
 
 const JavascriptPage: NextPage<{ allJsFiles: Post[] }> = ({ allJsFiles }) => {
   return (
-    <Layout head="JS">
+    <Layout head="JS" category="">
       <section className="max-w-4xl m-auto">
         <PageTitle title="Basic Javascript" />
         <div className="w-full text-white ">

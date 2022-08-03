@@ -21,7 +21,7 @@ hr {
 }
 
 .js-post h2 {
-  @apply text-red-400 text-lg  mb-4;
+  @apply text-red-400 text-lg  my-4;
 }
 
 .js-post ul {
