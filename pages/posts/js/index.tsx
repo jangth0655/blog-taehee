@@ -16,6 +16,7 @@ const JavascriptPage: NextPage<{ allJsFiles: Post[] }> = ({ allJsFiles }) => {
             <div key={i} className="mb-8">
               <Link href={`/posts/js/${file.slug}`}>
                 <a className="cursor-pointer hover:text-gray-300 transition-all">
+                  <span className="mr-4">✅</span>
                   <span>{file.title}</span>
                 </a>
               </Link>

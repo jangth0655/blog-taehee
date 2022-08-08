@@ -3,17 +3,17 @@ import matter from "gray-matter";
 import { GetStaticProps, NextPage } from "next";
 import Layout from "../../../components/Layout";
 
-const ReactPage: NextPage = () => {
+const TsPage: NextPage = () => {
   return (
-    <Layout head="React" category="">
-      <h1>React Page</h1>
+    <Layout head="Typescript" category="">
+      <h1>Typescript Page</h1>
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allReactFiles = readdirSync("./data/react").map((file) => {
-    const content = readFileSync(`./data/react/${file}`, "utf-8");
+  const allReactFiles = readdirSync("./data/typescript").map((file) => {
+    const content = readFileSync(`./data/typescript/${file}`, "utf-8");
     return matter(content).data;
   });
   console.log(allReactFiles);
@@ -21,4 +21,4 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {},
   };
 };
-export default ReactPage;
+export default TsPage;

@@ -1,0 +1,46 @@
+---
+title: 클로저(Closures)
+category: js
+name: ""
+---
+
+# <클로저>
+
+- **중첩된 함수에서 내부 함수에서 외부함수에 있는 상태(렉시컬 환경)에 접근 할 수 있는 것을 말한다.**
+
+--<br />
+
+```javascript
+function outer() {
+  const x = 0;
+  function inner() {
+    console.log(`inside inner: ${x}`);
+  }
+  return inner;
+}
+const func1 = outer();
+func1();
+//output : inside inner:0
+// inner함수가 호출될때 inner함수 뿐만 아니라 outer도 함께 묶여서 반환이 되기때문에 x에 접근이 가능
+// -> inner함수는 외부 outer도 참조 하고 있으므로, x에 접근이 가능하다.
+```
+
+- Why??? **내부 정보를 은닉하고, 공개 함수(public, 외부)를 통한 데이터 조작을 위해**
+- 캡슐화 정보은닉, 클래스 private 필드 또는 메소드를 사용하는 효과와 동일
+
+--<br />
+
+```javascript
+function makeCounter() {
+  let count = 0; // 은닉
+  // 외부함수를 통해 조작
+  function increase() {
+    count++;
+    console.log(count);
+  }
+  return increase;
+}
+
+const increase = makeCounter();
+increase();
+```

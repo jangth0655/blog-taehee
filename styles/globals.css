@@ -29,7 +29,7 @@ hr {
 }
 
 .js-post li {
-  @apply mb-2;
+  @apply my-2;
 }
 
 .js-post code {

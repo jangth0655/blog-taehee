@@ -15,7 +15,7 @@ import Link from "next/link";
 interface LayoutProps {
   children: React.ReactNode;
   head?: string;
-  category: string;
+  category?: string;
 }
 
 type NavTitle = {
@@ -26,6 +26,7 @@ type NavTitle = {
 
 const navTitle: NavTitle[] = [
   { name: "Javascript", id: "js", path: "/posts/js" },
+  { name: "Typescript", id: "ts", path: "/posts/ts" },
   { name: "React", id: "react", path: "/posts/react" },
   { name: "NextJs", id: "nextjs", path: "/posts/nextjs" },
   { name: "About", id: "about", path: "/about" },
