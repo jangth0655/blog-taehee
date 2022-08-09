@@ -13,6 +13,8 @@ name: ""
 - 하지만, **java(type)script는 런타임 상에서 동적으로 this 바인딩이된다**.  
   → 호출하는 사람(caller)에 의해 동적으로 결정된다.
 
+---
+
 ## 글로벌 컨텍스트의 this
 
 - 브라우저 : window 객체
@@ -40,6 +42,8 @@ fun(); // output : globalThis객체
 // 'user strict' 모드에서는 스코프내에서 this가 기리키는 것이 없으므로
 // undefined
 ```
+
+---
 
 ## 정적 바인딩
 
@@ -74,6 +78,8 @@ this.printName = function = () => {
     console.log(`${this.name}`);
   };
 ```
+
+---
 
 ## Arrow function
 

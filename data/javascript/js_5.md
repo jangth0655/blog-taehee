@@ -15,6 +15,8 @@ name: ""
 - 외부에서는 접근이 불가
 - `__proto__, Object.getPrototypeOf(), Object.setPrototypeOf()` 접근 가능
 
+---
+
 ## 1. 디스크립터
 
 - = 프로토타입 object안에서도 object 상태의 정보를 갖고 있는 디스크립터가 있다.
@@ -31,6 +33,8 @@ Object.entries(dog); // output : [["name","wow"],["emoji","🐶"]]
 "name" in dog; // key 확인
 dog.hasOwnProperty("name"); // key 확인
 ```
+
+---
 
 ## 2. 객체 불변성
 

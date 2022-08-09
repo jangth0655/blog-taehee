@@ -1,0 +1,197 @@
+---
+title: 함수(Function)
+category: js
+name: ""
+---
+
+# <함수>
+
+- **특정한 일을 수행하는 코드의 집합(유지보수성, 재사용 가능, 높은 가독성)**
+- 기능을 수행할 이름와 매개변수의 이름을 잘 지어야한다.
+- 함수도 객체이다.
+- 함수를 정의 → 힙 메모리공간에 저장 → 함수명은 메모리 주소를 참조한다.
+
+  --<br />
+
+```javascript
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+add(1, 2);
+```
+
+-- <br />
+
+```javascript
+function add(a, b) {
+  return a + b;
+}
+const sum = add; // add 함수가 가리키고 있는 주소를 sum도 가리키게 된다.
+
+sum(1, 1);
+add(1, 1);
+```
+
+---
+
+## 반환
+
+- return을 명시하지 않으면 자동으로 undefined가 반환된다. (void)
+- return 함수를 종료시키는 역할도 한다.
+- return을 함수 중간에 하게되면 함수가 종료된다.
+
+-- <br />
+
+```javascript
+function print(num) {
+  if (num < 0) {
+    return; // return undefined
+  }
+  console.log(num);
+}
+```
+
+---
+
+## 함수의 인자
+
+- 매개변수의 기본값은 undefined.
+- 매개변수의 정보는 함수 내부에서 접근이 가능한 argumnets 객체에 저장된다.
+
+-- <br />
+
+```javascript
+function add(a, b) {
+  console.log(a); // arguments[0]
+  console.log(b); // arguments[1]
+  console.log(arguments); // 전달된 인자의 정보가 담겨져있다.
+  return a + b; // NaN
+}
+add(); // output : undefined
+
+// 기본값 설정
+function add(a = 1, b = 2) {
+  console.log(a); // arguments[0]
+  console.log(b); // arguments[1]
+  console.log(arguments); // 전달된 인자의 정보가 담겨져있다.
+  return a + b; // NaN
+}
+
+add(); // output : 3
+
+// ✨  Rest 매개변수 Rest Parameters
+function sum(...numbers) {
+  console.log(numbers);
+}
+sum(1, 2, 3, 4, 5, 6, 7, 8);
+// output : [1, 2, 3, 4, 5, 6, 7, 8]  배열을 받는다.
+```
+
+---
+
+## 함수 표현
+
+- 함수 선언문 function name(){}
+- 함수 표현식 : 모든 표현식은 "문" 값으로 평가될 수 있는 것이 표현식이다.  
+  → const name = function(){} // 함수도 객체이기때문에 가능하다.
+
+-- <br />
+
+```javascript
+  let add = funciton (a,b){ // 무명함수
+    return a + b
+  }
+  add(1, 2); // 3
+```
+
+- **화살표 함수** const name = () => {}
+
+  -- <br />
+
+```javascript
+const add = (a, b) => {
+  console.log(a, b);
+  return a + b;
+};
+add(1, 2); // 3
+
+// 바로 반환하는 경우
+const add = (a, b) => a + b;
+```
+
+- **값으로 나타낼 수 있는 표현식이다.** // 많이 사용되지는 않는다.
+- IIFE (Immediately-Invoked Function Expression)
+
+```javascript
+// 함수를 정의하면서 바로 싫행할 경우
+(function run() {
+  console.log("smile");
+})();
+```
+
+---
+
+## 콜백함수
+
+- 일급객체 : **함수가 일반 객체처럼 모든 연산이 가능한 것**.  
+  → 즉, 함수 자체를 반환, 매개변수로 전달, 변수에 할당, 동일비교도 가능하다.
+- **고차함수** (Higher-Order Function)  
+  → 인자로 함수를 받거나 (콜백함수)  
+  → 함수를 반환하는 함수를 고차함수
+- **콜백함수의 반환값을 직접적으로 전달하는 것이 아니라 참조값만 전달하는 것이다**.
+
+-- <br />
+
+```javascript
+const add = (a, b) => a + b;
+const multiply = (a, b) => a * b;
+
+function calculator(a, b, action) {
+  let result = action(a, b);
+  console.log(result);
+  return result;
+}
+
+caculator(1, 2, add); // 선언된 add 함수의 참조값을 전달해준다.
+caculator(1, 2, multiply); // 선언된 multiply 함수의 참조값을 전달해준다.
+```
+
+---
+
+## ✨✨✨ 함수의 불변성 (Immutability = unchangeble)
+
+- 상태가 변경되지 않게 **불변성을 유지한 채로 코딩하는 것이 중요**하다
+- **상태 변경이 필요한 경우, 새로운 상태를(오브젝트, 값) 만들어서 반환해야한다**.
+- 원시값 - 값에 의한 복사 (값 자체가 복사됨)
+- 객체값 - 참조에 의한 복사 (메모리 주소가 복사)
+
+-- <br />
+
+```javascript
+// 함수내부에서 외부로부터 주어진 인자의 값을 변경하는 것은 ❌
+function display(num) {
+  num = 5; // ❌
+  console.log(num);
+}
+
+const value = 4;
+display(value); // 원시값은 값 자체가 복사되므로 괜찮지만...
+
+// obejct
+function displayObj(obj) {
+  obj.name = "Bob"; // 참조값을 전달하기때문에 저장된 object의 값이 변경된다.
+  console.log(obj);
+}
+const taehee = { name: "Ellile" };
+displayObj(taehee);
+
+console.log(taehee); // output {name:"Bob"}
+
+// ------------------
+
+function changeName(obj) {
+  return { ...obj, name: "Bob" };
+  // ✨ 새로운 오브젝트를 만들어야 한다.
+}
+```
