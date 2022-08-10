@@ -25,7 +25,7 @@ hr {
 }
 
 .js-post ul {
-  @apply mb-4;
+  @apply my-2;
 }
 
 .js-post li {
@@ -33,11 +33,11 @@ hr {
 }
 
 .js-post code {
-  @apply text-xs;
+  @apply text-xs text-gray-100;
 }
 
 strong {
-  @apply text-orange-300;
+  @apply text-orange-300 font-bold;
 }
 
 .js-post p {

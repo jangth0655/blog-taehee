@@ -1,0 +1,64 @@
+---
+title: 연산자(Operators)
+category: js
+name: ""
+---
+
+# 연산자(Operator)
+
+- 논리연산자 Logical Operator  
+  ✓ && 그리고  
+  ✓ || 또는
+- 단축평가 : Short-circuit evaluation
+- **&& 조건이 truthy일떄, 무언가를 해야하는 경우**
+- **|| 조건이 falshy일떄, 무언가를 해야하는 경우**
+- 값이 falshy 한경우 : 0, -0, null, undefined, ""
+- default parameter는 null과 unddfined인 경우 default 값 설정.
+
+--<br />
+
+```javascript
+const obj1 = { name: "dog" };
+const obj2 = { name: "cat", owner: "taehee" };
+
+// if문 값으로 평가가 된다. 불리언 값으로 변환되어 평가됨!
+if (obj1 && obj2) {
+  console.log("둘다 true@");
+}
+
+let result = obj1 && obj2;
+console.log(result); // output : { name: "cat", owner: "taehee" }
+
+// null 또는 undefined 경우를 확인할 때
+let item = { price: 1 };
+const price = item && item.price;
+```
+
+---
+
+## Optional
+
+- 옵셔널 체이닝 연산자 : ?
+
+  -- <br />
+
+```javascript
+let obj = { name: "dog", owner: { name: "taehee" } };
+const ownerName = obj?.owner?.name;
+// const ownerName = obj && obj.owner && obj.owner.name;
+```
+
+---
+
+## nullish
+
+- Nullish Coalescing Operator : ??
+- **null, undefined만 falshy**한 경우 표현할 때
+
+-- <br />
+
+```javascript
+let num = 0;
+console.log(num || "-1"); // output : -1 why? 0은 false이기 떄문에
+console.log(num ?? "-1"); // output : 0 why? 0은 값으로 설정되기 때문에
+```
