@@ -183,7 +183,10 @@ const Layout: React.FC<LayoutProps> = ({ children, head, category }) => {
       </AnimatePresence>
 
       {/* main */}
-      <main onClick={() => setShowingNav(false)} className="px-6">
+      <main
+        onClick={() => setShowingNav(false)}
+        className="max-w-4xl m-auto px-3"
+      >
         <div className="my-4 w-6 h-6 border-2 rounded-lg flex justify-center items-center border-slate-300 hover:bg-gray-200 transition-all hover:text-gray-800 text-gray-400 cursor-pointer ">
           <svg
             onClick={() => goBack()}

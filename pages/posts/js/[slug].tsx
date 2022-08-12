@@ -18,7 +18,7 @@ const JsFileDetail: NextPage<{ post: string; data: Data }> = ({
 }) => {
   return (
     <Layout head="AboutJS" category={data.category}>
-      <div className="max-w-3xl m-auto">
+      <div className="">
         <div className="js-post" dangerouslySetInnerHTML={{ __html: post }} />
       </div>
     </Layout>
