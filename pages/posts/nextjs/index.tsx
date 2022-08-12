@@ -9,13 +9,13 @@ const NextJsPage: NextPage<{ allNextJsFiles: Post[] }> = ({
 }) => {
   return (
     <Layout head="NextJS">
-      <div>
+      <section className="">
         {allNextJsFiles?.map((file, i) => (
           <div key={i}>
             <span>{file.title}</span>
           </div>
         ))}
-      </div>
+      </section>
     </Layout>
   );
 };

@@ -29,6 +29,7 @@ const navTitle: NavTitle[] = [
   { name: "Typescript", id: "ts", path: "/posts/ts" },
   { name: "React", id: "react", path: "/posts/react" },
   { name: "NextJs", id: "nextjs", path: "/posts/nextjs" },
+  { name: "Books", id: "books", path: "/posts/books" },
   { name: "About", id: "about", path: "/about" },
 ];
 

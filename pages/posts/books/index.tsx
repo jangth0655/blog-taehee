@@ -6,15 +6,15 @@ import Layout from "../../../components/Layout";
 import PageTitle from "../../../components/PageTitle";
 import { Post } from "../../shared/shared";
 
-const JavascriptPage: NextPage<{ allJsFiles: Post[] }> = ({ allJsFiles }) => {
+const BooksPage: NextPage<{ allBooks: Post[] }> = ({ allBooks }) => {
   return (
-    <Layout head="JS" category="">
+    <Layout head="Books" category="">
       <section>
-        <PageTitle title="Basic Javascript" />
-        <div className="w-full text-white ">
-          {allJsFiles.map((file, i) => (
+        <PageTitle title="Books" />
+        <div>
+          {allBooks.map((file, i) => (
             <div key={i} className="mb-8">
-              <Link href={`/posts/js/${file.slug}`}>
+              <Link href={`/posts/books/${file.slug}`}>
                 <a className="cursor-pointer hover:text-gray-300 transition-all">
                   <span className="mr-4">✅</span>
                   <span>{file.title}</span>
@@ -29,17 +29,17 @@ const JavascriptPage: NextPage<{ allJsFiles: Post[] }> = ({ allJsFiles }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allJsFiles = readdirSync("./data/javascript").map((file) => {
-    const content = readFileSync(`./data/javascript/${file}`, "utf-8");
+  const allBooks = readdirSync("./data/books").map((file) => {
+    const content = readFileSync(`./data/books/${file}`, "utf-8");
     const [slug, _] = file.split(".");
     return { ...matter(content).data, slug };
   });
 
   return {
     props: {
-      allJsFiles,
+      allBooks,
     },
   };
 };
 
-export default JavascriptPage;
+export default BooksPage;
