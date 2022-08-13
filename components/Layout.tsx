@@ -27,10 +27,10 @@ type NavTitle = {
 const navTitle: NavTitle[] = [
   { name: "Javascript", id: "js", path: "/posts/js" },
   { name: "Typescript", id: "ts", path: "/posts/ts" },
+  { name: "NodeJs", id: "nodejs", path: "/posts/nodejs" },
   { name: "React", id: "react", path: "/posts/react" },
   { name: "NextJs", id: "nextjs", path: "/posts/nextjs" },
   { name: "Books", id: "books", path: "/posts/books" },
-  { name: "About", id: "about", path: "/about" },
 ];
 
 const scrollVariant: Variants = {
@@ -122,8 +122,8 @@ const Layout: React.FC<LayoutProps> = ({ children, head, category }) => {
           <div className="space-x-2 flex items-center">
             {navTitle.map((title) => (
               <div key={title.id} onClick={() => navPage(title.path)}>
-                <div className="relative px-2 text-gray-400 hover:text-white transition-all cursor-pointer">
-                  <span>{title.name}</span>
+                <div className="relative px-1 text-gray-400 hover:text-white transition-all cursor-pointer">
+                  <span className="text-sm">{title.name}</span>
                   {router.pathname === title.path && (
                     <motion.span
                       className="w-1 h-1 rounded-full bg-rose-500 absolute right-0 m-auto -bottom-1 left-0 "
@@ -172,7 +172,7 @@ const Layout: React.FC<LayoutProps> = ({ children, head, category }) => {
                 <div
                   onClick={() => navPage(title.id)}
                   key={title.id}
-                  className="text-gray-400 z-20 hover:text-white transition-all cursor-pointer"
+                  className="text-gray-400 z-20 hover:text-white transition-all cursor-pointer text-sm"
                 >
                   <span>{title.name}</span>
                 </div>

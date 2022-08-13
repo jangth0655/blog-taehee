@@ -16,23 +16,23 @@ hr {
 }
 
 /*js  */
-.js-post h1 {
+.post h1 {
   @apply text-red-500 text-xl font-bold mb-6;
 }
 
-.js-post h2 {
+.post h2 {
   @apply text-red-400 text-lg  my-4;
 }
 
-.js-post ul {
+.post ul {
   @apply my-2;
 }
 
-.js-post li {
+.post li {
   @apply my-2;
 }
 
-.js-post code {
+.post code {
   @apply text-xs text-gray-100;
 }
 
@@ -40,7 +40,7 @@ strong {
   @apply text-orange-300 font-bold;
 }
 
-.js-post p {
+.post p {
   @apply mt-4;
 }
 
