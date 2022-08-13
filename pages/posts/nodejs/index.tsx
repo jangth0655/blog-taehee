@@ -12,7 +12,7 @@ const NodeJsPage: NextPage<{ allNodeJsFiles: Post[] }> = ({
   return (
     <Layout head="NodeJS" category="nodejs">
       <section>
-        <PageTitle title="Basic Node JS" />
+        <PageTitle title="Node JS" />
         <div className="w-full text-white ">
           {allNodeJsFiles.map((file, i) => (
             <div key={i} className="mb-8">

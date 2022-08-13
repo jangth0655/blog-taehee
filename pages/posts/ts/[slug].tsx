@@ -7,13 +7,13 @@ import { unified } from "unified";
 import Layout from "../../../components/Layout";
 import { Data } from "../../shared/shared";
 
-const NodeJsFileDetail: NextPage<{ post: string; data: Data }> = ({
+const TypescriptDetail: NextPage<{ post: string; data: Data }> = ({
   post,
   data,
 }) => {
   return (
-    <Layout head="About NodeJS" category={data.category}>
-      <div>
+    <Layout head="AboutTS" category={data.category}>
+      <div className="">
         <div className="post" dangerouslySetInnerHTML={{ __html: post }} />
       </div>
     </Layout>
@@ -21,9 +21,9 @@ const NodeJsFileDetail: NextPage<{ post: string; data: Data }> = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = readdirSync("./data/nodejs").map((file) => {
-    const [name, extension] = file.split(".");
-    return { params: { slug: name } };
+  const files = readdirSync("./data/typescript").map((file) => {
+    const [slug, extension] = file.split(".");
+    return { params: { slug } };
   });
   return {
     paths: files,
@@ -32,12 +32,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx: any) => {
-  const { content, data } = matter.read(`./data/nodejs/${ctx.params.slug}.md`);
+  const { content, data } = matter.read(
+    `./data/typescript/${ctx.params.slug}.md`
+  );
   const { value } = await unified()
     .use(remarkParse)
     .use(remarkHtml)
     .process(content);
-
   return {
     props: {
       post: value,
@@ -45,4 +46,5 @@ export const getStaticProps: GetStaticProps = async (ctx: any) => {
     },
   };
 };
-export default NodeJsFileDetail;
+
+export default TypescriptDetail;
