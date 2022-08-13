@@ -10,7 +10,7 @@ const NodeJsPage: NextPage<{ allNodeJsFiles: Post[] }> = ({
   allNodeJsFiles,
 }) => {
   return (
-    <Layout>
+    <Layout head="NodeJS" category="nodejs">
       <section>
         <PageTitle title="Basic Node JS" />
         <div className="w-full text-white ">
