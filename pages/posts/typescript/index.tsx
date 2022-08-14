@@ -17,7 +17,7 @@ const TsPage: NextPage<{ allTypescriptFiles: Post[] }> = ({
           {allTypescriptFiles.map((file, i) => (
             <div key={i} className="mb-8">
               <Link href={`/posts/ts/${file.slug}`}>
-                <a className="cursor-pointer hover:text-gray-300 transition-all">
+                <a className="cursor-pointer hover:text-gray-400 transition-all">
                   <span className="mr-4">✅</span>
                   <span>{file.title}</span>
                 </a>
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const [slug, _] = file.split(".");
     return { ...matter(content).data, slug };
   });
-  console.log(allTypescriptFiles);
+
   return {
     props: {
       allTypescriptFiles,
