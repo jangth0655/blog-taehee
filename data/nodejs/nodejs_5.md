@@ -6,7 +6,7 @@ name: ""
 
 # path
 
-- 경로
+- 폴더와 파일의 경로를 지정해주는 모듈
 - 파일 경로에 접근, 경로에 대하여 무언가를 처리할 때
 - 경로의 표현 방법은 운영체제 마다 달라질 수 있다.
 
@@ -14,6 +14,14 @@ name: ""
 
 ```javascript
 const path = required("path");
+
+// resolve,join 모두 인자로 받은 경로들을 문자열 형태로 리턴 한다.
+// 차이점 resolve는 '/'를 절대경로로 처리, join은 상대경로로 처리
+path.join("path"); // 여러 인자를 넣어주면 하나의 경로로 합쳐준다.
+path.resolve("path"); // 여러 인자를 넣어주면 하나의 경로로 합쳐준다.
+
+// '/tmp/file' 맨 앞이 '/'로 시작되므로 합쳐지지 않고, '/tmp/file/'만 반환된다.
+path.resolve("/foo/bar", "/tmp/file/");
 
 console.log(__dirname); // 현재 수행되고 있는 디렉토리 이름
 console.log(__filename); // 현재 수행되고 있는 파일 이름
