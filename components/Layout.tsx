@@ -31,6 +31,7 @@ const navTitle: NavTitle[] = [
   { name: "React", id: "react", path: "/posts/react" },
   { name: "NextJs", id: "nextjs", path: "/posts/nextjs" },
   { name: "Books", id: "books", path: "/posts/books" },
+  { name: "Projects", id: "projects", path: "/posts/projects" },
 ];
 
 const scrollVariant: Variants = {
@@ -122,7 +123,7 @@ const Layout: React.FC<LayoutProps> = ({ children, head, category }) => {
           <div className="space-x-2 flex items-center">
             {navTitle.map((title) => (
               <div key={title.id} onClick={() => navPage(title.path)}>
-                <div className="relative px-1 text-gray-400 hover:text-white transition-all cursor-pointer">
+                <div className="relative px-2 text-gray-400 hover:text-white transition-all cursor-pointer">
                   <span className="text-sm">{title.name}</span>
                   {router.pathname === title.path && (
                     <motion.span
@@ -167,12 +168,12 @@ const Layout: React.FC<LayoutProps> = ({ children, head, category }) => {
             }}
             className="origin-top absolute w-full top-16 bg-black py-4"
           >
-            <div className="space-y-4 px-4">
+            <div className="space-y-6 px-4">
               {navTitle.map((title) => (
                 <div
                   onClick={() => navPage(title.id)}
                   key={title.id}
-                  className="text-gray-400 z-20 hover:text-white transition-all cursor-pointer text-sm"
+                  className="text-gray-400 hover:text-white transition-all cursor-pointer text-sm"
                 >
                   <span>{title.name}</span>
                 </div>
