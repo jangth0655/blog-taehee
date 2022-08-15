@@ -176,7 +176,7 @@ function getVideoMetadata(id: string): VideoMetadata {
 
 ## Record Type
 
-- 각 타입을 서로 묶는다(엮는다)
+- // 각 정의된 타입을 묶는다.
 
 ```typescript
 type PageInfo = {
