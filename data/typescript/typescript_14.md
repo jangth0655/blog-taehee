@@ -14,8 +14,6 @@ name: ""
 - **Interface** : 의사소통의 규격사항,계약
 - **Type alias** : 어떠한 것을 구현할 목적이 아니라 **데이터를 담을 때**, 데이터의 모습(타입)을 결정
 
--- <br />
-
 ```typescript
 type PositionType = {
   x: number;

@@ -8,8 +8,6 @@ name: ""
 
 - console.log : 로그 출력
 
--- <br />
-
 ```javascript
 // 콘솔 로그들을 지움
 console.clear();

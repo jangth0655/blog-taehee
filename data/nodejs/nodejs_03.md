@@ -16,8 +16,6 @@ name: ""
 
 - 다른 모듈에 있는것을 쓰기 위해서는 해당하는 모듈에서 노출할것을 export해야한다.
 
--- <br/>
-
 ```javascript
 // count.js
 let count = 0;

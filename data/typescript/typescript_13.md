@@ -69,8 +69,6 @@ service.login();
 - 예상치 못한 에러, 이슈를 말한다.
 - try -> catch -> finally
 
--- <br />
-
 ```typescript
 function readFile(fileName: string): string {
   if (fileName === "not exists") {

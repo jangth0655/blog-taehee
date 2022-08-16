@@ -46,8 +46,6 @@ const person: Person = {
 
 - 기존의 있는 타입들을 이용하면서 다르게 변환시키는 타입
 
--- <br />
-
 ```typescript
 type Video = {
   title: string;
@@ -78,8 +76,6 @@ const videoOp: VideoOptional2 = {
 
 - 타입을 조건적으로 사용할 수 있다.
 
--- <br />
-
 ```typescript
 type Check<T> = T extends string ? boolean : number;
 type Type = Check<string>; // boolean
@@ -103,8 +99,6 @@ function display(todo: ReadOnly<ToDo>) {}
 ## Partial Type
 
 - 기존의 타입중에서 부분적인 것만 허용하고 싶을 때
-
--- <br />
 
 ```typescript
 type ToDo = {
@@ -132,8 +126,6 @@ updateTodo(todo, { priority: "low" }); // priority만 변경됨
 
 - 여러가지 타입을 가지고 있을경우 그 중에 몇가지만 타입을 다루기위해서 사용
 - 원하는 타입만 가지고 제한적으로 사용
-
--- <br />
 
 ```typescript
 type Video = {

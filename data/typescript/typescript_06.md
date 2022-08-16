@@ -47,8 +47,6 @@ function login(id: string, password: string): Promise<LoginState> {
 
 - Union type에 차별화되는 이름이 동일한 타입을 두어 간편하게 구별 할 수 있는 것
 
---<br />
-
 ```typescript
 type SuccessState = {
   result: "success";

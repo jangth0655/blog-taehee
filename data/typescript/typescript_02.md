@@ -11,8 +11,6 @@ name: ""
   ✓ 그 외의 Object : function, array...
 - 타입스크립트 : 한번 정의된 타입에 다른 타입은 담을 수 없다.
 
--- <br />
-
 ```typescript
 // number
 const num: number = 1;

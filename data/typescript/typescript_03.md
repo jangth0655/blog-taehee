@@ -6,8 +6,6 @@ name: ""
 
 # Function
 
---<br />
-
 ```typescript
 // javascript
 function jsAdd(num1, num2) {

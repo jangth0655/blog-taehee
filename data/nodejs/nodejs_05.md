@@ -10,8 +10,6 @@ name: ""
 - 파일 경로에 접근, 경로에 대하여 무언가를 처리할 때
 - 경로의 표현 방법은 운영체제 마다 달라질 수 있다.
 
---<br />
-
 ```javascript
 const path = required("path");
 
