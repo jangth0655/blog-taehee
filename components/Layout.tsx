@@ -11,11 +11,14 @@ import {
   Variants,
 } from "framer-motion";
 import Link from "next/link";
+import cls from "../libs/cls";
 
 interface LayoutProps {
   children: React.ReactNode;
   head?: string;
   category?: string;
+  back?: boolean;
+  isHome?: boolean;
 }
 
 type NavTitle = {
@@ -25,6 +28,7 @@ type NavTitle = {
 };
 
 const navTitle: NavTitle[] = [
+  { name: "Home", id: "home", path: "/" },
   { name: "Javascript", id: "js", path: "/posts/js" },
   { name: "Typescript", id: "typescript", path: "/posts/typescript" },
   { name: "NodeJs", id: "nodejs", path: "/posts/nodejs" },
@@ -43,7 +47,13 @@ const scrollVariant: Variants = {
   },
 };
 
-const Layout: React.FC<LayoutProps> = ({ children, head, category }) => {
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  head,
+  category,
+  back = true,
+  isHome = false,
+}) => {
   const router = useRouter();
   const navPage = (path: string) => {
     if (!path) {
@@ -108,7 +118,7 @@ const Layout: React.FC<LayoutProps> = ({ children, head, category }) => {
       </Head>
       <nav
         ref={navRef}
-        className="flex items-center justify-between p-4 bg-gray-900"
+        className="flex items-center justify-between p-4 bg-gray-900 "
       >
         <div className="flex items-center space-x-4">
           <Link href="/">
@@ -123,7 +133,7 @@ const Layout: React.FC<LayoutProps> = ({ children, head, category }) => {
           <div className="space-x-2 flex items-center">
             {navTitle.map((title) => (
               <div key={title.id} onClick={() => navPage(title.path)}>
-                <div className="relative px-2 text-gray-400 hover:text-white transition-all cursor-pointer">
+                <div className="relative px-1 text-gray-400 hover:text-white transition-all cursor-pointer lg:px-4">
                   <span className="text-sm">{title.name}</span>
                   {router.pathname === title.path && (
                     <motion.span
@@ -166,12 +176,12 @@ const Layout: React.FC<LayoutProps> = ({ children, head, category }) => {
             transition={{
               type: "linear",
             }}
-            className="origin-top absolute w-full top-16 bg-black py-4"
+            className="origin-top absolute w-full top-16 bg-black py-4 z-10"
           >
             <div className="space-y-6 px-4">
               {navTitle.map((title) => (
                 <div
-                  onClick={() => navPage(title.id)}
+                  onClick={() => navPage(title.path)}
                   key={title.id}
                   className="text-gray-400 hover:text-white transition-all cursor-pointer text-sm"
                 >
@@ -184,22 +194,26 @@ const Layout: React.FC<LayoutProps> = ({ children, head, category }) => {
       </AnimatePresence>
 
       {/* main */}
-      <main
-        onClick={() => setShowingNav(false)}
-        className="max-w-4xl m-auto px-3"
-      >
-        <div className="my-4 w-6 h-6 border-2 rounded-lg flex justify-center items-center border-slate-300 hover:bg-gray-200 transition-all hover:text-gray-800 text-gray-400 cursor-pointer ">
-          <svg
-            onClick={() => goBack()}
-            className="h-4 w-4"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-          </svg>
-        </div>
-        <div className="mt-12 min-h-screen px-4 pb-2">
+      <main onClick={() => setShowingNav(false)}>
+        {back ? (
+          <div className="max-w-3xl mt-10 mb-20 ml-5 px-2 w-10 h-6 border-2 rounded-lg flex justify-center items-center border-slate-300 hover:bg-gray-200 transition-all hover:text-gray-800 text-gray-400 cursor-pointer">
+            <svg
+              onClick={() => goBack()}
+              className="h-6 w-6"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+            </svg>
+          </div>
+        ) : null}
+        <div
+          className={cls(
+            "min-h-screen",
+            isHome ? "" : "max-w-4xl m-auto pb-2 px-7 overflow-x-scroll"
+          )}
+        >
           {children}
           <motion.div
             onClick={() => onTop()}
