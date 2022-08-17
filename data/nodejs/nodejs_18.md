@@ -18,9 +18,9 @@ name: ""
 
 ---
 
-## CRSF
+## CSRF
 
-- CRSF : Cross-Site Request Forgery
+- CSRF : Cross-Site Request Forgery
 - 'Seesion Riding' 사용자가 로그인된 세션에 올라탄다.
 - **현재 로그인된 사용자가 원하지 않는 액션(요청)을 실행하도록 하는 공격**
 - 해커가 잘 준비된 웹사이트를 이메일이나 채팅을 통해서 URL을 보내며 해커가 선택한 액션을 하도록 한다.

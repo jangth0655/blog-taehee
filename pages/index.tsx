@@ -6,6 +6,7 @@ import headerImg from "../public/assets/headerImage/coding.jpg";
 import github from "../public/assets/headerImage/github.png";
 import avatar from "../public/assets/avatar/profile.png";
 import Link from "next/link";
+import SeeProjects from "../components/home/SeeProjects";
 
 const myToolName = [
   "javascript",
@@ -19,16 +20,19 @@ const myToolName = [
 
 const Home: NextPage = () => {
   return (
-    <Layout head="My Blogs" back={false} applyMaxWith={false} isHome={true}>
+    <Layout head="My Blogs" back={false} isHome={true}>
       <section className="min-h-screen flex flex-col justify-center">
         <header className="h-[38rem] pt-2">
-          <div className="h-full relative">
+          <div className="h-full relative ">
             <Image src={headerImg} layout="fill" objectFit="cover" alt="" />
             <div className="bg-gray-900 opacity-80 absolute w-full h-full" />
-            <div className="text-white absolute w-full h-full sm:flex p-2">
-              <div className="w-full md:w-[90%] p-2 text-gray-300 flex flex-col h-[100%] justify-around">
+            <div className="text-white absolute w-full h-full sm:flex p-2 s">
+              <div className="w-full md:w-[70%] p-2 text-gray-300 flex flex-col h-[100%] justify-around">
                 <div className="flex flex-col">
-                  <span className="text-3xl font-bold">Jang Tae Hee</span>
+                  <div className="flex items-center">
+                    <span className="mr-2 text-2xl">✨</span>
+                    <span className="text-3xl font-bold">Jang Tae Hee</span>
+                  </div>
                   <span className="inline-block mt-2 mb-4 text-xl">
                     Front web developer
                   </span>
@@ -90,13 +94,16 @@ const Home: NextPage = () => {
           </div>
         </header>
 
-        <main className="">
-          <div className="w-full p-4 m-auto shadow-black shadow-lg grid grid-cols-3 gap-4 sm:grid-cols-7 bg-gray-900 ">
+        <main>
+          <div className="w-full p-4  shadow-black shadow-lg grid grid-cols-3 gap-4 sm:grid-cols-7 bg-gray-900 mt-10">
             {myToolName.map((name) => (
               <div key={name} className="m-auto">
                 <ToolImg tool={name} />
               </div>
             ))}
+          </div>
+          <div className="">
+            <SeeProjects />
           </div>
         </main>
       </section>

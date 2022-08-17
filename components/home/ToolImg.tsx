@@ -29,7 +29,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
   return (
     <>
       {tool === "html" && (
-        <div className="w-14 h-14 relative rounded-md">
+        <div className="w-16 h-16 relative rounded-md">
           <Image
             className="rounded-md bg-slate-700"
             src={html}
@@ -40,7 +40,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "css" && (
-        <div className="w-14 h-14 relative rounded-md">
+        <div className="w-16 h-16 relative rounded-md">
           <Image
             className="rounded-md bg-slate-700"
             src={css}
@@ -51,7 +51,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "javascript" && (
-        <div className="w-14 h-14 relative rounded-md">
+        <div className="w-16 h-16 relative rounded-md">
           <Image
             className="rounded-md bg-slate-700"
             src={javascript}
@@ -62,7 +62,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "typescript" && (
-        <div className="w-14 h-14 relative rounded-md">
+        <div className="w-16 h-16 relative rounded-md">
           <Image
             className="rounded-md bg-slate-700"
             src={typescript}
@@ -73,7 +73,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "react" && (
-        <div className="w-14 h-14 relative rounded-md">
+        <div className="w-16 h-16 relative rounded-md">
           <Image
             className="rounded-md bg-slate-700"
             src={react}
@@ -84,7 +84,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "nextjs" && (
-        <div className=" w-14 h-14 relative rounded-md">
+        <div className=" w-16 h-16 relative rounded-md">
           <Image
             className="rounded-md bg-slate-500"
             src={nextjs}
@@ -95,7 +95,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "graphql" && (
-        <div className=" w-14 h-14 relative rounded-md">
+        <div className=" w-16 h-16 relative rounded-md">
           <Image
             className="rounded-md bg-slate-700"
             src={graphql}
@@ -107,7 +107,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
       )}
 
       {tool === "tailwind" && (
-        <div className=" w-14 h-14 relative rounded-md">
+        <div className=" w-16 h-16 relative rounded-md">
           <Image
             className="rounded-md bg-slate-700"
             src={tailwind}
@@ -118,7 +118,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "nodejs" && (
-        <div className=" w-14 h-14 relative rounded-md">
+        <div className=" w-16 h-16 relative rounded-md">
           <Image
             className="rounded-md bg-slate-700"
             src={nodejs}
