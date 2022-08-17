@@ -1,16 +1,25 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import projects from "../../data/projectsData/data";
 import { motion } from "framer-motion";
 
 const SeeProjects: React.FC = () => {
   const router = useRouter();
   const [title, setTitle] = useState("Finder");
+  const [index, setIndex] = useState(0);
 
   const onProjectPage = () => {
     router.push("/posts/projects");
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((index + 1) % projects.length);
+    }, 6000);
+    setTitle(projects[index].title);
+    return () => clearInterval(interval);
+  }, [index]);
 
   return (
     <div className="min-h-screen relative px-2 pb-5">
