@@ -35,7 +35,7 @@ const navTitle: NavTitle[] = [
   { name: "React", id: "react", path: "/posts/react" },
   { name: "NextJs", id: "nextjs", path: "/posts/nextjs" },
   { name: "Books", id: "books", path: "/posts/books" },
-  { name: "Projects", id: "projects", path: "/posts/projects" },
+  { name: "Projects", id: "projects", path: "/posts/myProjects" },
 ];
 
 const scrollVariant: Variants = {

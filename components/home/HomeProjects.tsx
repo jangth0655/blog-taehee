@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import projects from "../../data/projectsData/data";
+import projects from "../../projectsData/data";
 import { motion } from "framer-motion";
 
 const SeeProjects: React.FC = () => {
@@ -9,8 +9,8 @@ const SeeProjects: React.FC = () => {
   const [title, setTitle] = useState("Finder");
   const [index, setIndex] = useState(0);
 
-  const onProjectPage = () => {
-    router.push("/posts/projects");
+  const onProjectPage = (projectId: string) => {
+    router.push(`/posts/myProjects/${projectId}`);
   };
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const SeeProjects: React.FC = () => {
         {projects.map((project) =>
           title === project.title ? (
             <div
-              onClick={onProjectPage}
+              onClick={() => onProjectPage(project.id)}
               className="h-[70%] rounded-md cursor-pointer px-2"
               key={project.img.height}
             >

@@ -1,7 +1,7 @@
-import finder from "../../public/assets/projectImgs/finder.png";
-import grinMarket from "../../public/assets/projectImgs/grinMarket.png";
-import removie from "../../public/assets/projectImgs/removie.png";
-import starflix from "../../public/assets/projectImgs/starflix.png";
+import finder from "..//public/assets/projectImgs/finder.png";
+import grinMarket from "../public/assets/projectImgs/grinMarket.png";
+import removie from "../public/assets/projectImgs/removie.png";
+import starflix from "../public/assets/projectImgs/starflix.png";
 
 const projects = [
   {
@@ -19,11 +19,11 @@ const projects = [
       "Postgres",
     ],
     img: finder,
-    id: 1,
+    id: "finder",
   },
   {
     title: "Grin Market",
-    description: "나의 물건을 팔아보자",
+    description: "물건 팔고 구매하기",
     skills: [
       "Typescript",
       "Next JS",
@@ -34,21 +34,21 @@ const projects = [
       "Planet Scale",
     ],
     img: grinMarket,
-    id: 2,
+    id: "grinMarket",
   },
   {
     title: "ReMovie",
     description: "영화 TV쇼 프로그램 추천 사이트",
     skills: ["React", "styled-components", "Framer-motion, Graphql"],
     img: removie,
-    id: 3,
+    id: "removie",
   },
   {
-    title: "Starflix",
+    title: "StarFlix",
     description: "넷플릭스 클론코딩",
     skills: ["React", "styled-components", "Framer-motion"],
     img: starflix,
-    id: 4,
+    id: "starFlix",
   },
 ];
 

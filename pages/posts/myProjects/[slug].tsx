@@ -4,24 +4,26 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import remarkHtml from "remark-html";
 import remarkParse from "remark-parse/lib";
 import { unified } from "unified";
-
 import Layout from "../../../components/Layout";
+import { Data, Post } from "../../shared/shared";
 
-const ReactDetailPage: NextPage<{ post: string }> = ({ post }) => {
+const ProjectsDetail: NextPage<{ post: Post[]; data: Data }> = ({
+  post,
+  data,
+}) => {
   return (
-    <Layout category="react" head="React">
-      <div className="">
-        <div className="post" dangerouslySetInnerHTML={{ __html: post }} />
-      </div>
+    <Layout>
+      <h1>{data.name}</h1>
     </Layout>
   );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = readdirSync("./data/react").map((file) => {
+  const files = readdirSync("./data/projectsData").map((file) => {
     const [name, extension] = file.split(".");
     return { params: { slug: name } };
   });
+
   return {
     paths: files,
     fallback: false,
@@ -29,17 +31,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx: any) => {
-  const { content, data } = matter.read(`./data/react/${ctx.params.slug}.md`);
+  const { content, data } = matter.read(
+    `./data/projectsData/${ctx.params.slug}.md`
+  );
   const { value } = await unified()
     .use(remarkParse)
     .use(remarkHtml)
     .process(content);
-
   return {
     props: {
+      date: "he",
       post: value,
       data,
     },
   };
 };
-export default ReactDetailPage;
+
+export default ProjectsDetail;
