@@ -6,7 +6,7 @@ import headerImg from "../public/assets/headerImage/coding.jpg";
 import github from "../public/assets/headerImage/github.png";
 import avatar from "../public/assets/avatar/profile.png";
 import Link from "next/link";
-import SeeProjects from "../components/home/SeeProjects";
+import SeeProjects from "../components/home/HomeProjects";
 
 const myToolName = [
   "javascript",

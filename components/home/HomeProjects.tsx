@@ -16,7 +16,7 @@ const SeeProjects: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((index + 1) % projects.length);
-    }, 6000);
+    }, 5000);
     setTitle(projects[index].title);
     return () => clearInterval(interval);
   }, [index]);

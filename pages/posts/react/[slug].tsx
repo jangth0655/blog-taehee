@@ -9,7 +9,7 @@ import Layout from "../../../components/Layout";
 
 const ReactDetailPage: NextPage<{ post: string }> = ({ post }) => {
   return (
-    <Layout>
+    <Layout category="react" head="React">
       <div className="">
         <div className="post" dangerouslySetInnerHTML={{ __html: post }} />
       </div>
