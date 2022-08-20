@@ -1,7 +1,10 @@
-import finder from "..//public/assets/projectImgs/finder.png";
-import grinMarket from "../public/assets/projectImgs/grinMarket.png";
-import removie from "../public/assets/projectImgs/removie.png";
-import starflix from "../public/assets/projectImgs/starflix.png";
+import finder from "..//public/assets/projectImgs/finder/finder.png";
+
+import grinMarket from "../public/assets/projectImgs/grinMarket/grinMarket.png";
+
+import removie from "../public/assets/projectImgs/removie/removie.png";
+
+import starFlix from "../public/assets/projectImgs/starFlix/starflix.png";
 
 const projects = [
   {
@@ -18,7 +21,7 @@ const projects = [
       "Prisma",
       "Postgres",
     ],
-    img: finder,
+    img: [finder],
     id: "finder",
   },
   {
@@ -33,21 +36,21 @@ const projects = [
       "Prisma",
       "Planet Scale",
     ],
-    img: grinMarket,
+    img: [grinMarket],
     id: "grinMarket",
   },
   {
     title: "ReMovie",
     description: "영화 TV쇼 프로그램 추천 사이트",
     skills: ["React", "styled-components", "Framer-motion, Graphql"],
-    img: removie,
+    img: [removie],
     id: "removie",
   },
   {
     title: "StarFlix",
     description: "넷플릭스 클론코딩",
     skills: ["React", "styled-components", "Framer-motion"],
-    img: starflix,
+    img: [starFlix],
     id: "starFlix",
   },
 ];

@@ -33,12 +33,12 @@ const SeeProjects: React.FC = () => {
             <div
               onClick={() => onProjectPage(project.id)}
               className="h-[70%] rounded-md cursor-pointer px-2"
-              key={project.img.height}
+              key={project.img[0].height}
             >
               <div className="relative w-full h-full rounded-md">
                 <Image
                   className="rounded-md object-cover sm:object-contain"
-                  src={project.img.src}
+                  src={project.img[0].src}
                   layout="fill"
                   alt=""
                 />
@@ -74,7 +74,7 @@ const SeeProjects: React.FC = () => {
               ></div>
               {title === item.title && (
                 <motion.div
-                  layoutId="circle"
+                  layoutId="titleCircle"
                   className="absolute w-1 h-1 bg-orange-200 -top-2 left-0 right-0 m-auto rounded-full"
                 />
               )}

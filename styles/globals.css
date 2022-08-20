@@ -17,11 +17,11 @@ hr {
 
 /*js  */
 .post h1 {
-  @apply text-red-500 text-xl font-bold mb-6;
+  @apply text-rose-500 text-2xl font-bold mb-6;
 }
 
 .post h2 {
-  @apply text-red-400 text-lg  my-4;
+  @apply text-rose-400 text-xl  my-4;
 }
 
 .post ul {

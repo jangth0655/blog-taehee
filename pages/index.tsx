@@ -23,10 +23,10 @@ const Home: NextPage = () => {
     <Layout head="My Blogs" back={false} isHome={true}>
       <section className="min-h-screen flex flex-col justify-center">
         <header className="h-[38rem] pt-2">
-          <div className="h-full relative ">
+          <div className="h-full relative">
             <Image src={headerImg} layout="fill" objectFit="cover" alt="" />
             <div className="bg-gray-900 opacity-80 absolute w-full h-full" />
-            <div className="text-white absolute w-full h-full sm:flex p-2 s">
+            <div className="text-white absolute w-full h-full sm:flex p-2 pb-0 s">
               <div className="w-full md:w-[70%] p-2 text-gray-300 flex flex-col h-[100%] justify-around">
                 <div className="flex flex-col">
                   <div className="flex items-center">
@@ -82,7 +82,7 @@ const Home: NextPage = () => {
                 </div>
               </div>
 
-              <div className="relative w-0 md:w-[50%] h-0 md:h-[100%] ">
+              <div className="relative w-0 md:w-[50%] h-0 md:h-[100%]">
                 <Image
                   className="object-cover xl:object-contain"
                   layout="fill"
@@ -95,7 +95,7 @@ const Home: NextPage = () => {
         </header>
 
         <main>
-          <div className="w-full p-4  shadow-black shadow-lg grid grid-cols-3 gap-4 sm:grid-cols-7 bg-gray-900 mt-10">
+          <div className="w-full py-4  shadow-black shadow-lg grid grid-cols-3 gap-4 sm:grid-cols-7 bg-gray-900">
             {myToolName.map((name) => (
               <div key={name} className="m-auto">
                 <ToolImg tool={name} />

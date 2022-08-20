@@ -28,7 +28,7 @@ const AboutProjects: NextPage = () => {
               <div className="h-full relative">
                 <Image
                   className="rounded-md"
-                  src={project.img.src}
+                  src={project.img[0].src}
                   layout="fill"
                   objectFit="cover"
                   alt=""
