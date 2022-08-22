@@ -1,7 +1,7 @@
 ---
 title: Grin Market
 category: BackEnd
-name: "grinMarket"
+name: grinMarket
 ---
 
 asdf

@@ -8,7 +8,7 @@ import { Post } from "../../shared/shared";
 
 const ReactPage: NextPage<{ allReactFiles: Post[] }> = ({ allReactFiles }) => {
   return (
-    <Layout head="React" category="">
+    <Layout head="Basic React" category="">
       <section>
         <PageTitle title="Basic React" />
         <div className="w-full text-white ">
@@ -22,6 +22,9 @@ const ReactPage: NextPage<{ allReactFiles: Post[] }> = ({ allReactFiles }) => {
               </Link>
             </div>
           ))}
+        </div>
+        <div className="mt-20">
+          <h1 className="text-gray-200 text-lg">업데이트 중 🔥</h1>
         </div>
       </section>
     </Layout>

@@ -1,27 +1,26 @@
-import { readdirSync, readFileSync } from "fs";
+import { readdirSync } from "fs";
 import matter from "gray-matter";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Image from "next/image";
 import remarkHtml from "remark-html";
 import remarkParse from "remark-parse/lib";
 import { unified } from "unified";
 import Layout from "../../../components/Layout";
 import { Data } from "../../shared/shared";
 
-const ProjectsDetail: NextPage<{ post: string[]; data: Data }> = ({
+const ProjectsDetail: NextPage<{ post: string; data: Data }> = ({
   post,
   data,
 }) => {
-  console.log(post);
-
   return (
     <Layout>
       <div className="flex items-center space-x-2 mb-10">
         <span>🔥</span>
         <h1 className="uppercase font-bold text-3xl text-rose-500">
-          data.name
+          {data.title}
         </h1>
-        <div></div>
       </div>
+      <div className="post" dangerouslySetInnerHTML={{ __html: post }} />
     </Layout>
   );
 };
@@ -39,20 +38,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx: any) => {
-  const readFile = matter.read(`./data/projectsData/${ctx.params.slug}.mdx`);
-  console.log(readFile.content);
-  return {
-    props: {},
-  };
-};
-
-/*   const { content, data } = matter.read(
-    `./data/projectsData/${ctx.params.slug}.mdx`
+  const { content, data } = matter.read(
+    `./data/projectsData/${ctx.params.slug}.md`
   );
 
   const { value } = await unified()
     .use(remarkParse)
     .use(remarkHtml)
-    .process(content); */
+    .process(content);
+
+  return {
+    props: {
+      post: value,
+      data,
+    },
+  };
+};
 
 export default ProjectsDetail;

@@ -23,6 +23,9 @@ const BooksPage: NextPage<{ allBooks: Post[] }> = ({ allBooks }) => {
             </div>
           ))}
         </div>
+        <div className="mt-20">
+          <h1 className="text-gray-200 text-lg">업데이트 중 🔥</h1>
+        </div>
       </section>
     </Layout>
   );

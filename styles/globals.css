@@ -33,7 +33,7 @@ hr {
 }
 
 .post code {
-  @apply text-xs text-gray-100;
+  @apply text-xs text-white;
 }
 
 strong {
@@ -45,7 +45,5 @@ strong {
 }
 
 .post pre {
-  @apply border-[1.5px] px-2 rounded-md border-gray-700 my-4 shadow-gray-800 shadow-md;
+  @apply px-2 rounded-lg border-gray-700 my-4 shadow-black shadow-md bg-gray-800;
 }
-
-/*  */
