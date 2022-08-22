@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync } from "fs";
 import matter from "gray-matter";
 import { GetStaticProps, NextPage } from "next";
+import Link from "next/link";
 import Layout from "../../../components/Layout";
 import PageTitle from "../../../components/PageTitle";
 import { Post } from "../../shared/shared";
@@ -14,8 +15,13 @@ const NextJsPage: NextPage<{ allNextJsFiles: Post[] }> = ({
         <PageTitle title="Basic NextJS" />
         <div>
           {allNextJsFiles?.map((file, i) => (
-            <div key={i}>
-              <span>{file.title}</span>
+            <div key={i} className="mb-8">
+              <Link href={`/posts/nextjs/${file.slug}`}>
+                <a className="cursor-pointer hover:text-gray-400 transition-all">
+                  <span className="mr-4">✅</span>
+                  <span>{file.title}</span>
+                </a>
+              </Link>
             </div>
           ))}
         </div>
@@ -30,7 +36,8 @@ const NextJsPage: NextPage<{ allNextJsFiles: Post[] }> = ({
 export const getStaticProps: GetStaticProps = async () => {
   const allNextJsFiles = readdirSync("./data/nextjs").map((file) => {
     const content = readFileSync(`./data/nextjs/${file}`, "utf-8");
-    return matter(content).data;
+    const [slug, _] = file.split(".");
+    return { ...matter(content).data, slug };
   });
 
   return {

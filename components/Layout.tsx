@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import logo from "../public/logo/logo.png";
+
 import {
   AnimatePresence,
   motion,
@@ -126,7 +127,7 @@ const Layout: React.FC<LayoutProps> = ({
               <Image src={logo} layout="fill" objectFit="cover" alt="" />
             </a>
           </Link>
-          <span>TaeHee Blog</span>
+          <span>TaeHee</span>
         </div>
 
         {windowSize > 765 ? (
