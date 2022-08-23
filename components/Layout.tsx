@@ -44,7 +44,7 @@ const scrollVariant: Variants = {
     opacity: 0,
   },
   scroll: {
-    opacity: 0.6,
+    opacity: 1,
   },
 };
 
@@ -113,13 +113,13 @@ const Layout: React.FC<LayoutProps> = ({
   };
 
   return (
-    <section className="bg-gray-900 text-white">
+    <section className="bg-zinc-900 text-white">
       <Head>
-        <title>{`${head} | Blog`}</title>
+        <title>{`${head}`}</title>
       </Head>
       <nav
         ref={navRef}
-        className="flex items-center justify-between p-4 bg-gray-900 "
+        className="flex items-center justify-between p-4 bg-zinc-900 "
       >
         <div className="flex items-center space-x-4">
           <Link href={`/`}>
@@ -134,14 +134,18 @@ const Layout: React.FC<LayoutProps> = ({
               />
             </a>
           </Link>
-          <span>TaeHee</span>
+          <Link href={`/`}>
+            <a>
+              <span>TaeHee</span>
+            </a>
+          </Link>
         </div>
 
         {windowSize > 765 ? (
           <div className="space-x-2 flex items-center">
             {navTitle.map((title) => (
               <div key={title.id} onClick={() => navPage(title.path)}>
-                <div className="relative px-1 text-gray-400 hover:text-white transition-all cursor-pointer lg:px-4">
+                <div className="relative px-1 text-zinc-400 hover:text-white transition-all cursor-pointer lg:px-4">
                   <span className="text-sm">{title.name}</span>
                   {router.pathname === title.path && (
                     <motion.span
@@ -191,7 +195,7 @@ const Layout: React.FC<LayoutProps> = ({
                 <div
                   onClick={() => navPage(title.path)}
                   key={title.id}
-                  className="text-gray-400 hover:text-white transition-all cursor-pointer text-sm"
+                  className="text-zinc-400 hover:text-white transition-all cursor-pointer text-sm"
                 >
                   <span>{title.name}</span>
                 </div>
@@ -201,10 +205,9 @@ const Layout: React.FC<LayoutProps> = ({
         ) : null}
       </AnimatePresence>
 
-      {/* main */}
       <main onClick={() => setShowingNav(false)}>
         {back ? (
-          <div className="max-w-3xl mt-10 mb-20 ml-5 px-2 w-10 h-6 border-2 rounded-lg flex justify-center items-center border-slate-300 hover:bg-gray-200 transition-all hover:text-gray-800 text-gray-400 cursor-pointer">
+          <div className="max-w-3xl mt-10 mb-20 ml-5 px-2 w-10 h-6 border-2 rounded-lg flex justify-center items-center border-slate-300 hover:bg-zinc-200 transition-all hover:text-zinc-800 text-zinc-400 cursor-pointer">
             <svg
               onClick={() => goBack()}
               className="h-6 w-6"
@@ -228,10 +231,10 @@ const Layout: React.FC<LayoutProps> = ({
             variants={scrollVariant}
             initial="top"
             animate={scrollAnimation}
-            className="fixed w-6 h-6 bg-red-500 opacity-60 hover:opacity-100 transition-all bottom-2 right-4 rounded-full cursor-pointer flex justify-center items-center"
+            className="fixed w-6 h-6 sm:w-8 sm:h-8 bg-teal-400 transition-all bottom-2 right-4 rounded-full cursor-pointer flex justify-center items-center hover:bg-teal-600"
           >
             <svg
-              className="h-5 w-5 text-white"
+              className="w-4 h-4 sm:h-6 sm:w-6 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

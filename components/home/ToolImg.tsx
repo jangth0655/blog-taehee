@@ -29,9 +29,9 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
   return (
     <>
       {tool === "html" && (
-        <div className="w-16 h-16 relative rounded-md">
+        <div className="w-16 h-16 relative rounded-md shadow-black shadow-md">
           <Image
-            className="rounded-md bg-slate-700"
+            className="rounded-md bg-zinc-700"
             src={html}
             layout="fill"
             objectFit="cover"
@@ -41,9 +41,9 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "css" && (
-        <div className="w-16 h-16 relative rounded-md">
+        <div className="w-16 h-16 relative rounded-md shadow-black shadow-sm">
           <Image
-            className="rounded-md bg-slate-700"
+            className="rounded-md bg-zinc-700"
             src={css}
             layout="fill"
             objectFit="cover"
@@ -53,9 +53,9 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "javascript" && (
-        <div className="w-16 h-16 relative rounded-md">
+        <div className="w-16 h-16 relative rounded-md shadow-black shadow-sm">
           <Image
-            className="rounded-md bg-slate-700"
+            className="rounded-md bg-zinc-700"
             src={javascript}
             layout="fill"
             objectFit="cover"
@@ -65,9 +65,9 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "typescript" && (
-        <div className="w-16 h-16 relative rounded-md">
+        <div className="w-16 h-16 relative rounded-md shadow-black shadow-sm">
           <Image
-            className="rounded-md bg-slate-700"
+            className="rounded-md bg-zinc-700"
             src={typescript}
             layout="fill"
             objectFit="cover"
@@ -77,9 +77,9 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "react" && (
-        <div className="w-16 h-16 relative rounded-md">
+        <div className="w-16 h-16 relative rounded-md shadow-black shadow-sm">
           <Image
-            className="rounded-md bg-slate-700"
+            className="rounded-md bg-zinc-700"
             src={react}
             layout="fill"
             objectFit="cover"
@@ -89,9 +89,9 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "nextjs" && (
-        <div className=" w-16 h-16 relative rounded-md">
+        <div className=" w-16 h-16 relative rounded-md shadow-black shadow-sm">
           <Image
-            className="rounded-md bg-slate-500"
+            className="rounded-md bg-zinc-700"
             src={nextjs}
             layout="fill"
             objectFit="cover"
@@ -101,9 +101,9 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "graphql" && (
-        <div className=" w-16 h-16 relative rounded-md">
+        <div className=" w-16 h-16 relative rounded-md shadow-black shadow-sm">
           <Image
-            className="rounded-md bg-slate-700"
+            className="rounded-md bg-zinc-700"
             src={graphql}
             layout="fill"
             objectFit="cover"
@@ -114,9 +114,9 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
       )}
 
       {tool === "tailwind" && (
-        <div className=" w-16 h-16 relative rounded-md">
+        <div className=" w-16 h-16 relative rounded-md shadow-black shadow-sm">
           <Image
-            className="rounded-md bg-slate-700"
+            className="rounded-md bg-zinc-700"
             src={tailwind}
             layout="fill"
             objectFit="cover"
@@ -126,9 +126,9 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
         </div>
       )}
       {tool === "nodejs" && (
-        <div className=" w-16 h-16 relative rounded-md">
+        <div className=" w-16 h-16 relative rounded-md shadow-black shadow-sm">
           <Image
-            className="rounded-md bg-slate-700"
+            className="rounded-md bg-zinc-700"
             src={nodejs}
             layout="fill"
             objectFit="cover"
