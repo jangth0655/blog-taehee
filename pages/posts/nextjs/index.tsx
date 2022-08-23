@@ -4,6 +4,7 @@ import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import Layout from "../../../components/Layout";
 import PageTitle from "../../../components/PageTitle";
+import UpdatedText from "../../../components/UpdateText";
 import { Post } from "../../shared/shared";
 
 const NextJsPage: NextPage<{ allNextJsFiles: Post[] }> = ({
@@ -25,9 +26,7 @@ const NextJsPage: NextPage<{ allNextJsFiles: Post[] }> = ({
             </div>
           ))}
         </div>
-        <div className="mt-20">
-          <h1 className="text-gray-200 text-lg">업데이트 중 🔥</h1>
-        </div>
+        <UpdatedText />
       </section>
     </Layout>
   );

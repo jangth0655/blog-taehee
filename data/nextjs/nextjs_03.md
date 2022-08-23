@@ -44,6 +44,7 @@ export default Home;
 - 앱의 함수 컴포넌트내에서 router객체 내부에 접근하려면 useRouter()훅을 사용할 수 있다.
 - 훅이기때문에 클래스와 함께 사용 ❌
 - withRouter를 사용하거나 클래스를 함수 컴포넌트로 래핑할 수 있다.
+- Link가 불충분한 경우 클라이언트 사드 전환에 유용하게 사용될 수 있다.
 
 ```javascript
 const router = useRouter();
@@ -51,4 +52,14 @@ const router = useRouter();
 const handleClick = ({ id }) => {
   router.push(`/blog/${id}`);
 };
+
+const onClick = () => {
+  router.push({
+    pathname: "/post/[pid]",
+    query: { pid: post.id },
+  });
+};
+
+// ✅ replace : 'history'스택에 새로운 URL항목을 추가하는 것을 막는다.
+router.replace(url, as, option);
 ```

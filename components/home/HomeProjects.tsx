@@ -14,11 +14,16 @@ const SeeProjects: React.FC = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((index + 1) % projects.length);
-    }, 5000);
-    setTitle(projects[index].title);
-    return () => clearInterval(interval);
+    try {
+      const interval = setInterval(() => {
+        setIndex((index + 1) % projects.length);
+      }, 5000);
+      setTitle(projects[index].title);
+      return () => clearInterval(interval);
+    } catch (error: any) {
+      if (error.name === "AbortError") return;
+      console.log(error);
+    }
   }, [index]);
 
   return (
@@ -27,19 +32,23 @@ const SeeProjects: React.FC = () => {
         <h1 className="font-bold text-4xl">My Projects</h1>
         <h5 className="text-gray-300">개인 프로젝트</h5>
       </div>
-      <div className="max-w-3xl h-[38rem] m-auto">
+      <div className="max-w-xl h-[38rem] m-auto ">
         {projects.map((project) =>
           title === project.title ? (
             <div
               onClick={() => onProjectPage(project.id)}
-              className="h-[70%] rounded-md cursor-pointer px-2"
+              className="h-[70%] rounded-md cursor-pointer px-2 "
               key={project.img[0].height}
             >
-              <div className="relative w-full h-full rounded-md">
+              <div className="relative w-full h-full rounded-md ">
                 <Image
-                  className="rounded-md object-cover sm:object-contain"
+                  className="rounded-md"
                   src={project.img[0].src}
                   layout="fill"
+                  objectFit="cover"
+                  blurDataURL={project.img[0].src}
+                  placeholder="blur"
+                  priority
                   alt=""
                 />
               </div>

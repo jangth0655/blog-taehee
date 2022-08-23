@@ -4,6 +4,7 @@ import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import Layout from "../../../components/Layout";
 import PageTitle from "../../../components/PageTitle";
+import UpdatedText from "../../../components/UpdateText";
 import { Post } from "../../shared/shared";
 
 const TsPage: NextPage<{ allTypescriptFiles: Post[] }> = ({
@@ -25,6 +26,7 @@ const TsPage: NextPage<{ allTypescriptFiles: Post[] }> = ({
             </div>
           ))}
         </div>
+        <UpdatedText />
       </section>
     </Layout>
   );

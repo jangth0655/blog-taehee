@@ -122,9 +122,16 @@ const Layout: React.FC<LayoutProps> = ({
         className="flex items-center justify-between p-4 bg-gray-900 "
       >
         <div className="flex items-center space-x-4">
-          <Link href="/">
+          <Link href={`/`}>
             <a className="relative w-10 h-10">
-              <Image src={logo} layout="fill" objectFit="cover" alt="" />
+              <Image
+                src={logo}
+                layout="fill"
+                objectFit="cover"
+                placeholder="blur"
+                alt=""
+                property=""
+              />
             </a>
           </Link>
           <span>TaeHee</span>

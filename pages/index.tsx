@@ -24,7 +24,14 @@ const Home: NextPage = () => {
       <section className="min-h-screen flex flex-col justify-center">
         <header className="h-[38rem] pt-2">
           <div className="h-full relative">
-            <Image src={headerImg} layout="fill" objectFit="cover" alt="" />
+            <Image
+              src={headerImg}
+              layout="fill"
+              objectFit="cover"
+              alt=""
+              placeholder="blur"
+              priority
+            />
             <div className="bg-gray-900 opacity-80 absolute w-full h-full" />
             <div className="text-white absolute w-full h-full sm:flex p-2 pb-0 s">
               <div className="w-full md:w-[70%] p-2 text-gray-300 flex flex-col h-[100%] justify-around">
@@ -88,6 +95,8 @@ const Home: NextPage = () => {
                   layout="fill"
                   src={avatar}
                   alt=""
+                  priority
+                  placeholder="blur"
                 />
               </div>
             </div>

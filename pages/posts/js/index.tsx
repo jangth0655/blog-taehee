@@ -4,6 +4,7 @@ import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import Layout from "../../../components/Layout";
 import PageTitle from "../../../components/PageTitle";
+import UpdatedText from "../../../components/UpdateText";
 import { Post } from "../../shared/shared";
 
 const JavascriptPage: NextPage<{ allJsFiles: Post[] }> = ({ allJsFiles }) => {
@@ -23,6 +24,7 @@ const JavascriptPage: NextPage<{ allJsFiles: Post[] }> = ({ allJsFiles }) => {
             </div>
           ))}
         </div>
+        <UpdatedText />
       </section>
     </Layout>
   );

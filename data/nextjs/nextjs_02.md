@@ -34,4 +34,4 @@ export default About;
 - **Dynamic route segment** : 대괄호를 사용하여 매개변수를 통해 동적 라우트를 할 수 있다.  
   → `pages/blog/[slug].js → /blog/:slug` : (`blog/hello-world`)  
   → `pages/[username]/setting.js → /:username/settings` : (`/foo/settings`)  
-  → `pages/post/[...all].js → /blog/*` : (`blog/2020/id/title`)
+  → `pages/blog/[...all].js → /blog/*` : [여러개의 param을 확인할 수 있다.]

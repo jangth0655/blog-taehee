@@ -36,6 +36,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
             layout="fill"
             objectFit="cover"
             alt=""
+            priority
           />
         </div>
       )}
@@ -47,6 +48,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
             layout="fill"
             objectFit="cover"
             alt=""
+            priority
           />
         </div>
       )}
@@ -58,6 +60,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
             layout="fill"
             objectFit="cover"
             alt=""
+            priority
           />
         </div>
       )}
@@ -69,6 +72,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
             layout="fill"
             objectFit="cover"
             alt=""
+            priority
           />
         </div>
       )}
@@ -80,6 +84,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
             layout="fill"
             objectFit="cover"
             alt=""
+            priority
           />
         </div>
       )}
@@ -91,6 +96,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
             layout="fill"
             objectFit="cover"
             alt=""
+            priority
           />
         </div>
       )}
@@ -102,6 +108,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
             layout="fill"
             objectFit="cover"
             alt=""
+            priority
           />
         </div>
       )}
@@ -114,6 +121,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
             layout="fill"
             objectFit="cover"
             alt=""
+            priority
           />
         </div>
       )}
@@ -125,6 +133,7 @@ const ToolImg: React.FC<ToolImgProps> = ({ tool }) => {
             layout="fill"
             objectFit="cover"
             alt=""
+            priority
           />
         </div>
       )}

@@ -9,8 +9,22 @@ import projects from "../../../projectsData/data";
 const AboutProjects: NextPage = () => {
   const router = useRouter();
   const onProjectsDetail = (projectId: string) => {
-    router.push(`/posts/myProjects/${projectId}`);
+    switch (projectId) {
+      case "finder":
+        router.push("https://github.com/jangth0655/finder-client");
+        break;
+      case "grinMarket":
+        router.push("https://github.com/jangth0655/nextjs-girnmarket");
+        break;
+      case "removie":
+        router.push("https://github.com/jangth0655/ReMovie-client");
+        break;
+      case "starFlix":
+        router.push("https://github.com/jangth0655/react-starflix-app");
+        break;
+    }
   };
+
   return (
     <Layout head="Projects" category="projects">
       <div className="flex flex-col justify-center items-center mb-14 space-y-3">
@@ -32,6 +46,9 @@ const AboutProjects: NextPage = () => {
                   layout="fill"
                   objectFit="cover"
                   alt=""
+                  blurDataURL={project.img[0].src}
+                  placeholder="blur"
+                  priority
                 />
               </div>
               <Link href={`/posts/myProjects/${project.id}`}>
