@@ -41,11 +41,11 @@ const SeeProjects: React.FC = () => {
 
   return (
     <div className="min-h-screen relative px-2 pb-5">
-      <div className="mt-20 mb-14 text-center space-y-2">
+      <div className="mt-24 mb-14 text-center space-y-2">
         <h1 className="font-bold text-4xl">My Projects</h1>
         <h5 className="text-zinc-300">개인 프로젝트</h5>
       </div>
-      <div className="max-w-xl h-[38rem] m-auto ">
+      <div className="max-w-2xl h-[38rem] m-auto ">
         {projects.map((project) =>
           title === project.title ? (
             <div
