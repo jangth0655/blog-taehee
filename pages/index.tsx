@@ -8,6 +8,7 @@ import avatar from "../public/assets/avatar/profile.png";
 import Link from "next/link";
 import SeeProjects from "../components/home/HomeProjects";
 import { useRef } from "react";
+import Button from "../components/Button";
 
 const myToolName = [
   "javascript",
@@ -40,7 +41,7 @@ const Home: NextPage = () => {
     <Layout head="Taehee" back={false} isHome={true}>
       <section className="min-h-screen">
         <header className="sm:h-[44rem] h-screen m-auto text-zinc-200">
-          <div className="w-full max-w-2xl m-auto h-full pt-6 pb-2 px-2 sm:px-0">
+          <div className="w-full max-w-2xl m-auto h-full pt-10 pb-2 px-2 sm:px-0">
             <div className="flex flex-col sm:flex-row sm:items-center justify-around mb-6">
               <div className="space-y-2 flex items-center">
                 <div className="w-2 h-14 bg-zinc-600 mr-4" />
@@ -69,7 +70,7 @@ const Home: NextPage = () => {
                 ab? Necessitatibus?
               </div>
 
-              <div className="flex justify-around items-center">
+              <div className="flex justify-between items-center">
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
                     <div className="relative w-6 h-6">
@@ -116,25 +117,9 @@ const Home: NextPage = () => {
                     </span>
                   </div>
                 </div>
-                <button
-                  onClick={showPreviewProjects}
-                  className="mt-0 sm:mt-4 flex items-center space-x-2 px-2 rounded-lg bg-teal-300 hover:bg-teal-500 transition-all text-zinc-800"
-                >
-                  <span className="">Projects</span>
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="w-4 h-4"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                    />
-                  </svg>
-                </button>
+                <div onClick={showPreviewProjects}>
+                  <Button direction="bottom" text="Projects" />
+                </div>
               </div>
             </div>
           </div>

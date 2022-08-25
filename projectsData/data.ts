@@ -9,7 +9,7 @@ import starFlix from "../public/assets/projectImgs/starFlix/starflix.png";
 const projects = [
   {
     title: "Finder",
-    description: "미용실 일자리 찾기",
+    description: "About Beauty shops",
     skills: [
       "Typescript",
       "React",

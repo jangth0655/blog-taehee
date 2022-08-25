@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import projects from "../../projectsData/data";
 import { motion } from "framer-motion";
+import Button from "../Button";
 
 const SeeProjects: React.FC = () => {
   const router = useRouter();
@@ -26,11 +27,15 @@ const SeeProjects: React.FC = () => {
     }
   };
 
+  const onProjectsPage = () => {
+    router.push("/posts/myProjects");
+  };
+
   useEffect(() => {
     try {
       const interval = setInterval(() => {
         setIndex((index + 1) % projects.length);
-      }, 5000);
+      }, 3000);
       setTitle(projects[index].title);
       return () => clearInterval(interval);
     } catch (error: any) {
@@ -45,7 +50,7 @@ const SeeProjects: React.FC = () => {
         <h1 className="font-bold text-4xl">My Projects</h1>
         <h5 className="text-zinc-300">개인 프로젝트</h5>
       </div>
-      <div className="max-w-2xl h-[38rem] m-auto ">
+      <div className="max-w-2xl h-[38rem] m-auto relative">
         {projects.map((project) =>
           title === project.title ? (
             <div
@@ -85,15 +90,22 @@ const SeeProjects: React.FC = () => {
             </div>
           ) : null
         )}
+        <div
+          onClick={onProjectsPage}
+          className="absolute -bottom-10 mt-6 max-w-2xl px-2"
+        >
+          <Button direction="right" text="Projects" />
+        </div>
       </div>
       {
-        <div className="mt-16 w-full max-w-3xl h-4 flex justify-around m-auto">
+        <div className="mt-20 w-full max-w-3xl h-4 flex justify-around m-auto">
           {projects.map((item, i) => (
             <div key={item.title} className="relative">
               <div
                 onClick={() => setTitle(item.title)}
                 className="inline-block bg-zinc-700 h-full w-10 rounded-full hover:bg-zinc-100 transition-all cursor-pointer"
               ></div>
+
               {title === item.title && (
                 <motion.div
                   layoutId="titleCircle"
