@@ -45,5 +45,5 @@ strong {
 }
 
 .post pre {
-  @apply px-2 rounded-lg border-gray-700 my-4 shadow-black shadow-md bg-gray-800;
+  @apply px-2 rounded-lg my-4 shadow-black shadow-md bg-zinc-800;
 }
