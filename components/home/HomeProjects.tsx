@@ -94,7 +94,7 @@ const SeeProjects: React.FC = () => {
           onClick={onProjectsPage}
           className="absolute -bottom-10 mt-6 max-w-2xl px-2"
         >
-          <Button direction="right" text="Projects" />
+          <Button direction="right" text="About" />
         </div>
       </div>
       {
