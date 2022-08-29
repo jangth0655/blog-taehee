@@ -50,9 +50,12 @@ const AboutProjects: NextPage = () => {
                 />
               </div>
 
-              <div className="relative -top-10 max-h-[80px] rounded-md h-full right-0 left-0 m-auto w-[80%]">
-                <div className="w-full h-full absolute bg-zinc-900 p-4 rounded-md shadow-black shadow-lg">
-                  <h1 className="flex justify-center h-full items-center font-bold text-xl">{`${project.title}`}</h1>
+              <div className="relative -top-10 max-h-[90px] rounded-md h-full right-0 left-0 m-auto w-[80%]">
+                <div className="w-full h-full absolute bg-zinc-900 p-5 rounded-md shadow-black shadow-lg space-y-2">
+                  <span className="block text-center font-bold text-xl">{`${project.title}`}</span>
+                  <span className="block text-center text-sm text-zinc-400">
+                    {project.main}
+                  </span>
                 </div>
               </div>
             </div>

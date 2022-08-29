@@ -23,6 +23,7 @@ const projects = [
     ],
     img: [finder],
     id: "finder",
+    main: "Apollo-Graphql-React",
   },
   {
     title: "Grin Market",
@@ -38,6 +39,7 @@ const projects = [
     ],
     img: [grinMarket],
     id: "grinMarket",
+    main: "Next JS",
   },
   {
     title: "ReMovie",
@@ -45,6 +47,7 @@ const projects = [
     skills: ["React", "styled-components", "Framer-motion, Graphql"],
     img: [removie],
     id: "removie",
+    main: "Graphql-React",
   },
   {
     title: "StarFlix",
@@ -52,6 +55,7 @@ const projects = [
     skills: ["React", "styled-components", "Framer-motion"],
     img: [starFlix],
     id: "starFlix",
+    main: "React",
   },
 ];
 
