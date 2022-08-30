@@ -1,11 +1,10 @@
-import { readdirSync } from "fs";
 import matter from "gray-matter";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import remarkHtml from "remark-html";
 import remarkParse from "remark-parse/lib";
 import { unified } from "unified";
 import Layout from "../../../components/Layout";
-import { Data } from "../../shared/shared";
+import { Data } from "../../../libs/shared/shared";
 
 const NextJSFileDetail: NextPage<{ post: string; data: Data }> = ({
   post,
@@ -21,13 +20,9 @@ const NextJSFileDetail: NextPage<{ post: string; data: Data }> = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = readdirSync("./data/nextjs").map((file) => {
-    const [name, extension] = file.split(".");
-    return { params: { slug: name } };
-  });
   return {
-    paths: files,
-    fallback: false,
+    paths: [],
+    fallback: "blocking",
   };
 };
 

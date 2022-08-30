@@ -5,7 +5,7 @@ import remarkHtml from "remark-html";
 import remarkParse from "remark-parse/lib";
 import { unified } from "unified";
 import Layout from "../../../components/Layout";
-import { Data } from "../../shared/shared";
+import { Data } from "../../../libs/shared/shared";
 
 const TypescriptDetail: NextPage<{ post: string; data: Data }> = ({
   post,

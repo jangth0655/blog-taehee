@@ -4,7 +4,7 @@ import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import Layout from "../../../components/Layout";
 import PageTitle from "../../../components/PageTitle";
-import { Post } from "../../shared/shared";
+import { Post } from "../../../libs/shared/shared";
 
 const BooksPage: NextPage<{ allBooks: Post[] }> = ({ allBooks }) => {
   return (

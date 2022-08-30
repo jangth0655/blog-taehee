@@ -11,5 +11,3 @@ export interface Data {
   img: string;
   description?: string;
 }
-
-export interface ProjectData {}

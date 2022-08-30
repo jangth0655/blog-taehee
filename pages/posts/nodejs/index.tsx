@@ -5,7 +5,7 @@ import Link from "next/link";
 import Layout from "../../../components/Layout";
 import PageTitle from "../../../components/PageTitle";
 import UpdatedText from "../../../components/UpdateText";
-import { Post } from "../../shared/shared";
+import { Post } from "../../../libs/shared/shared";
 
 const NodeJsPage: NextPage<{ allNodeJsFiles: Post[] }> = ({
   allNodeJsFiles,
