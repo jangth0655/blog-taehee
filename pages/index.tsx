@@ -7,8 +7,9 @@ import github from "../public/assets/headerImage/github.png";
 import avatar from "../public/assets/avatar/profile.png";
 import Link from "next/link";
 import SeeProjects from "../components/home/HomeProjects";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Button from "../components/Button";
+import cls from "../libs/cls";
 
 const myToolName = [
   "javascript",
@@ -21,6 +22,7 @@ const myToolName = [
 ];
 
 const Home: NextPage = () => {
+  const [copied, setCopied] = useState(false);
   const projectsSectionRef = useRef<HTMLDivElement>(null);
   const showPreviewProjects = () => {
     projectsSectionRef.current?.scrollIntoView({
@@ -31,9 +33,12 @@ const Home: NextPage = () => {
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      alert("Copied to clipboard");
+      setCopied(true);
+      setTimeout(() => {
+        setCopied(false);
+      }, 3000);
     } catch (error) {
-      alert(`error : ${error}`);
+      console.log(`error : ${error}`);
     }
   };
 
@@ -96,12 +101,17 @@ const Home: NextPage = () => {
                     >
                       <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                     </svg>
-                    <span
+                    <div
                       onClick={() => copyToClipboard("jangth0655@gmail.com")}
-                      className="cursor-pointer hover:text-teal-400 transition-all"
+                      className={cls(
+                        "cursor-pointer hover:text-teal-400 transition-all",
+                        copied
+                          ? "text-rose-500 hover:text-rose-500 font-bold"
+                          : ""
+                      )}
                     >
-                      jangth0655@gmail.com
-                    </span>
+                      {copied ? "Copied to clipboard" : "jangth0655@gmail.com"}
+                    </div>
                   </div>
                   <div className="flex items-center space-x-4">
                     <svg
