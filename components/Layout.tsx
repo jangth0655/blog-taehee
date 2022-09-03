@@ -35,7 +35,7 @@ const navTitle: NavTitle[] = [
   { name: "NodeJs", id: "nodejs", path: "/posts/nodejs" },
   { name: "React", id: "react", path: "/posts/react" },
   { name: "NextJs", id: "nextjs", path: "/posts/nextjs" },
-  { name: "Books", id: "books", path: "/posts/books" },
+  { name: "React-Native", id: "react-native", path: "/posts/react-native" },
   { name: "Projects", id: "projects", path: "/posts/myProjects" },
 ];
 

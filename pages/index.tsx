@@ -2,9 +2,8 @@ import type { NextPage } from "next";
 import Layout from "../components/Layout";
 import ToolImg from "../components/home/ToolImg";
 import Image from "next/image";
-import headerImg from "../public/assets/headerImage/coding.jpg";
 import github from "../public/assets/headerImage/github.png";
-import avatar from "../public/assets/avatar/profile.png";
+import avatar from "../public/assets/avatar/avatar.jpeg";
 import Link from "next/link";
 import SeeProjects from "../components/home/HomeProjects";
 import { useRef, useState } from "react";
@@ -19,6 +18,7 @@ const myToolName = [
   "react",
   "nodejs",
   "tailwind",
+  "graphql",
 ];
 
 const Home: NextPage = () => {
@@ -46,33 +46,30 @@ const Home: NextPage = () => {
     <Layout head="Taehee" back={false} isHome={true}>
       <section className="min-h-screen">
         <header className="sm:h-[44rem] h-screen m-auto text-zinc-200">
-          <div className="w-full max-w-2xl m-auto h-full pt-10 pb-2 px-2 sm:px-0">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-around mb-6">
-              <div className="space-y-2 flex items-center">
+          <div className="w-full max-w-2xl m-auto h-full pt-10 pb-2 px-3 sm:px-0">
+            <div className="flex flex-col w-full items-center justify-center sm:justify-around sm:flex-row sm:items-center mb-6">
+              <div className="space-y-3 flex items-center">
                 <div className="w-2 h-14 bg-zinc-600 mr-4" />
                 <div>
                   <h1 className="text-2xl font-bold"> Jang Tae Hee</h1>
                   <h5 className="text-lg">✨ Junior FrontEnd Developer</h5>
                 </div>
               </div>
-              <div className="mt-4 sm:mt-0 relative w-full sm:w-48 h-48  rounded-2xl border-2 border-zinc-700">
-                <Image src={avatar} layout="fill" objectFit="contain" alt="" />
+              <div className="mt-6 sm:mt-0 relative w-32 h-32 sm:w-44 sm:h-44  rounded-full border-2 border-zinc-700">
+                <Image
+                  className="rounded-full"
+                  src={avatar}
+                  layout="fill"
+                  objectFit="cover"
+                  alt=""
+                />
               </div>
             </div>
-            <div className="space-y-8">
+            <div className="space-y-10">
               <div className="">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum
-                harum dolor inventore ut sint, natus itaque sequi minima
-                necessitatibus consequatur doloribus maiores doloremque dicta
-                explicabo incidunt, quaerat sed animi nemo. Lorem ipsum dolor
-                sit amet, consectetur adipisicing elit. Ipsum harum dolor
-                inventore ut sint, natus itaque sequi minima necessitatibus
-                consequatur doloribus maiores doloremque dicta explicabo
-                incidunt, quaerat sed animi nemo. Lorem ipsum dolor, sit amet
-                consectetur adipisicing elit. Atque veniam aperiam illo modi
-                porro perspiciatis suscipit aliquid dicta ipsum eius? Temporibus
-                voluptatem inventore reprehenderit minima tempora nesciunt dolor
-                ab? Necessitatibus?
+                성장하는 주니어 프론트엔드 엔지니어 장태희입니다. 한가지 분야에
+                전문성을 쌓고자 꾸준히 노력하는 중이며 이를 위해 리액트를
+                기반으로 개인프로젝트 개발 경험을 즐기고 있습니다.
               </div>
 
               <div className="flex justify-between items-center">
@@ -136,7 +133,7 @@ const Home: NextPage = () => {
         </header>
 
         <main>
-          <div className="w-full mt-10 sm:mt-0 py-4 shadow-black shadow-lg grid grid-cols-4 gap-4 sm:grid-cols-7 bg-zinc-900">
+          <div className="w-full mt-10 sm:mt-0 py-4 shadow-black shadow-lg grid grid-cols-4 gap-4 sm:grid-cols-8 bg-zinc-900">
             {myToolName.map((name) => (
               <div key={name} className="m-auto">
                 <ToolImg tool={name} />
