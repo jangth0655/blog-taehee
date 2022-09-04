@@ -116,7 +116,7 @@ const Layout: React.FC<LayoutProps> = ({
     <>
       <section className="bg-zinc-900 text-white">
         <Head>
-          <title>{`${head}`}</title>
+          <title>{`${head}. homepage`}</title>
         </Head>
         <nav
           ref={navRef}

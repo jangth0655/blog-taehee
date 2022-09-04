@@ -52,7 +52,9 @@ const Home: NextPage = () => {
                 <div className="w-2 h-14 bg-zinc-600 mr-4" />
                 <div>
                   <h1 className="text-2xl font-bold"> Jang Tae Hee</h1>
-                  <h5 className="text-lg">✨ Junior FrontEnd Developer</h5>
+                  <h5 className="text-lg">
+                    ✨ Future Junior FrontEnd Developer
+                  </h5>
                 </div>
               </div>
               <div className="mt-6 sm:mt-0 relative w-32 h-32 sm:w-44 sm:h-44  rounded-full border-2 border-zinc-700">
@@ -67,13 +69,28 @@ const Home: NextPage = () => {
             </div>
             <div className="space-y-10">
               <div className="">
-                성장하는 주니어 프론트엔드 엔지니어 장태희입니다. 한가지 분야에
-                전문성을 쌓고자 꾸준히 노력하는 중이며 이를 위해 리액트를
-                기반으로 개인프로젝트 개발 경험을 즐기고 있습니다.
+                안녕하십니까. 성장하고 도전하는 것에 두려움이 없는 신입 주니어
+                프론트엔드 엔지니어 장태희입니다.<br></br>한가지 분야에 전문성을
+                쌓고자 꾸준히 노력하는 중이며 이를 위해 javascript와 React를
+                기반으로 개인프로젝트 UI개발 경험을 즐기고 있습니다. 뿐만 아니라
+                NexJs와 NodeJs를 접하고 공부하여 서버 구현과 데이터베이스,
+                배포까지 경험 하고 Graphql에 대해 궁금하여 Graphql을 통한 웹
+                개발도 하면서 점점 더 웹개발에 매력에 빠져가고있습니다. 또한
+                Socket과 React-Native도 관심이 생겨 개발 공부를 진행중입니다.
+                <br></br>
+                <br></br>
+                누군가가 내가 만든 웹 서비스를 이용하고 호평 혹은 칭찬을 하거나
+                피드백을 받고 좀 더 개선된 웹서비스를 개발하여 스스로 발전하는
+                모습을 볼 때면 뿌듯하고 점점 더 발전하고자 노력하려고 합니다.
+                이렇게 저는 개발하는 것이 즐겁고 끊임없이 성장하고 도전하고자
+                합니다.
+                <br></br>
+                따라서 저를 선택해주시는 여러분들과 함께 성장하고 발전해 나가고
+                싶습니다.&ensp;감사합니다.
               </div>
 
               <div className="flex justify-between items-center">
-                <div className="space-y-4">
+                <div className="space-y-2">
                   <div className="flex items-center space-x-4">
                     <div className="relative w-6 h-6">
                       <Image
@@ -133,7 +150,7 @@ const Home: NextPage = () => {
         </header>
 
         <main>
-          <div className="w-full mt-10 sm:mt-0 py-4 shadow-black shadow-lg grid grid-cols-4 gap-4 sm:grid-cols-8 bg-zinc-900">
+          <div className="w-full mt-24 sm:mt-0 sm:py-10 pb-2 shadow-black shadow-lg grid grid-cols-4 gap-4 sm:grid-cols-8 bg-zinc-900">
             {myToolName.map((name) => (
               <div key={name} className="m-auto">
                 <ToolImg tool={name} />
