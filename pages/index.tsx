@@ -44,8 +44,8 @@ const Home: NextPage = () => {
 
   return (
     <Layout head="Taehee" back={false} isHome={true}>
-      <section className="min-h-screen">
-        <header className="sm:h-[44rem] h-screen m-auto text-zinc-200">
+      <section className="">
+        <header className="sm:h-[44rem] m-auto text-zinc-200">
           <div className="w-full max-w-2xl m-auto h-full pt-10 pb-2 px-3 sm:px-0">
             <div className="flex flex-col w-full items-center justify-center sm:justify-around sm:flex-row sm:items-center mb-6">
               <div className="space-y-3 flex items-center">
@@ -57,7 +57,7 @@ const Home: NextPage = () => {
                   </h5>
                 </div>
               </div>
-              <div className="mt-6 sm:mt-0 relative w-32 h-32 sm:w-44 sm:h-44  rounded-full border-2 border-zinc-700">
+              <div className="mt-6 sm:mt-0 relative w-32 h-32 sm:w-44 sm:h-44  rounded-full border-zinc-700">
                 <Image
                   className="rounded-full"
                   src={avatar}
@@ -149,8 +149,8 @@ const Home: NextPage = () => {
           </div>
         </header>
 
-        <main>
-          <div className="w-full mt-24 sm:mt-0 sm:py-10 pb-2 shadow-black shadow-lg grid grid-cols-4 gap-4 sm:grid-cols-8 bg-zinc-900">
+        <main className="mt-20 min-h-screen space-y-20">
+          <div className="w-full sm:mt-0 pb-2 shadow-black shadow-lg grid grid-cols-4 gap-4 sm:grid-cols-8 bg-zinc-900">
             {myToolName.map((name) => (
               <div key={name} className="m-auto">
                 <ToolImg tool={name} />
