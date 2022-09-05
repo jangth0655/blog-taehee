@@ -30,7 +30,7 @@ const AboutProjects: NextPage = () => {
         <h2 className="text-zinc-300 text-sm">현재 진행중 🔥</h2>
       </div>
       <main className="pb-2">
-        <div className="grid grid-cols-2 gap-20 min-h-screen">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-20 min-h-screen">
           {projects.map((project) => (
             <div
               onClick={() => onProjectsDetail(project.id)}
@@ -52,8 +52,8 @@ const AboutProjects: NextPage = () => {
 
               <div className="relative -top-10 max-h-[90px] rounded-md h-full right-0 left-0 m-auto w-[80%]">
                 <div className="w-full h-full absolute bg-zinc-900 p-5 rounded-md shadow-black shadow-lg space-y-2">
-                  <span className="block text-center font-bold text-xl">{`${project.title}`}</span>
-                  <span className="block text-center text-sm text-zinc-400">
+                  <span className="block text-center font-bold sm:text-xl text-lg">{`${project.title}`}</span>
+                  <span className="block text-center sm:text-sm text-xs text-zinc-400">
                     {project.main}
                   </span>
                 </div>

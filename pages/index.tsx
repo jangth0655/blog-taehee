@@ -63,6 +63,7 @@ const Home: NextPage = () => {
                   src={avatar}
                   layout="fill"
                   objectFit="cover"
+                  placeholder="blur"
                   alt=""
                 />
               </div>
@@ -97,6 +98,7 @@ const Home: NextPage = () => {
                         src={github}
                         layout="fill"
                         objectFit="cover"
+                        placeholder="blur"
                         alt=""
                       />
                     </div>

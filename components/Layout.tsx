@@ -208,10 +208,10 @@ const Layout: React.FC<LayoutProps> = ({
 
         <main onClick={() => setShowingNav(false)}>
           {back ? (
-            <div className="max-w-3xl mt-10 mb-20 ml-5 px-2 w-10 h-6 border-2 rounded-lg flex justify-center items-center border-slate-300 hover:bg-zinc-200 transition-all hover:text-zinc-800 text-zinc-400 cursor-pointer">
+            <div className="max-w-3xl m-auto mt-10 mb-20 ml-5 w-8 h-8 rounded-lg flex justify-center items-center transition-all  text-zinc-100 cursor-pointer bg-teal-800 hover:bg-teal-600">
               <svg
                 onClick={() => goBack()}
-                className="h-6 w-6"
+                className="h-5 w-5"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -246,9 +246,12 @@ const Layout: React.FC<LayoutProps> = ({
             </motion.div>
           </div>
         </main>
-        <footer className="py-6 mt-4 flex justify-center items-center w-full">
+        <footer className="py-6 mt-4 flex justify-center items-center w-full space-x-2">
+          <div className="relative w-4 h-4">
+            <Image src={logo} layout="fill" objectFit="cover" alt="" />
+          </div>
           <span className="text-xs text-zinc-500">
-            @ 2022 JangTaeHee. All Rights Reserved.
+            Ⓒ2022 JangTaeHee. All Rights Reserved.
           </span>
         </footer>
       </section>
