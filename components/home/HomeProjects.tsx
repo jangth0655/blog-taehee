@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import projects from "../../projectsData/data";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Button from "../Button";
 
 const SeeProjects: React.FC = () => {
@@ -31,11 +31,23 @@ const SeeProjects: React.FC = () => {
     router.push("/posts/myProjects");
   };
 
+  const projectVar: Variants = {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+    },
+    exit: {
+      opacity: 1,
+    },
+  };
+
   useEffect(() => {
     try {
       const interval = setInterval(() => {
         setIndex((index + 1) % projects.length);
-      }, 3000);
+      }, 4000);
       setTitle(projects[index].title);
       return () => clearInterval(interval);
     } catch (error: any) {
@@ -51,45 +63,57 @@ const SeeProjects: React.FC = () => {
         <h5 className="text-zinc-300">개인 프로젝트</h5>
       </div>
       <div className="max-w-2xl h-[38rem] m-auto relative">
-        {projects.map((project) =>
-          title === project.title ? (
-            <div
-              onClick={() => onProjectsDetail(project.id)}
-              className="h-[70%] rounded-md cursor-pointer px-2 "
-              key={project.img[0].height}
-            >
-              <div className="relative w-full h-full rounded-md ">
-                <Image
-                  className="rounded-md"
-                  src={project.img[0].src}
-                  layout="fill"
-                  objectFit="cover"
-                  blurDataURL={project.img[0].src}
-                  placeholder="blur"
-                  priority
-                  alt=""
-                />
-              </div>
+        {projects.map((project) => (
+          <>
+            <AnimatePresence>
+              {title === project.title ? (
+                <div
+                  onClick={() => onProjectsDetail(project.id)}
+                  className="h-[70%] rounded-md cursor-pointer px-2 "
+                  key={project.img[0].height}
+                >
+                  <motion.div
+                    variants={projectVar}
+                    initial="initial"
+                    animate="animate"
+                    exit="exitz"
+                    className="relative w-full h-full rounded-md "
+                  >
+                    <Image
+                      className="rounded-md"
+                      src={project.img[0].src}
+                      layout="fill"
+                      objectFit="cover"
+                      blurDataURL={project.img[0].src}
+                      placeholder="blur"
+                      priority
+                      alt=""
+                    />
+                  </motion.div>
 
-              <div className="px-4 mt-12 flex flex-col text-zinc-200 space-y-2">
-                <div>
-                  <span className="mr-2">✅</span>
-                  <span className="text-2xl font-bold">{project.title}</span>
+                  <div className="px-4 mt-12 flex flex-col text-zinc-200 space-y-2">
+                    <div>
+                      <span className="mr-2">✅</span>
+                      <span className="text-2xl font-bold">
+                        {project.title}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="mr-2">✅</span>
+                      <span>{project.description}</span>
+                    </div>
+                    <div className="space-x-2 flex">
+                      <span>✅</span>
+                      <span className="text-zinc-400 text-sm flex items-center w-full">
+                        {project.skills.join(", ")}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <span className="mr-2">✅</span>
-                  <span>{project.description}</span>
-                </div>
-                <div className="space-x-2 flex">
-                  <span>✅</span>
-                  <span className="text-zinc-400 text-sm flex items-center w-full">
-                    {project.skills.join(", ")}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ) : null
-        )}
+              ) : null}
+            </AnimatePresence>
+          </>
+        ))}
         <div
           onClick={onProjectsPage}
           className="absolute -bottom-10 mt-6 max-w-2xl px-2"
