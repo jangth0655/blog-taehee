@@ -7,7 +7,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ text, direction }) => {
   return (
-    <button className="mt-0 sm:mt-4 flex items-center space-x-2 px-2 rounded-lg bg-teal-300 hover:bg-teal-500 transition-all text-zinc-800 focus:ring-2 focus:ring-teal-100  font-semibold">
+    <button className="mt-0 sm:mt-4 flex items-center space-x-2 px-2 rounded-lg bg-teal-300 hover:bg-teal-500 transition-all text-zinc-800 focus:ring-2 focus:ring-teal-100  font-semibold shadow-black shadow-lg">
       <span className="">{text}</span>
       {direction === "bottom" ? (
         <svg
