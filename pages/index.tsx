@@ -79,7 +79,7 @@ const Home: NextPage = () => {
                 <br></br>
                 저는 이러한 매력적인 자바스크립트를 꾸준히 공부하고 React위주의
                 개발 경험을 즐기고 있습니다. <br></br> 뿐만 아니라 NodeJs,
-                NextJs, Graphql, Typescript 등을 계속해서 연습하고 배우고,
+                NextJs, Graphql, Typescript 등을 계속해서 연습하며 배우고,
                 React-Native도 알아가고 공부하면서 전문적인 프론엔드 엔지니어가
                 되기 위해 끊임없이 노력하고 도전하고 있습니다.
               </div>
