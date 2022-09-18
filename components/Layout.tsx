@@ -206,7 +206,7 @@ const Layout: React.FC<LayoutProps> = ({
           ) : null}
         </AnimatePresence>
 
-        <main className="pt-8" onClick={() => setShowingNav(false)}>
+        <main className="pt-4" onClick={() => setShowingNav(false)}>
           {back ? (
             <div className="max-w-3xl m-auto mt-10 mb-20 ml-5 w-8 h-8 rounded-lg flex justify-center items-center transition-all  text-zinc-100 cursor-pointer bg-teal-700 hover:bg-teal-500 shadow-black shadow-lg">
               <svg

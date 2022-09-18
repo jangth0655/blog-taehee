@@ -39,7 +39,7 @@ const SeeProjects: React.FC = () => {
       opacity: 1,
     },
     exit: {
-      opacity: 1,
+      opacity: 0,
     },
   };
 
