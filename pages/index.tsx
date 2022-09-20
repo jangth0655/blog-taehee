@@ -71,17 +71,7 @@ const Home: NextPage = () => {
             <div className="space-y-20">
               <div>
                 안녕하십니까. 도전하는 것이 즐거운 주니어 프론트엔드 엔지니어
-                장태희입니다. <br></br> 전 세계 대부분 사람들이 웹을 이용하고
-                있고 그래서 점점 더 웹의 발전과 시장은 더욱 무궁무진하다고
-                생각합니다. 그리고 웹 뿐만 아니라 앱, 서버에서도 사용되는
-                자바스크립트 언어는 상당히 매력적이라고 생각됩니다.
-                <br></br>
-                <br></br>
-                저는 이러한 매력적인 자바스크립트를 꾸준히 공부하고 React위주의
-                개발 경험을 즐기고 있습니다. <br></br> 뿐만 아니라 NodeJs,
-                NextJs, Graphql, Typescript 등을 계속해서 연습하며 배우고,
-                React-Native도 알아가고 공부하면서 전문적인 프론엔드 엔지니어가
-                되기 위해 끊임없이 노력하고 도전하고 있습니다.
+                장태희입니다.
               </div>
 
               <div className="flex justify-between items-center">
