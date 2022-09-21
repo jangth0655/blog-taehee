@@ -45,7 +45,7 @@ const Home: NextPage = () => {
   return (
     <Layout head="Taehee" back={false} isHome={true}>
       <section className="">
-        <header className="sm:h-[44rem] m-auto text-zinc-200">
+        <header className="h-screen m-auto text-zinc-200">
           <div className="w-full max-w-3xl m-auto pt-10 pb-2 px-2 space-y-20 ">
             <div className="flex flex-col w-full items-center justify-center sm:justify-around sm:flex-row sm:items-center">
               <div className="flex items-center">
@@ -135,7 +135,7 @@ const Home: NextPage = () => {
           </div>
         </header>
 
-        <main className="mt-20 min-h-screen space-y-20">
+        <main className="min-h-screen space-y-20">
           <div className="w-full sm:mt-0 pb-2 shadow-black shadow-lg grid grid-cols-4 gap-4 sm:grid-cols-8 bg-zinc-900">
             {myToolName.map((name) => (
               <div key={name} className="m-auto">
