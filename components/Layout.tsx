@@ -28,7 +28,7 @@ type NavTitle = {
   path: string;
 };
 
-const navTitle: NavTitle[] = [
+export const navTitle: NavTitle[] = [
   { name: "Home", id: "home", path: "/" },
   { name: "Javascript", id: "js", path: "/posts/js" },
   { name: "Typescript", id: "typescript", path: "/posts/typescript" },
@@ -146,8 +146,8 @@ const Layout: React.FC<LayoutProps> = ({
             <div className="space-x-2 flex items-center">
               {navTitle.map((title) => (
                 <div key={title.id} onClick={() => navPage(title.path)}>
-                  <div className="relative px-1 text-zinc-400 hover:text-white transition-all cursor-pointer lg:px-4">
-                    <span className="text-sm">{title.name}</span>
+                  <div className="relative px-1 text-zinc-300 hover:text-white transition-all cursor-pointer lg:px-4">
+                    <span className="">{title.name}</span>
                     {router.pathname === title.path && (
                       <motion.span
                         className="w-1 h-1 rounded-full bg-rose-500 absolute right-0 m-auto -bottom-1 left-0 "

@@ -47,7 +47,7 @@ const SeeProjects: React.FC = () => {
     try {
       const interval = setInterval(() => {
         setIndex((index + 1) % projects.length);
-      }, 4000);
+      }, 3000);
       setTitle(projects[index].title);
       return () => clearInterval(interval);
     } catch (error: any) {
@@ -57,12 +57,12 @@ const SeeProjects: React.FC = () => {
   }, [index]);
 
   return (
-    <div className="min-h-screen relative px-2 pb-5">
-      <div className="mb-14 text-center space-y-2">
+    <div className="min-h-screen relative">
+      <div className="mb-10 text-center space-y-2">
         <h1 className="font-bold text-4xl">My Projects</h1>
         <h5 className="text-zinc-300">개인 프로젝트</h5>
       </div>
-      <div className="max-w-3xl h-[38rem] m-auto relative">
+      <div className="h-[38rem] relative">
         {projects.map((project) => (
           <AnimatePresence key={project.img[0].height}>
             {title === project.title ? (
