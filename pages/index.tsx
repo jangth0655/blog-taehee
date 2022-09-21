@@ -162,7 +162,7 @@ const Home: NextPage = () => {
           initial="initial"
           animate="animate"
           onClick={downScrollButton}
-          className="flex justify-center items-center mt-12 cursor-pointer text-pink-300"
+          className="flex justify-center items-center mt-12 cursor-pointer text-pink-500"
         >
           <BiChevronsDown size={80} />
         </motion.div>
