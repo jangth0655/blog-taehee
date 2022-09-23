@@ -62,7 +62,7 @@ const Home: NextPage = () => {
   );
 
   const downScrollButton = () => {
-    window.scrollBy({ top: 350, left: 0, behavior: "smooth" });
+    window.scrollBy({ top: 700, left: 0, behavior: "smooth" });
   };
 
   return (

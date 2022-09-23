@@ -7,9 +7,9 @@ name: ""
 # 리액트 구조
 
 - 우리가 만든 컴포넌트들을 html로 연결해줘야하는데 **그것이 `react-dom` 이다.**
-- 즉, 사용자에게 궁극적으로 배포되는 것은 html
-- html에서 id가 root인 element를 리액트 root 컴포넌트와 연결해준다. (`react-dom`)
-- root라는 id를 가진요소에 제일 상위 컴포넌트(App)와 연결해준다.
+- ReactDOM의 render함수가 id가 root인 html의 태그와 root 컴포넌트를 연결해준다.
+- 즉, root라는 id를 가진요소에 제일 상위 컴포넌트(App)와 연결해준다.
+- 사용자엑 최종적으로 보여진느것은 html 즉 다큐먼트.
 
 ```javascript
 ReactDom.render(
@@ -26,7 +26,8 @@ ReactDom.render(
 
 - 자바스크립트코드이다. (_`https://reactjs.org/docs/introducing-jsx.html`_)  
   → 자바스크립트 문법을 확장한 것이다.
-- 다수의 태그들을 리턴할 수 없기때문에 형제 노드가 있는경우 묶어줘야한다.
+- 리액트는 상태번화 이벤트 해들링, 데이터 표현 등의 로직들이 서로 연결되어 있기 때문에 그리고  
+  → '느슨한 결합'을 위해 html파일과 logic의 파일을 분리하는 대신에, 한 컴포넌트에서 표현할 수 있도록함.
 - 자바스크립트 코드가 작성이 가능하다.
 
 ```javascript

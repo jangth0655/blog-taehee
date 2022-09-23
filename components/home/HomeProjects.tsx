@@ -24,6 +24,9 @@ const SeeProjects: React.FC = () => {
       case "starFlix":
         router.push("https://github.com/jangth0655/react-starflix-app");
         break;
+      case "wetube":
+        router.push("https://github.com/jangth0655/wetube-client");
+        break;
     }
   };
 

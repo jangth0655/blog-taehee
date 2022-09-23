@@ -6,6 +6,8 @@ import removie from "../public/assets/projectImgs/removie/removie.png";
 
 import starFlix from "../public/assets/projectImgs/starFlix/starflix.png";
 
+import wetube from "../public/assets/projectImgs/wetube/wetube-image.png";
+
 const projects = [
   {
     title: "Finder",
@@ -30,8 +32,8 @@ const projects = [
     description: "물건 팔고 구매하기",
     skills: [
       "Typescript",
-      "Next JS",
-      "Tailwind CSS",
+      "Nextjs",
+      "tailwindcss",
       "Framer-motion",
       "CloudFlare",
       "Prisma",
@@ -55,6 +57,22 @@ const projects = [
     skills: ["React", "styled-components", "Framer-motion"],
     img: [starFlix],
     id: "starFlix",
+    main: "React",
+  },
+  {
+    title: "Wetube",
+    description: "비디오 영상 나눠보기",
+    skills: [
+      "Nextjs",
+      "Framer-motion",
+      "tailwindcss",
+      "MongoDB",
+      "Mongoose",
+      "FFmpeg",
+      "aws",
+    ],
+    img: [wetube],
+    id: "wetube",
     main: "React",
   },
 ];
