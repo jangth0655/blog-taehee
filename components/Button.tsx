@@ -5,7 +5,7 @@ type Direction = "right" | "bottom";
 
 interface ButtonProps {
   text: string;
-  direction: Direction;
+  direction?: Direction;
 }
 
 const Button: React.FC<ButtonProps> = ({ text, direction }) => {

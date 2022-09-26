@@ -17,8 +17,8 @@ const AboutProjects: NextPage = () => {
       case "removie":
         router.push("https://github.com/jangth0655/ReMovie-client");
         break;
-      case "starFlix":
-        router.push("https://github.com/jangth0655/react-starflix-app");
+      case "acoin":
+        router.push("https://github.com/jangth0655/ACoin");
         break;
     }
   };

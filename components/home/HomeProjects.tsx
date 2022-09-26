@@ -60,18 +60,18 @@ const SeeProjects: React.FC = () => {
   }, [index]);
 
   return (
-    <div className="min-h-screen relative">
+    <div className="relative">
       <div className="mb-10 text-center space-y-2">
         <h1 className="font-bold text-4xl">My Projects</h1>
         <h5 className="text-zinc-300">개인 프로젝트</h5>
       </div>
-      <div className="h-[38rem] relative">
+      <div className="h-[34rem] relative">
         {projects.map((project) => (
           <AnimatePresence key={project.img[0].height}>
             {title === project.title ? (
               <div
                 onClick={() => onProjectsDetail(project.id)}
-                className="h-[70%] rounded-md cursor-pointer px-2 "
+                className="h-[70%] w-[70%] m-auto rounded-md cursor-pointer px-2 "
               >
                 <motion.div
                   variants={projectVar}
@@ -112,11 +112,8 @@ const SeeProjects: React.FC = () => {
             ) : null}
           </AnimatePresence>
         ))}
-        <div
-          onClick={onProjectsPage}
-          className="absolute -bottom-10 mt-6 max-w-2xl px-2"
-        >
-          <Button direction="right" text="About" />
+        <div onClick={onProjectsPage} className="px-2">
+          <Button text="About" />
         </div>
       </div>
       {

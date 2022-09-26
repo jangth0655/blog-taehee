@@ -171,7 +171,7 @@ const Home: NextPage = () => {
           <Observer />
         </div>
 
-        <div className="min-h-screen">
+        <div className="">
           <div ref={projectsSectionRef}>
             <SeeProjects />
           </div>
