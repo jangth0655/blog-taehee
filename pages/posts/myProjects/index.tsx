@@ -8,15 +8,6 @@ const AboutProjects: NextPage = () => {
   const router = useRouter();
   const onProjectsDetail = (projectId: string) => {
     switch (projectId) {
-      case "finder":
-        router.push("https://github.com/jangth0655/finder-client");
-        break;
-      case "grinMarket":
-        router.push("https://github.com/jangth0655/nextjs-girnmarket");
-        break;
-      case "removie":
-        router.push("https://github.com/jangth0655/ReMovie-client");
-        break;
       case "acoin":
         router.push("https://github.com/jangth0655/ACoin");
         break;

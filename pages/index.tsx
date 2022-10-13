@@ -61,15 +61,11 @@ const Home: NextPage = () => {
     (title) => title.name !== "Home" && title.name !== "Projects"
   );
 
-  const downScrollButton = () => {
-    window.scrollBy({ top: 700, left: 0, behavior: "smooth" });
-  };
-
   return (
     <Layout head="Taehee" back={false} isHome={true}>
       <section className="max-w-3xl m-auto">
-        <header className=" text-zinc-200 pt-10 pb-2 px-2 space-y-20">
-          <div className="flex flex-col w-full items-center justify-center sm:justify-around sm:flex-row sm:items-center">
+        <header className=" text-zinc-200 pt-10 pb-2 px-4 space-y-20">
+          <div className="flex flex-col w-full items-center justify-center sm:justify-evenly sm:flex-row sm:items-center">
             <div className="flex items-center">
               <div className="w-2 h-14 bg-zinc-600 mr-4" />
               <div>
@@ -77,7 +73,7 @@ const Home: NextPage = () => {
                 <h5 className="text-lg">✨ Future Junior FrontEnd Developer</h5>
               </div>
             </div>
-            <div className="mt-6 sm:mt-0 relative w-32 h-32 sm:w-44 sm:h-44  rounded-full border-zinc-700 shadow-black shadow-lg">
+            <div className="mt-10 relative w-44 h-44 rounded-full border-zinc-700 shadow-black shadow-lg">
               <Image
                 className="rounded-full"
                 src={avatar}
@@ -130,10 +126,6 @@ const Home: NextPage = () => {
                 </span>
               </div>
             </div>
-
-            <div className="" onClick={showPreviewProjects}>
-              <Button direction="bottom" text="Projects" />
-            </div>
           </div>
 
           <div>
@@ -155,27 +147,6 @@ const Home: NextPage = () => {
             </div>
           </div>
         </header>
-
-        <motion.div
-          ref={downScrollRef}
-          variants={downScrollVar}
-          initial="initial"
-          animate="animate"
-          onClick={downScrollButton}
-          className="flex justify-center items-center mt-12 cursor-pointer text-pink-500"
-        >
-          <BiChevronsDown size={80} />
-        </motion.div>
-
-        <div className="my-32 ">
-          <Observer />
-        </div>
-
-        <div className="">
-          <div ref={projectsSectionRef}>
-            <SeeProjects />
-          </div>
-        </div>
       </section>
     </Layout>
   );

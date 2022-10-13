@@ -7,18 +7,18 @@ import PageTitle from "../../../components/PageTitle";
 import UpdatedText from "../../../components/UpdateText";
 import { Post } from "../../../libs/shared/shared";
 
-const NodeJsPage: NextPage<{ allNodeJsFiles: Post[] }> = ({
-  allNodeJsFiles,
+const ErrorHandlingPage: NextPage<{ allErrorHandling: Post[] }> = ({
+  allErrorHandling,
 }) => {
   return (
-    <Layout head="Basic NodeJS" category="nodejs">
+    <Layout head="Books" category="">
       <section>
-        <PageTitle title="Node JS" />
-        <div className="w-full text-white ">
-          {allNodeJsFiles.map((file, i) => (
+        <PageTitle title="Error Handing" />
+        <div>
+          {allErrorHandling.map((file, i) => (
             <div key={i} className="mb-8">
-              <Link href={`/posts/nodejs/${file.slug}`}>
-                <a className="cursor-pointer hover:text-gray-400 transition-all">
+              <Link href={`/posts/error-handling/${file.slug}`}>
+                <a className="cursor-pointer hover:text-gray-300 transition-all">
                   <span className="mr-4">✅</span>
                   <span>{file.title}</span>
                 </a>
@@ -33,17 +33,17 @@ const NodeJsPage: NextPage<{ allNodeJsFiles: Post[] }> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allNodeJsFiles = readdirSync("./data/nodejs").map((file) => {
-    const content = readFileSync(`./data/nodejs/${file}`, "utf-8");
+  const allErrorHandling = readdirSync("./data/error-handling").map((file) => {
+    const content = readFileSync(`./data/error-handling/${file}`, "utf-8");
     const [slug, _] = file.split(".");
     return { ...matter(content).data, slug };
   });
 
   return {
     props: {
-      allNodeJsFiles,
+      allErrorHandling,
     },
   };
 };
 
-export default NodeJsPage;
+export default ErrorHandlingPage;

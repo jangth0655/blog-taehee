@@ -7,9 +7,9 @@ import { unified } from "unified";
 
 import Layout from "../../../components/Layout";
 
-const ReactDetailPage: NextPage<{ post: string }> = ({ post }) => {
+const ErrorHandlingDetail: NextPage<{ post: string }> = ({ post }) => {
   return (
-    <Layout category="react-native" head="React-Native">
+    <Layout category="error-handling" head="Error-Handling">
       <div className="">
         <div className="post" dangerouslySetInnerHTML={{ __html: post }} />
       </div>
@@ -18,7 +18,7 @@ const ReactDetailPage: NextPage<{ post: string }> = ({ post }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = readdirSync("./data/react-native").map((file) => {
+  const files = readdirSync("./data/error-handling").map((file) => {
     const [name, extension] = file.split(".");
     return { params: { slug: name } };
   });
@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx: any) => {
   const { content, data } = matter.read(
-    `./data/react-native/${ctx.params.slug}.md`
+    `./data/error-handling/${ctx.params.slug}.md`
   );
   const { value } = await unified()
     .use(remarkParse)
@@ -44,4 +44,4 @@ export const getStaticProps: GetStaticProps = async (ctx: any) => {
     },
   };
 };
-export default ReactDetailPage;
+export default ErrorHandlingDetail;

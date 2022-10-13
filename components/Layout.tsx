@@ -32,10 +32,9 @@ export const navTitle: NavTitle[] = [
   { name: "Home", id: "home", path: "/" },
   { name: "Javascript", id: "js", path: "/posts/js" },
   { name: "Typescript", id: "typescript", path: "/posts/typescript" },
-  { name: "NodeJs", id: "nodejs", path: "/posts/nodejs" },
   { name: "React", id: "react", path: "/posts/react" },
   { name: "NextJs", id: "nextjs", path: "/posts/nextjs" },
-  { name: "React-Native", id: "react-native", path: "/posts/react-native" },
+  { name: "Error handling", id: "error", path: "/posts/error-handling" },
   { name: "Projects", id: "projects", path: "/posts/myProjects" },
 ];
 
@@ -246,7 +245,7 @@ const Layout: React.FC<LayoutProps> = ({
             </motion.div>
           </div>
         </main>
-        <footer className="py-6 mt-4 flex justify-center items-center w-full space-x-2">
+        <footer className="py-6 flex justify-center items-center w-full space-x-2">
           <div className="relative w-4 h-4">
             <Image src={logo} layout="fill" objectFit="cover" alt="" />
           </div>
