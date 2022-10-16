@@ -31,7 +31,7 @@ name: ""
 - 여러 컴포넌트에서 동일한 아톰을 사용하는 경우, **해당 여러 컴포넌트는 상태를 공유**할 수 있다.
 - 디버깅, 지속성, 모든 아톰의 맵을 볼 수 있는 **고유 키가 필요**하다.
 - 아톰을 읽기 위해서는 useRecoilValue()
-- 아톰의 상태를 업에티하는 setter함수 ? useSetRecoilState()
+- 아톰의 상태를 업데이트하는 setter함수 ? useSetRecoilState()
 - 아톰의 상태와 setter함수를 함께 적용할 수 있는 useRecoilState()
 
 ---
