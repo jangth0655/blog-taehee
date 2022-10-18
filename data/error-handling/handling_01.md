@@ -1,5 +1,5 @@
 ---
-title: Cors
+title: Cors Error
 category: error-handling
 name: ""
 ---
