@@ -1,48 +1,78 @@
 ---
-title: Server Components (with Nextjs)
+title: useReducer & context
 category: react
 name: ""
 ---
 
-# React Server Components
+## useReducer
 
-- 서버에서 React 컴포넌트를 렌더링할 수 있다.
-- 자바스크립트 번들 사이즈에 영향을 주는 큰 의존성을 대신 서버측에서 처리할 수 있다.  
-  → 브라우저에 더 적은 자바스크립트를 보내면서 페이지와 상호작용하는 시간이 더 적다.  
-  → UX 성능이 향상된다.
-- SSR과 React Server Components는 다르다.  
-  ✓ 리액트 서버 컴포넌트는 페이지를 렌더링는걸 신경쓰지 않고, 서버에서 컴포넌트 렌더링하는 것을 신경쓴다.  
-  ✓ SSR은 서버에서 페이지 전체를 렌더링하기 떄문에 페이지를 로드하는데 많은 시간이 걸릴 수 있다.
-  ✓ 반면 Server Components는 특정 컴포넌트만 서버에서 실행된다.
-- 파일 뒤에 'file.server.[js,ts,tsx,jsx]' 한다.
-
-```javascript
-// nextjs config
-module.exports = {
-  // ...기타 옵션
-  experimental: {
-    severComponents: true,
-    runtime: "nodejs",
-    reactRoot: true,
-  },
-};
-```
+- 여러 하위값과 관련된 복잡한 상태 로직이 있는 경우, 전 상태값과 의존성이 강한경우 선호된다.
+- 콜백대신 dispatch를 전달할 수 있기 때문에 성능을 취적화할 수 있다.
+- 사용  
+  → 리듀서 함수를 선언하고, 초기 state와 action을 전달 받는다.  
+  → 전달받은 state와 action을 통해 리듀서 함수에서 처리한다.  
+  → 리듀서를 사용할 컴포넌트에서는 useReducer에 초기 state와 사용할 리듀서 함수를 전달한다.  
+  → useReducer는 처리된 데이터와 dispatch함수를 반환한다.  
+  → dispatch는 리듀서에 사용될 action(type, value 등)을 리듀서에 전달한다.
 
 ```javascript
-// file.server.js
-// 서버사이드에서 컴포넌트 실행
-function List() {
-  // 서버에서 컴포넌트를 실행하기 때문에
-  // 직접 db 엑세스할 수 있다.
-  return <h1>Server Component</h1>
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
 }
 
-  export default function Coins() {
-    return (
-      <h1>Welcome RSC</h1>
-      <Suspense fallback={'Rendering in the sever...'}>
-        <List />
-      </Suspense>
-    )
-  }
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <>
+      Count:{state.count}
+      <button onClick={()=>dispatch(type:"decrement")}>-</button>
+      <button onClick={()=>dispatch(type:"increment")}>+</button>
+    </>
+  )
+}
+```
+
+---
+
+## Context
+
+- 여러 컴포넌트에서 상태를 공유 및 엑세스 해야할 경우 사용된다.
+- 모든 컴포넌트에 적용하는 것 보단 필요한 경우 context로 랩핑하여 사용하는 것이 좋다.  
+  → context가 변경되면 해당 context를 공유하고 있는 컴포넌트가 리랜더링 되기 때문에.
+- 사용  
+  → createContext를 생성하고  
+  → context가 사용될 컴포넌트로 전달하기 때문에  
+  → Provider 컴포넌트를 만들어 context를 사용할 컴포넌트를 랩핑한다.  
+  → context를 사용할 컴포넌트에서는 useContext를 통해서 값을 받아올 수 있다.
+
+```javascript
+const MyContext = React.createContext(defaultValue);
+
+const Provider = ({ children }) => {
+  return (
+    <MyContext.Provider value={"공유 하는 값"}>{children}</MyContext.Provider>
+  );
+};
+
+const App = () => {
+  return (
+    <Provider>
+      <AppComponent />
+    </Provider>
+  );
+};
+
+const AppComponent = () => {
+  const value = useContext(MyContext);
+  return <div></div>;
+};
 ```

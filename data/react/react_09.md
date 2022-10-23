@@ -1,25 +1,48 @@
 ---
-title: Suspense
+title: Server Components (with Nextjs)
 category: react
 name: ""
 ---
 
-# Why? Suspense & React.Lazy
+# React Server Components
 
-- 리액트 앱은 일반적으로 수 많은 컴포넌트, 메서드, 라이브러리들로 구성된다.
-- 필요할때만 로드하려고 노력하지 않으면 한번에 많은 양의 데이터를 다운 받기 때문에 성능이 저하된다.
-
-## Suspense
-
-- Suspense lets components “wait” for something before rendering.
-- 로딩상태를 컴포넌트와 분리한다.
-- **로딩상태를 나타내는 코드를 작성해야 하는 부분이 줄어들고**(코드복잡성 ⬇), 명화기 파악할 수 있다.
-- 코드에서 로딩 상태를 나타는 부분을 제거해줄 수 있어, 이미 데이터를 받았다고 생각하고 코드를 작성할 수 있다.
-- 단순이 데이터 로딩 뿐만 아니라 이미지, 스크립트, 비동기 작업을 기다리는 데에도 사용될 수 있다.
-- swr, react-query를 사용한다면, 해당 공식문서에서 suspense를 어떻게 지원하는지 확인할 수 있다.
+- 서버에서 React 컴포넌트를 렌더링할 수 있다.
+- 자바스크립트 번들 사이즈에 영향을 주는 큰 의존성을 대신 서버측에서 처리할 수 있다.  
+  → 브라우저에 더 적은 자바스크립트를 보내면서 페이지와 상호작용하는 시간이 더 적다.  
+  → UX 성능이 향상된다.
+- SSR과 React Server Components는 다르다.  
+  ✓ 리액트 서버 컴포넌트는 페이지를 렌더링는걸 신경쓰지 않고, 서버에서 컴포넌트 렌더링하는 것을 신경쓴다.  
+  ✓ SSR은 서버에서 페이지 전체를 렌더링하기 떄문에 페이지를 로드하는데 많은 시간이 걸릴 수 있다.
+  ✓ 반면 Server Components는 특정 컴포넌트만 서버에서 실행된다.
+- 파일 뒤에 'file.server.[js,ts,tsx,jsx]' 한다.
 
 ```javascript
-<Suspense fallback={<Loading />}>
-  <ProfilePage />
-</Suspense>
+// nextjs config
+module.exports = {
+  // ...기타 옵션
+  experimental: {
+    severComponents: true,
+    runtime: "nodejs",
+    reactRoot: true,
+  },
+};
+```
+
+```javascript
+// file.server.js
+// 서버사이드에서 컴포넌트 실행
+function List() {
+  // 서버에서 컴포넌트를 실행하기 때문에
+  // 직접 db 엑세스할 수 있다.
+  return <h1>Server Component</h1>
+}
+
+  export default function Coins() {
+    return (
+      <h1>Welcome RSC</h1>
+      <Suspense fallback={'Rendering in the sever...'}>
+        <List />
+      </Suspense>
+    )
+  }
 ```
