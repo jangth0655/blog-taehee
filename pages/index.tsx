@@ -62,7 +62,7 @@ const Home: NextPage = () => {
   );
 
   return (
-    <Layout head="Taehee" back={false} isHome={true}>
+    <Layout head="Home" back={false} isHome={true}>
       <section className="max-w-3xl m-auto">
         <header className=" text-zinc-200 pt-10 pb-2 px-4 space-y-20">
           <div className="flex flex-col w-full items-center justify-center sm:justify-evenly sm:flex-row sm:items-center">
