@@ -33,12 +33,12 @@ export const navTitle: NavTitle[] = [
   { name: 'Javascript', id: 'js', path: '/posts/js' },
   { name: 'Typescript', id: 'typescript', path: '/posts/typescript' },
   { name: 'React', id: 'react', path: '/posts/react' },
-  { name: 'NextJs', id: 'nextjs', path: '/posts/nextjs' },
   {
     name: 'Error handling',
     id: 'error-handling',
     path: '/posts/error-handling',
   },
+  { name: 'Study', id: 'study', path: '/posts/study' },
   { name: 'Projects', id: 'projects', path: '/posts/myProjects' },
 ];
 
