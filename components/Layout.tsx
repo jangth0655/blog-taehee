@@ -38,7 +38,6 @@ export const navTitle: NavTitle[] = [
     id: 'error-handling',
     path: '/posts/error-handling',
   },
-  { name: 'Study', id: 'study', path: '/posts/study' },
   { name: 'Projects', id: 'projects', path: '/posts/myProjects' },
 ];
 
