@@ -1,45 +1,29 @@
-import { readdirSync, readFileSync } from 'fs';
-import matter from 'gray-matter';
 import { GetStaticProps, NextPage } from 'next';
-import Link from 'next/link';
+
+import { Post } from '../../../model/interface';
+
 import Layout from '../../../components/Layout';
 import PageTitle from '../../../components/PageTitle';
 import UpdatedText from '../../../components/UpdateText';
-import { Post } from '../../../model/interface';
+import Content from '../../../components/detail/Content';
+import { blog } from '../../../libs/Blog';
 
-const JavascriptPage: NextPage<{ allJsFiles: Post[] }> = ({ allJsFiles }) => {
+const JavascriptPage: NextPage<{ jsContents: Post[] }> = ({ jsContents }) => {
   return (
     <Layout head='JS' category=''>
-      <section>
-        <PageTitle title='Basic Javascript' />
-        <div className='w-full text-white '>
-          {allJsFiles.map((file, i) => (
-            <div key={i} className='mb-8'>
-              <Link href={`/posts/js/${file.slug}`}>
-                <a className='cursor-pointer hover:text-gray-400 transition-all'>
-                  <span className='mr-4'>✅</span>
-                  <span>{file.title}</span>
-                </a>
-              </Link>
-            </div>
-          ))}
-        </div>
-        <UpdatedText />
-      </section>
+      <PageTitle title='Basic Javascript' />
+      <Content posts={jsContents} pageName='js' />
+      <UpdatedText />
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allJsFiles = readdirSync('./data/javascript').map((file) => {
-    const content = readFileSync(`./data/javascript/${file}`, 'utf-8');
-    const [slug, _] = file.split('.');
-    return { ...matter(content).data, slug };
-  });
+  const jsContents = blog.parseFileData('javascript');
 
   return {
     props: {
-      allJsFiles,
+      jsContents,
     },
   };
 };

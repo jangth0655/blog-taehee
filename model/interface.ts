@@ -1,5 +1,6 @@
 export interface Post {
   title: string;
+  subTitle?: string;
   category: string;
   slug?: string;
 }

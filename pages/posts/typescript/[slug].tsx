@@ -1,10 +1,7 @@
-import { readdirSync } from 'fs';
-import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import remarkHtml from 'remark-html';
-import remarkParse from 'remark-parse/lib';
-import { unified } from 'unified';
+
 import Layout from '../../../components/Layout';
+import { blog } from '../../../libs/Blog';
 import { Data } from '../../../model/interface';
 
 const TypescriptDetail: NextPage<{ post: string; data: Data }> = ({
@@ -21,24 +18,17 @@ const TypescriptDetail: NextPage<{ post: string; data: Data }> = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = readdirSync('./data/typescript').map((file) => {
-    const [slug, extension] = file.split('.');
-    return { params: { slug } };
-  });
   return {
-    paths: files,
+    paths: blog.parseFilePath('typescript'),
     fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async (ctx: any) => {
-  const { content, data } = matter.read(
-    `./data/typescript/${ctx.params.slug}.md`
+  const { data, value } = await blog.parseMarkdown(
+    'typescript',
+    ctx.params.slug
   );
-  const { value } = await unified()
-    .use(remarkParse)
-    .use(remarkHtml)
-    .process(content);
   return {
     props: {
       post: value,

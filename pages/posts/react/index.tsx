@@ -1,45 +1,28 @@
-import { readdirSync, readFileSync } from 'fs';
-import matter from 'gray-matter';
 import { GetStaticProps, NextPage } from 'next';
-import Link from 'next/link';
+
+import Content from '../../../components/detail/Content';
 import Layout from '../../../components/Layout';
 import PageTitle from '../../../components/PageTitle';
 import UpdatedText from '../../../components/UpdateText';
+import { blog } from '../../../libs/Blog';
 import { Post } from '../../../model/interface';
 
-const ReactPage: NextPage<{ allReactFiles: Post[] }> = ({ allReactFiles }) => {
+const ReactPage: NextPage<{ reactContents: Post[] }> = ({ reactContents }) => {
   return (
     <Layout head='Basic React' category=''>
-      <section>
-        <PageTitle title='Basic React' />
-        <div className='w-full text-white '>
-          {allReactFiles.map((file, i) => (
-            <div key={i} className='mb-8'>
-              <Link href={`/posts/react/${file.slug}`}>
-                <a className='cursor-pointer hover:text-gray-400 transition-all'>
-                  <span className='mr-4'>✅</span>
-                  <span>{file.title}</span>
-                </a>
-              </Link>
-            </div>
-          ))}
-        </div>
-        <UpdatedText />
-      </section>
+      <PageTitle title='Basic React' />
+      <Content posts={reactContents} pageName='react' />
+      <UpdatedText />
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allReactFiles = readdirSync('./data/react').map((file) => {
-    const content = readFileSync(`./data/react/${file}`, 'utf-8');
-    const [slug, _] = file.split('.');
-    return { ...matter(content).data, slug };
-  });
+  const reactContents = blog.parseFileData('react');
 
   return {
     props: {
-      allReactFiles,
+      reactContents,
     },
   };
 };

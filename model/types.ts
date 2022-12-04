@@ -8,6 +8,14 @@ export type NavText =
   | 'Error-handling'
   | 'Skills';
 
+export type DataFileName =
+  | 'home'
+  | 'javascript'
+  | 'typescript'
+  | 'react'
+  | 'error-handling'
+  | 'skill';
+
 export type NavId =
   | 'home'
   | 'js'

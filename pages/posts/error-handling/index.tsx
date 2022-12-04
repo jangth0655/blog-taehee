@@ -2,46 +2,31 @@ import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
+import Content from '../../../components/detail/Content';
 import Layout from '../../../components/Layout';
 import PageTitle from '../../../components/PageTitle';
 import UpdatedText from '../../../components/UpdateText';
+import { blog } from '../../../libs/Blog';
 import { Post } from '../../../model/interface';
 
-const ErrorHandlingPage: NextPage<{ allErrorHandling: Post[] }> = ({
-  allErrorHandling,
+const ErrorHandlingPage: NextPage<{ errorHandlingContents: Post[] }> = ({
+  errorHandlingContents,
 }) => {
   return (
     <Layout head='Books' category=''>
-      <section>
-        <PageTitle title='Error Handing' />
-        <div>
-          {allErrorHandling.map((file, i) => (
-            <div key={i} className='mb-8'>
-              <Link href={`/posts/error-handling/${file.slug}`}>
-                <a className='cursor-pointer hover:text-gray-300 transition-all'>
-                  <span className='mr-4'>✅</span>
-                  <span>{file.title}</span>
-                </a>
-              </Link>
-            </div>
-          ))}
-        </div>
-        <UpdatedText />
-      </section>
+      <PageTitle title='Error Handing' />
+      <Content pageName='error-handling' posts={errorHandlingContents} />
+      <UpdatedText />
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allErrorHandling = readdirSync('./data/error-handling').map((file) => {
-    const content = readFileSync(`./data/error-handling/${file}`, 'utf-8');
-    const [slug, _] = file.split('.');
-    return { ...matter(content).data, slug };
-  });
+  const errorHandlingContents = blog.parseFileData('error-handling');
 
   return {
     props: {
-      allErrorHandling,
+      errorHandlingContents,
     },
   };
 };
