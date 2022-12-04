@@ -1,14 +1,10 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation, useScroll, Variants } from 'framer-motion';
 import { AiOutlineArrowLeft, AiOutlineArrowUp } from 'react-icons/ai';
 
-import logo from '../public/logo/logo.png';
-
-import cls from '../libs/cls';
-import Navbar from './home/navbar/Navbar';
+import Navbar from './Layout/navbar/Navbar';
 import Button from './Button';
 
 interface LayoutProps {
@@ -60,7 +56,7 @@ const Layout: React.FC<LayoutProps> = ({ children, head, back = true }) => {
         </Head>
         <Navbar />
 
-        <main className='pt-4 px-6 xs:px-0 max-w-7xl m-auto min-h-screen'>
+        <main className='pt-4 px-6 xs:px-0 max-w-7xl m-auto min-h-screen pb-10'>
           {back && (
             <div
               onClick={() => goBack()}
@@ -84,13 +80,6 @@ const Layout: React.FC<LayoutProps> = ({ children, head, back = true }) => {
             </Button>
           </motion.div>
         </main>
-
-        <footer className='py-6 flex justify-center items-center w-full space-x-2'>
-          <div className='relative w-4 h-4'>
-            <Image src={logo} layout='fill' objectFit='cover' alt='' />
-          </div>
-          <span className='text-xs text-zinc-500'>Hello</span>
-        </footer>
       </section>
     </>
   );

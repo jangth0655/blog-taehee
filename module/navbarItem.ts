@@ -1,21 +1,5 @@
+import { navbars } from '../data/navbarData';
 import { NavText, NavTitle, PAGE } from '../model/types';
-
-const navTitle: NavTitle[] = [
-  { name: 'Home', id: 'home', path: '/' },
-  { name: 'Javascript', id: 'js', path: '/posts/js' },
-  { name: 'Typescript', id: 'typescript', path: '/posts/typescript' },
-  { name: 'React', id: 'react', path: '/posts/react' },
-  {
-    name: 'Error-handling',
-    id: 'error-handling',
-    path: '/posts/error-handling',
-  },
-  {
-    id: 'skill',
-    name: 'Skills',
-    path: '',
-  },
-];
 
 class NavbarItem {
   constructor(private data: NavTitle[]) {}
@@ -43,4 +27,4 @@ class NavbarItem {
   };
 }
 
-export const navbar = new NavbarItem(navTitle);
+export const navbar = new NavbarItem(navbars);

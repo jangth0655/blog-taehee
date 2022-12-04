@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image';
+
 export type NavText =
   | 'Home'
   | 'Javascript'
@@ -6,7 +8,7 @@ export type NavText =
   | 'Error-handling'
   | 'Skills';
 
-type NavId =
+export type NavId =
   | 'home'
   | 'js'
   | 'typescript'
@@ -18,6 +20,7 @@ export type NavTitle = {
   name: NavText;
   id: NavId;
   path?: string;
+  url?: StaticImageData;
 };
 
 export enum PAGE {
