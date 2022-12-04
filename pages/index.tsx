@@ -1,16 +1,14 @@
 import type { NextPage } from 'next';
-import Layout, { navTitle } from '../components/Layout';
-
-import Image from 'next/image';
-import github from '../public/assets/headerImage/github.png';
-import avatar from '../public/assets/avatar/avatar.jpeg';
 import Link from 'next/link';
-
+import Image from 'next/image';
 import { useState } from 'react';
-import cls from '../libs/cls';
-
 import { HiMail } from 'react-icons/hi';
 import { HiPhone } from 'react-icons/hi';
+
+import Layout from '../components/Layout';
+import cls from '../libs/cls';
+import github from '../public/assets/headerImage/github.png';
+import avatar from '../public/assets/avatar/avatar.jpeg';
 
 import { useRouter } from 'next/router';
 
@@ -29,17 +27,6 @@ const Home: NextPage = () => {
       console.log(`error : ${error}`);
     }
   };
-
-  const navPage = (path: string) => {
-    if (!path) {
-      router.push('/');
-    }
-    router.push(path);
-  };
-
-  const postArray = navTitle.filter(
-    (title) => title.name !== 'Home' && title.name !== 'Projects'
-  );
 
   return (
     <Layout head='Home' back={false} isHome={true}>
@@ -62,68 +49,6 @@ const Home: NextPage = () => {
                 placeholder='blur'
                 alt=''
               />
-            </div>
-          </div>
-
-          {/* contact */}
-          <div className='flex items-center justify-between'>
-            <div className='space-y-2'>
-              {/* github */}
-              <div className='flex items-center space-x-4'>
-                <div className='relative w-6 h-6'>
-                  <Image
-                    src={github}
-                    layout='fill'
-                    objectFit='cover'
-                    placeholder='blur'
-                    alt=''
-                  />
-                </div>
-                <Link href={'https://github.com/jangth0655'}>
-                  <a className='cursor-pointer hover:text-teal-400 transition-all'>
-                    My GitHub
-                  </a>
-                </Link>
-              </div>
-              {/* email */}
-              <div className='flex items-center space-x-4'>
-                <HiMail size={24} />
-                <div
-                  onClick={() => copyToClipboard('jangth0655@gmail.com')}
-                  className={cls(
-                    'cursor-pointer hover:text-teal-400 transition-all',
-                    copied ? 'text-rose-500 hover:text-rose-500 font-bold' : ''
-                  )}
-                >
-                  {copied ? 'Copied to clipboard' : 'jangth0655@gmail.com'}
-                </div>
-              </div>
-              {/* phone */}
-              <div className='flex items-center space-x-4'>
-                <HiPhone size={20} />
-                <span className='hover:text-teal-400 transition-all'>
-                  010-4185-0655
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <span className='inline-block font-bold mb-2'>Note 📒</span>
-            <div className='grid grid-cols-3 border-2 p-2 border-zinc-500 rounded-lg shadow-black shadow-lg'>
-              {postArray.map((title) => (
-                <div
-                  className='font-bold flex items-center justify-center text-zinc-400 hover:text-zinc-50 transition-all cursor-pointer'
-                  key={title.id}
-                >
-                  <span
-                    className='inline-block px-2 py-1'
-                    onClick={() => navPage(title.path)}
-                  >
-                    {title.name}
-                  </span>
-                </div>
-              ))}
             </div>
           </div>
         </header>
