@@ -3,7 +3,6 @@ import { AiOutlineMenu } from 'react-icons/ai';
 
 import { useActiveNav } from '../../../context/toggleNavContext';
 import useNavbar from '../../../hooks/useNavbar';
-import { navbar } from '../../../module/navbarItem';
 
 const navVariant: Variants = {
   initial: {
