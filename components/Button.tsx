@@ -1,20 +1,17 @@
-import { HiArrowSmDown } from "react-icons/hi";
-import { HiArrowSmRight } from "react-icons/hi";
+import { motion } from 'framer-motion';
 
-type Direction = "right" | "bottom";
+type ButtonSize = 'big' | 'small';
 
 interface ButtonProps {
-  text: string;
-  direction?: Direction;
+  children: React.ReactNode;
+  size?: ButtonSize;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, direction }) => {
+const Button = ({ children, size }: ButtonProps) => {
   return (
-    <button className="flex items-center space-x-2 px-2 rounded-lg bg-teal-300 hover:bg-teal-500 transition-all text-zinc-800 focus:ring-2 focus:ring-teal-100  font-semibold shadow-black shadow-lg">
-      <span className="">{text}</span>
-      {direction === "bottom" ? <HiArrowSmDown size={20} /> : null}
-      {direction === "right" ? <HiArrowSmRight size={20} /> : null}
-    </button>
+    <motion.button className='flex justify-center w-full h-full items-center rounded-lg bg-teal-400 hover:bg-teal-500 shadow-black shadow-lg transition-all'>
+      {children}
+    </motion.button>
   );
 };
 export default Button;

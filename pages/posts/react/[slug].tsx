@@ -1,39 +1,27 @@
-import { readdirSync } from "fs";
-import matter from "gray-matter";
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import remarkHtml from "remark-html";
-import remarkParse from "remark-parse/lib";
-import { unified } from "unified";
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
-import Layout from "../../../components/Layout";
+import Layout from '../../../components/Layout';
+import { blog } from '../../../libs/Blog';
 
 const ReactDetailPage: NextPage<{ post: string }> = ({ post }) => {
   return (
-    <Layout category="react" head="React">
-      <div className="">
-        <div className="post" dangerouslySetInnerHTML={{ __html: post }} />
+    <Layout category='react' head='React'>
+      <div className=''>
+        <div className='post' dangerouslySetInnerHTML={{ __html: post }} />
       </div>
     </Layout>
   );
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = readdirSync("./data/react").map((file) => {
-    const [name, extension] = file.split(".");
-    return { params: { slug: name } };
-  });
   return {
-    paths: files,
+    paths: blog.parseFilePath('react'),
     fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async (ctx: any) => {
-  const { content, data } = matter.read(`./data/react/${ctx.params.slug}.md`);
-  const { value } = await unified()
-    .use(remarkParse)
-    .use(remarkHtml)
-    .process(content);
+  const { data, value } = await blog.parseMarkdown('react', ctx.params.slug);
 
   return {
     props: {

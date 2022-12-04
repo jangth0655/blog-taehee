@@ -1,47 +1,28 @@
-import { readdirSync, readFileSync } from "fs";
-import matter from "gray-matter";
-import { GetStaticProps, NextPage } from "next";
-import Link from "next/link";
-import Layout from "../../../components/Layout";
-import PageTitle from "../../../components/PageTitle";
-import UpdatedText from "../../../components/UpdateText";
-import { Post } from "../../../libs/shared/shared";
+import { GetStaticProps, NextPage } from 'next';
 
-const TsPage: NextPage<{ allTypescriptFiles: Post[] }> = ({
-  allTypescriptFiles,
-}) => {
+import Content from '../../../components/detail/Content';
+import Layout from '../../../components/Layout';
+import PageTitle from '../../../components/PageTitle';
+import UpdatedText from '../../../components/UpdateText';
+import { blog } from '../../../libs/Blog';
+import { Post } from '../../../model/interface';
+
+const TsPage: NextPage<{ tsContents: Post[] }> = ({ tsContents }) => {
   return (
-    <Layout head="Typescript" category="">
-      <section>
-        <PageTitle title="Typescript" />
-        <div className="w-full text-white ">
-          {allTypescriptFiles.map((file, i) => (
-            <div key={i} className="mb-8">
-              <Link href={`/posts/typescript/${file.slug}`}>
-                <a className="cursor-pointer hover:text-gray-400 transition-all">
-                  <span className="mr-4">✅</span>
-                  <span>{file.title}</span>
-                </a>
-              </Link>
-            </div>
-          ))}
-        </div>
-        <UpdatedText />
-      </section>
+    <Layout head='Typescript' category=''>
+      <PageTitle title='Typescript' />
+      <Content pageName='typescript' posts={tsContents} />
+      <UpdatedText />
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allTypescriptFiles = readdirSync("./data/typescript").map((file) => {
-    const content = readFileSync(`./data/typescript/${file}`, "utf-8");
-    const [slug, _] = file.split(".");
-    return { ...matter(content).data, slug };
-  });
+  const tsContents = blog.parseFileData('typescript');
 
   return {
     props: {
-      allTypescriptFiles,
+      tsContents,
     },
   };
 };
