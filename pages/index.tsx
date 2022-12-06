@@ -61,7 +61,7 @@ export const getServerSideProps = () => {
   ];
   return {
     props: {
-      blogFiles,
+      blogFiles: JSON.stringify(blogFiles),
     },
   };
 };
