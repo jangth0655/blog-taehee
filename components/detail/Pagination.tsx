@@ -21,10 +21,10 @@ const Pagination = ({ totalPostLength, index, setIndex }: Props) => {
   return (
     <div className='flex items-center space-x-8 justify-center mt-10 text-zinc-300'>
       <div
-        className='cursor-pointer hover:text-white transition-all p-1'
+        className='cursor-pointer hover:text-pink-400 transition-all p-1'
         onClick={handlePreviewIndex}
       >
-        <MdKeyboardArrowLeft size={20} />
+        <MdKeyboardArrowLeft size={30} />
       </div>
       <div className='space-x-2'>
         <span>{index + 1}</span>
@@ -32,10 +32,10 @@ const Pagination = ({ totalPostLength, index, setIndex }: Props) => {
         <span>{MAX_PAGE}</span>
       </div>
       <div
-        className='cursor-pointer hover:text-white transition-all p-1'
+        className='cursor-pointer hover:text-pink-400 transition-all p-1'
         onClick={handleNextIndex}
       >
-        <MdKeyboardArrowRight size={20} />
+        <MdKeyboardArrowRight size={30} />
       </div>
     </div>
   );

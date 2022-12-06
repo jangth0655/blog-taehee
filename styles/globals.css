@@ -15,7 +15,6 @@ hr {
   @apply my-16 h-1 border-none bg-gray-500 rounded-lg;
 }
 
-/*js  */
 .post h1 {
   @apply text-rose-500 text-2xl font-bold mb-6;
 }
@@ -25,7 +24,7 @@ hr {
 }
 
 .post ul {
-  @apply my-2;
+  @apply my-2 sm:text-base text-sm;
 }
 
 .post li {
@@ -45,5 +44,5 @@ strong {
 }
 
 .post pre {
-  @apply px-2 rounded-lg my-4 shadow-black shadow-md bg-zinc-800;
+  @apply p-2 rounded-lg my-4 shadow-black shadow-md bg-zinc-800 overflow-x-scroll;
 }

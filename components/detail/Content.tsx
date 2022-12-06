@@ -18,7 +18,7 @@ const Content = ({ posts, pageName }: Props) => {
   return (
     <>
       <div className='mb-8'>
-        <span className='text-pink-400'>{`Total (${posts.length})`}</span>
+        <span className='text-zinc-400'>{`Total (${posts.length})`}</span>
       </div>
       {posts.slice(index * offset, offset + index * offset).map((file, i) => (
         <div key={i} className='mb-8'>
