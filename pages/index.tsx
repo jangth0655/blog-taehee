@@ -1,26 +1,19 @@
 import type { NextPage } from 'next';
-import { useState } from 'react';
 
 import Layout from '../components/Layout';
 import PostBoarder from '../components/home/PostBoarder';
 import Header from '../components/home/Header';
 import useNavbar from '../hooks/useNavbar';
+import { readdirSync } from 'fs';
+import { NavId } from '../model/types';
 
-const Home: NextPage = () => {
+type BlogCount = {
+  id: NavId;
+  count: number;
+};
+
+const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
   const { navbars } = useNavbar();
-  const [copied, setCopied] = useState(false);
-
-  const copyToClipboard = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => {
-        setCopied(false);
-      }, 3000);
-    } catch (error) {
-      console.log(`error : ${error}`);
-    }
-  };
 
   return (
     <Layout back={false} head='Home'>
@@ -31,14 +24,46 @@ const Home: NextPage = () => {
             <PostBoarder
               key={navbar.id}
               title={navbar.name}
-              url={navbar.url}
+              subTitle={navbar.subTitle}
               page={navbar.name}
+              count={blogFiles.find((blog) => blog.id === navbar.id)?.count}
             />
           ))}
         </div>
       </div>
     </Layout>
   );
+};
+
+export const getServerSideProps = () => {
+  const root = './data';
+  const jsCount = readdirSync(`${root}/javascript`).length;
+  const typescriptCount = readdirSync(`${root}/typescript`).length;
+  const reactCount = readdirSync(`${root}/react`).length;
+  const errorCount = readdirSync(`${root}/error-handling`).length;
+  const blogFiles: BlogCount[] = [
+    {
+      id: 'js',
+      count: jsCount,
+    },
+    {
+      id: 'typescript',
+      count: typescriptCount,
+    },
+    {
+      id: 'react',
+      count: reactCount,
+    },
+    {
+      id: 'error-handling',
+      count: errorCount,
+    },
+  ];
+  return {
+    props: {
+      blogFiles,
+    },
+  };
 };
 
 export default Home;

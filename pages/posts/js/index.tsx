@@ -3,10 +3,10 @@ import { GetStaticProps, NextPage } from 'next';
 import { Post } from '../../../model/interface';
 
 import Layout from '../../../components/Layout';
-import PageTitle from '../../../components/PageTitle';
 import UpdatedText from '../../../components/UpdateText';
 import Content from '../../../components/detail/Content';
-import { blog } from '../../../libs/Blog';
+import { blog } from '../../../module/Blog';
+import PageTitle from '../../../components/PageTitle';
 
 const JavascriptPage: NextPage<{ jsContents: Post[] }> = ({ jsContents }) => {
   return (

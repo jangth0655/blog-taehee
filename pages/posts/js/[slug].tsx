@@ -5,7 +5,7 @@ import remarkHtml from 'remark-html';
 import remarkParse from 'remark-parse/lib';
 import { unified } from 'unified';
 import Layout from '../../../components/Layout';
-import { blog } from '../../../libs/Blog';
+import { blog } from '../../../module/Blog';
 
 interface Data {
   title: string;

@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
 import Layout from '../../../components/Layout';
-import { blog } from '../../../libs/Blog';
+import { blog } from '../../../module/Blog';
 
 const ReactDetailPage: NextPage<{ post: string }> = ({ post }) => {
   return (

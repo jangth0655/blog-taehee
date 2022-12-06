@@ -1,34 +1,24 @@
-import { StaticImageData } from 'next/image';
-
 export type NavText =
   | 'Home'
   | 'Javascript'
   | 'Typescript'
   | 'React'
-  | 'Error-handling'
-  | 'Skills';
+  | 'Error-handling';
 
 export type DataFileName =
   | 'home'
   | 'javascript'
   | 'typescript'
   | 'react'
-  | 'error-handling'
-  | 'skill';
+  | 'error-handling';
 
-export type NavId =
-  | 'home'
-  | 'js'
-  | 'typescript'
-  | 'react'
-  | 'error-handling'
-  | 'skill';
+export type NavId = 'home' | 'js' | 'typescript' | 'react' | 'error-handling';
 
 export type NavTitle = {
   name: NavText;
   id: NavId;
   path?: string;
-  url?: StaticImageData;
+  subTitle?: string;
 };
 
 export enum PAGE {
@@ -37,5 +27,4 @@ export enum PAGE {
   TS = '/posts/typescript',
   REACT = '/posts/react',
   ERRORS = '/posts/error-handling',
-  SKILL = '/posts/skill',
 }

@@ -19,8 +19,6 @@ class NavbarItem {
         return PAGE.REACT;
       case 'Error-handling':
         return PAGE.ERRORS;
-      case 'Skills':
-        return '/';
       default:
         return '/';
     }

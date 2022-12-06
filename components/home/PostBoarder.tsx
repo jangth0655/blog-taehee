@@ -1,25 +1,27 @@
-import Image, { StaticImageData } from 'next/image';
 import useNavbar from '../../hooks/useNavbar';
 import { NavText } from '../../model/types';
 
 interface Props {
   title: string;
-  url?: StaticImageData;
+  subTitle?: string;
   page: NavText;
+  count?: number;
 }
-const PostBoarder = ({ title, url, page }: Props) => {
+
+const PostBoarder = ({ title, page, subTitle, count }: Props) => {
   const { handlePage } = useNavbar();
   return (
-    <div className='p-4 w-64 rounded-md shadow-md shadow-black hover:-translate-y-1 transition-all'>
-      <div className='relative w-full  h-52 rounded-lg'>
-        <Image className='rounded-lg' src={url || ''} layout='fill' alt='' />
-      </div>
-      <div className='mt-6 flex items-center justify-between'>
+    <div className='p-4 rounded-md shadow-md shadow-black'>
+      <div className='mt-6 space-y-6'>
+        <div className='space-y-2'>
+          <span className='text-xl text-teal-500'>{`${title} (${count})`}</span>
+          <p className='text-sm text-zinc-300'>{subTitle}</p>
+        </div>
         <button
           onClick={() => handlePage(page)}
-          className='px-2 bg-teal-600 hover:bg-teal-400  rounded-xl'
+          className='text-white hover:text-pink-400 transition-all font-bold'
         >
-          <span>{`About ${title}`}</span>
+          <span>Read More &rarr;</span>
         </button>
       </div>
     </div>

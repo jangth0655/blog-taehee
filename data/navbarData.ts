@@ -1,9 +1,4 @@
 import { NavTitle } from '../model/types';
-import jsLogo from '../public/assets/home/js.png';
-import tsLogo from '../public/assets/home/ts.png';
-import reactLogo from '../public/assets/home/react.png';
-import errorLogo from '../public/assets/home/error.png';
-import skillLogo from '../public/assets/home/skill.png';
 
 export const navbars: NavTitle[] = [
   { name: 'Home', id: 'home', path: '/' },
@@ -11,30 +6,24 @@ export const navbars: NavTitle[] = [
     name: 'Javascript',
     id: 'js',
     path: '/posts/js',
-    url: jsLogo,
+    subTitle: '기본적인 자바스크립트 개념 및 문법',
   },
   {
     name: 'Typescript',
     id: 'typescript',
     path: '/posts/typescript',
-    url: tsLogo,
+    subTitle: '기본적이 타입스크립트 문법',
   },
   {
     name: 'React',
     id: 'react',
     path: '/posts/react',
-    url: reactLogo,
+    subTitle: '기본적인 리액트 개념과 관련 라이브러리 및 기술',
   },
   {
     name: 'Error-handling',
     id: 'error-handling',
     path: '/posts/error-handling',
-    url: errorLogo,
-  },
-  {
-    id: 'skill',
-    name: 'Skills',
-    path: '/posts/sill',
-    url: skillLogo,
+    subTitle: '개발 중 에러 발생과 해결',
   },
 ];
