@@ -14,7 +14,7 @@ const PostBoarder = ({ title, page, subTitle, count }: Props) => {
     <div className='p-4 rounded-md shadow-md shadow-black'>
       <div className='mt-6 space-y-6'>
         <div className='space-y-2'>
-          <span className='text-xl text-teal-500'>{`${title} (${count})`}</span>
+          <span className='text-xl text-teal-500'>{title}</span>
           <p className='text-sm text-zinc-300'>{subTitle}</p>
         </div>
         <button

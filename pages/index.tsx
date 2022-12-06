@@ -7,12 +7,7 @@ import useNavbar from '../hooks/useNavbar';
 import { readdirSync } from 'fs';
 import { NavId } from '../model/types';
 
-type BlogCount = {
-  id: NavId;
-  count: number;
-};
-
-const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
+const Home: NextPage = () => {
   const { navbars } = useNavbar();
 
   return (
@@ -26,7 +21,6 @@ const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
               title={navbar.name}
               subTitle={navbar.subTitle}
               page={navbar.name}
-              count={blogFiles.find((blog) => blog.id === navbar.id)?.count}
             />
           ))}
         </div>
@@ -35,7 +29,7 @@ const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
   );
 };
 
-export const getServerSideProps = () => {
+/* export const getServerSideProps = () => {
   const root = './data';
   const jsCount = readdirSync(`${root}/javascript`).length;
   const typescriptCount = readdirSync(`${root}/typescript`).length;
@@ -64,6 +58,6 @@ export const getServerSideProps = () => {
       blogFiles: JSON.stringify(blogFiles),
     },
   };
-};
+}; */
 
 export default Home;
