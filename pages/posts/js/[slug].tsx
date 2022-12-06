@@ -1,9 +1,5 @@
-import { readdirSync } from 'fs';
-import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import remarkHtml from 'remark-html';
-import remarkParse from 'remark-parse/lib';
-import { unified } from 'unified';
+
 import Layout from '../../../components/Layout';
 import NextSEO from '../../../components/NextSEO';
 import { blog } from '../../../module/Blog';
@@ -19,7 +15,6 @@ const JsFileDetail: NextPage<{ post: string; data: Data }> = ({
   post,
   data,
 }) => {
-  console.log(data);
   return (
     <Layout category={data.category}>
       <NextSEO title={data.title} description={data.subTitle} />
