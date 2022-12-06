@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Layout from '../../../components/Layout';
 import { blog } from '../../../module/Blog';
 import { Data } from '../../../model/interface';
+import NextSEO from '../../../components/NextSEO';
 
 const TypescriptDetail: NextPage<{ post: string; data: Data }> = ({
   post,
@@ -10,6 +11,7 @@ const TypescriptDetail: NextPage<{ post: string; data: Data }> = ({
 }) => {
   return (
     <Layout head='AboutTS' category={data.category}>
+      <NextSEO title={data.title} description={data.subTitle} />
       <div className=''>
         <div className='post' dangerouslySetInnerHTML={{ __html: post }} />
       </div>

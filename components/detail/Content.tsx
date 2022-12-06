@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { Post } from '../../model/interface';
 import { NavId } from '../../model/types';
+import NextSEO from '../NextSEO';
 import Pagination from './Pagination';
 
 interface Props {
@@ -14,9 +15,15 @@ interface Props {
 const Content = ({ posts, pageName }: Props) => {
   const [index, setIndex] = useState(0);
   const offset = 15;
+  const router = useRouter();
+  const currentPath =
+    router.asPath.split('/')[2] === 'js'
+      ? 'javascript'
+      : router.asPath.split('/')[2];
 
   return (
     <>
+      <NextSEO title={currentPath} />
       <div className='mb-8'>
         <span className='text-zinc-400'>{`Total (${posts.length})`}</span>
       </div>

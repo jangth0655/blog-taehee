@@ -36,11 +36,15 @@ const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
 };
 
 export const getServerSideProps = () => {
-  const root = './data';
-  const jsCount = readdirSync(`${root}/javascript`).length;
-  const typescriptCount = readdirSync(`${root}/typescript`).length;
-  const reactCount = readdirSync(`${root}/react`).length;
-  const errorCount = readdirSync(`${root}/error-handling`).length;
+  const root = 'data';
+  const jsCount = readdirSync(`${process.cwd()}${root}/javascript`).length;
+  const typescriptCount = readdirSync(
+    `${process.cwd()}${root}/typescript`
+  ).length;
+  const reactCount = readdirSync(`${process.cwd()}${root}/react`).length;
+  const errorCount = readdirSync(
+    `${process.cwd()}${root}/error-handling`
+  ).length;
   const blogFiles: BlogCount[] = [
     {
       id: 'js',

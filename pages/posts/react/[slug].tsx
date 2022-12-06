@@ -1,11 +1,17 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
 import Layout from '../../../components/Layout';
+import NextSEO from '../../../components/NextSEO';
+import { Data } from '../../../model/interface';
 import { blog } from '../../../module/Blog';
 
-const ReactDetailPage: NextPage<{ post: string }> = ({ post }) => {
+const ReactDetailPage: NextPage<{ post: string; data: Data }> = ({
+  post,
+  data,
+}) => {
   return (
     <Layout category='react' head='React'>
+      <NextSEO title={data.title} description={data.subTitle} />
       <div className=''>
         <div className='post' dangerouslySetInnerHTML={{ __html: post }} />
       </div>

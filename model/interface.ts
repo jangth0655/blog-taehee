@@ -9,6 +9,6 @@ export interface Data {
   title: string;
   category: string;
   name: string;
-  img: string;
+  subTitle?: string;
   description?: string;
 }
