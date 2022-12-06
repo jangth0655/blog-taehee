@@ -1,7 +1,5 @@
-import { readdirSync, readFileSync } from 'fs';
-import matter from 'gray-matter';
 import { GetStaticProps, NextPage } from 'next';
-import Link from 'next/link';
+
 import Content from '../../../components/detail/Content';
 import Layout from '../../../components/Layout';
 import PageTitle from '../../../components/PageTitle';
@@ -13,7 +11,7 @@ const ErrorHandlingPage: NextPage<{ errorHandlingContents: Post[] }> = ({
   errorHandlingContents,
 }) => {
   return (
-    <Layout head='Books' category=''>
+    <Layout head='Error-Handling' category=''>
       <PageTitle title='Error Handing' />
       <Content pageName='error-handling' posts={errorHandlingContents} />
       <UpdatedText />

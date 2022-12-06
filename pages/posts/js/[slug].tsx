@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
 import Layout from '../../../components/Layout';
-import NextSEO from '../../../components/NextSEO';
 import { blog } from '../../../module/Blog';
 
 interface Data {
@@ -17,7 +16,6 @@ const JsFileDetail: NextPage<{ post: string; data: Data }> = ({
 }) => {
   return (
     <Layout category={data.category}>
-      <NextSEO title={data.title} description={data.subTitle} />
       <div>
         <div className='post' dangerouslySetInnerHTML={{ __html: post }} />
       </div>
