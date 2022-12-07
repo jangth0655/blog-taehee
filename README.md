@@ -1,1 +1,1 @@
-# TaeHee's Blog & Portfolio
+# TaeHee's Blog

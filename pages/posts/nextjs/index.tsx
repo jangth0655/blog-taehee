@@ -11,7 +11,7 @@ const NextJsPage: NextPage<{ allNextJsFiles: Post[] }> = ({
   allNextJsFiles,
 }) => {
   return (
-    <Layout head='NextJS' category='nextjs'>
+    <Layout category='nextjs'>
       <section className=''>
         <PageTitle title='Basic NextJS' />
         <div>

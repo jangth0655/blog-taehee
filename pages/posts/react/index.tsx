@@ -9,7 +9,7 @@ import { Post } from '../../../model/interface';
 
 const ReactPage: NextPage<{ reactContents: Post[] }> = ({ reactContents }) => {
   return (
-    <Layout head='Basic React' category=''>
+    <Layout category=''>
       <PageTitle title='Basic React' />
       <Content posts={reactContents} pageName='react' />
       <UpdatedText />

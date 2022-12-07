@@ -10,7 +10,7 @@ const TypescriptDetail: NextPage<{ post: string; data: Data }> = ({
   data,
 }) => {
   return (
-    <Layout head='AboutTS' category={data.category}>
+    <Layout category={data.category}>
       <NextSEO isDetail title={data.title} description={data.subTitle} />
       <div className=''>
         <div className='post' dangerouslySetInnerHTML={{ __html: post }} />

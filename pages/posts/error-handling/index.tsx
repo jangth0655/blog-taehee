@@ -11,7 +11,7 @@ const ErrorHandlingPage: NextPage<{ errorHandlingContents: Post[] }> = ({
   errorHandlingContents,
 }) => {
   return (
-    <Layout head='Error-Handling' category=''>
+    <Layout category=''>
       <PageTitle title='Error Handing' />
       <Content pageName='error-handling' posts={errorHandlingContents} />
       <UpdatedText />

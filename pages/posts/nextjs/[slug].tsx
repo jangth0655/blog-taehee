@@ -12,7 +12,7 @@ const NextJSFileDetail: NextPage<{ post: string; data: Data }> = ({
   data,
 }) => {
   return (
-    <Layout head='NextJS' category={data.category}>
+    <Layout category={data.category}>
       <div>
         <div className='post' dangerouslySetInnerHTML={{ __html: post }} />
       </div>

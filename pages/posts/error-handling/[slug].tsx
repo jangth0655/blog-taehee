@@ -10,7 +10,7 @@ const ErrorHandlingDetail: NextPage<{ post: string; data: Data }> = ({
   data,
 }) => {
   return (
-    <Layout category='error-handling' head='Error-Handling'>
+    <Layout category='error-handling'>
       <NextSEO isDetail title={data.title} description={data.subTitle} />
       <div>
         <div className='post' dangerouslySetInnerHTML={{ __html: post }} />
