@@ -1,10 +1,10 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
+import Head from 'next/head';
 
 import { ToggleNavProvider } from '../context/toggleNavContext';
 import NextSEO from '../components/NextSEO';
-import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
