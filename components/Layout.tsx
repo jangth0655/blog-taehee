@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation, useScroll, Variants } from 'framer-motion';
