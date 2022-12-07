@@ -1,17 +1,12 @@
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 
 import Layout from '../components/Layout';
 import PostBoarder from '../components/home/PostBoarder';
 import Header from '../components/home/Header';
 import useNavbar from '../hooks/useNavbar';
-import { readdirSync } from 'fs';
-import { NavId } from '../model/types';
+import { BlogCount } from '../model/types';
 import NextSEO from '../components/NextSEO';
-
-type BlogCount = {
-  id: NavId;
-  count: number;
-};
+import { blog } from '../module/Blog';
 
 const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
   const { navbars } = useNavbar();
@@ -37,34 +32,10 @@ const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
   );
 };
 
-export const getServerSideProps = () => {
-  const jsCount = readdirSync(`${process.cwd()}/data/javascript`).length;
-  const typescriptCount = readdirSync(
-    `${process.cwd()}/data/typescript`
-  ).length;
-  const reactCount = readdirSync(`${process.cwd()}/data/react`).length;
-  const errorCount = readdirSync(`${process.cwd()}/data/error-handling`).length;
-  const blogFiles: BlogCount[] = [
-    {
-      id: 'js',
-      count: jsCount,
-    },
-    {
-      id: 'typescript',
-      count: typescriptCount,
-    },
-    {
-      id: 'react',
-      count: reactCount,
-    },
-    {
-      id: 'error-handling',
-      count: errorCount,
-    },
-  ];
+export const getStaticProps: GetStaticProps = () => {
   return {
     props: {
-      blogFiles: JSON.parse(JSON.stringify(blogFiles)),
+      blogFiles: blog.fileCountData,
     },
   };
 };

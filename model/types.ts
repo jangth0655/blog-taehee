@@ -28,3 +28,8 @@ export enum PAGE {
   REACT = '/posts/react',
   ERRORS = '/posts/error-handling',
 }
+
+export type BlogCount = {
+  id: NavId;
+  count: number;
+};

@@ -3,7 +3,7 @@ import matter from 'gray-matter';
 import remarkHtml from 'remark-html';
 import remarkParse from 'remark-parse/lib';
 import { unified } from 'unified';
-import { DataFileName } from '../model/types';
+import { BlogCount, DataFileName } from '../model/types';
 
 class Blog {
   private root = './data';
@@ -45,6 +45,37 @@ class Blog {
     });
     return files;
   };
+
+  getFileLength = (title: DataFileName) => {
+    const length = readdirSync(`${this.root}/${title}`).length;
+    return length;
+  };
+
+  get fileCountData() {
+    const jsCount = this.getFileLength('javascript');
+    const typescriptCount = this.getFileLength('typescript');
+    const reactCount = this.getFileLength('react');
+    const errorCount = this.getFileLength('error-handling');
+    const blogFiles: BlogCount[] = [
+      {
+        id: 'js',
+        count: jsCount,
+      },
+      {
+        id: 'typescript',
+        count: typescriptCount,
+      },
+      {
+        id: 'react',
+        count: reactCount,
+      },
+      {
+        id: 'error-handling',
+        count: errorCount,
+      },
+    ];
+    return [...blogFiles];
+  }
 }
 
 export const blog = new Blog();
