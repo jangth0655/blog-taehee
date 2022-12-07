@@ -10,9 +10,11 @@ const Header = () => {
     <div className='mt-10'>
       <div className='flex flex-col sm:flex-row items-center sm:justify-between '>
         <div>
-          <h1 className='text-4xl font-bold mb-5'>😄 Hi, I am JangTaeHee</h1>
+          <h1 className='text-2xl sm:text-4xl font-bold mb-5'>
+            😄 Hi, I am JangTaeHee
+          </h1>
           <h5 className='italic text-pink-300'>✨ FrontEnd Engineer</h5>
-          <p className='text-zinc-400 text-sm sm:text-base'>
+          <p className='text-zinc-400 text-xs sm:text-base'>
             성실하고 꾸준히 학습하며 블로그를 업데이트 하고 발전시켜나가고
             있습니다.
           </p>

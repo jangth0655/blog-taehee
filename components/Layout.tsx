@@ -55,7 +55,6 @@ const Layout: React.FC<LayoutProps> = ({ children, head, back = true }) => {
           <title>{`${head} | taehee's blog`}</title>
         </Head>
         <Navbar />
-
         <main className='pt-4 px-6 xs:px-0 max-w-7xl m-auto min-h-screen pb-10'>
           {back && (
             <div

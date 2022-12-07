@@ -6,6 +6,7 @@ import Header from '../components/home/Header';
 import useNavbar from '../hooks/useNavbar';
 import { readdirSync } from 'fs';
 import { NavId } from '../model/types';
+import NextSEO from '../components/NextSEO';
 
 type BlogCount = {
   id: NavId;
@@ -17,6 +18,7 @@ const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
 
   return (
     <Layout back={false} head='Home'>
+      <NextSEO title='Home' />
       <Header />
       <div className='flex flex-col w-full'>
         <div className='sm:mt-28 mt-20 grid grid-cols-1 gap-16 sm:grid-cols-2 m-auto lg:grid-cols-3'>
@@ -36,7 +38,6 @@ const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
 };
 
 export const getServerSideProps = () => {
-  const root = 'data';
   const jsCount = readdirSync(`${process.cwd()}/data/javascript`).length;
   const typescriptCount = readdirSync(
     `${process.cwd()}/data/typescript`

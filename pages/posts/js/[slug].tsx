@@ -11,7 +11,7 @@ const JsFileDetail: NextPage<{ post: string; data: Data }> = ({
 }) => {
   return (
     <Layout category={data.category}>
-      <NextSEO title={data.title} description={data.subTitle} />
+      <NextSEO isDetail title={data.title} description={data.subTitle} />
       <div>
         <div className='post' dangerouslySetInnerHTML={{ __html: post }} />
       </div>

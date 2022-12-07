@@ -1,12 +1,18 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
 import Layout from '../../../components/Layout';
+import NextSEO from '../../../components/NextSEO';
+import { Data } from '../../../model/interface';
 import { blog } from '../../../module/Blog';
 
-const ErrorHandlingDetail: NextPage<{ post: string }> = ({ post }) => {
+const ErrorHandlingDetail: NextPage<{ post: string; data: Data }> = ({
+  post,
+  data,
+}) => {
   return (
     <Layout category='error-handling' head='Error-Handling'>
-      <div className=''>
+      <NextSEO isDetail title={data.title} description={data.subTitle} />
+      <div>
         <div className='post' dangerouslySetInnerHTML={{ __html: post }} />
       </div>
     </Layout>

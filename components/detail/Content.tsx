@@ -30,7 +30,7 @@ const Content = ({ posts, pageName }: Props) => {
       {posts.slice(index * offset, offset + index * offset).map((file, i) => (
         <div key={i} className='mb-8'>
           <Link href={`/posts/${pageName}/${file.slug}`}>
-            <a className='cursor-pointer hover:text-gray-400 transition-all'>
+            <a className='cursor-pointer hover:text-teal-400 transition-all'>
               <span className='mr-4'>·</span>
               <span>{file.title}</span>
             </a>
