@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { Post } from '../../model/interface';
 import { NavId } from '../../model/types';
@@ -14,6 +14,7 @@ interface Props {
 
 const Content = ({ posts, pageName }: Props) => {
   const [index, setIndex] = useState(0);
+  const topRef = useRef<HTMLDivElement>(null);
   const offset = 15;
   const router = useRouter();
   const currentPath =
@@ -22,7 +23,7 @@ const Content = ({ posts, pageName }: Props) => {
       : router.asPath.split('/')[2];
 
   return (
-    <>
+    <div ref={topRef}>
       <NextSEO isDetail title={currentPath} />
       <div className='mb-8'>
         <span className='text-zinc-400'>{`Total (${posts.length})`}</span>
@@ -41,8 +42,9 @@ const Content = ({ posts, pageName }: Props) => {
         totalPostLength={posts.length}
         setIndex={setIndex}
         index={index}
+        topRef={topRef}
       />
-    </>
+    </div>
   );
 };
 
