@@ -10,7 +10,7 @@ import PageTitle from '../../../components/PageTitle';
 
 const JavascriptPage: NextPage<{ jsContents: Post[] }> = ({ jsContents }) => {
   return (
-    <Layout head='JS' category=''>
+    <Layout category=''>
       <PageTitle title='Basic Javascript' />
       <Content posts={jsContents} pageName='js' />
       <UpdatedText />

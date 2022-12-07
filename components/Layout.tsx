@@ -9,7 +9,6 @@ import Button from './Button';
 
 interface LayoutProps {
   children: React.ReactNode;
-  head?: string;
   category?: string;
   back?: boolean;
   isHome?: boolean;
@@ -24,7 +23,7 @@ const scrollVariant: Variants = {
   },
 };
 
-const Layout: React.FC<LayoutProps> = ({ children, head, back = true }) => {
+const Layout: React.FC<LayoutProps> = ({ children, back = true }) => {
   const router = useRouter();
   const topRef = useRef<HTMLDivElement>(null);
 
@@ -51,9 +50,6 @@ const Layout: React.FC<LayoutProps> = ({ children, head, back = true }) => {
   return (
     <>
       <section ref={topRef} className='bg-zinc-900 text-white'>
-        <Head>
-          <title>{`${head} | taehee's blog`}</title>
-        </Head>
         <Navbar />
         <main className='pt-4 px-6 xs:px-0 max-w-7xl m-auto min-h-screen pb-10'>
           {back && (

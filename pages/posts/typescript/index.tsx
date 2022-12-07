@@ -9,7 +9,7 @@ import { Post } from '../../../model/interface';
 
 const TsPage: NextPage<{ tsContents: Post[] }> = ({ tsContents }) => {
   return (
-    <Layout head='Typescript' category=''>
+    <Layout category=''>
       <PageTitle title='Typescript' />
       <Content pageName='typescript' posts={tsContents} />
       <UpdatedText />

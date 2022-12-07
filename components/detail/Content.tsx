@@ -23,7 +23,7 @@ const Content = ({ posts, pageName }: Props) => {
 
   return (
     <>
-      <NextSEO title={currentPath} />
+      <NextSEO isDetail title={currentPath} />
       <div className='mb-8'>
         <span className='text-zinc-400'>{`Total (${posts.length})`}</span>
       </div>

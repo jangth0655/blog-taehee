@@ -10,7 +10,7 @@ const ReactDetailPage: NextPage<{ post: string; data: Data }> = ({
   data,
 }) => {
   return (
-    <Layout category='react' head='React'>
+    <Layout category='react'>
       <NextSEO isDetail title={data.title} description={data.subTitle} />
       <div className=''>
         <div className='post' dangerouslySetInnerHTML={{ __html: post }} />

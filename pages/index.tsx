@@ -17,7 +17,7 @@ const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
   const { navbars } = useNavbar();
 
   return (
-    <Layout back={false} head='Home'>
+    <Layout back={false}>
       <NextSEO title='Home' />
       <Header />
       <div className='flex flex-col w-full'>
