@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 import { Post } from '../../model/interface';
 import { NavId } from '../../model/types';
 import NextSEO from '../NextSEO';
-import Pagination from './Pagination';
+import Pagination, { offset } from './Pagination';
 
 interface Props {
   posts: Post[];
@@ -15,7 +15,6 @@ interface Props {
 const Content = ({ posts, pageName }: Props) => {
   const [index, setIndex] = useState(0);
   const topRef = useRef<HTMLDivElement>(null);
-  const offset = 15;
   const router = useRouter();
   const currentPath =
     router.asPath.split('/')[2] === 'js'

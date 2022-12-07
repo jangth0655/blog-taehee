@@ -6,6 +6,7 @@ import {
   useEffect,
 } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import cls from '../../module/cls';
 
 interface Props {
   totalPostLength: number;
@@ -14,9 +15,12 @@ interface Props {
   topRef?: RefObject<HTMLDivElement>;
 }
 
+export const offset = 15;
 const Pagination = ({ totalPostLength, index, setIndex, topRef }: Props) => {
-  const offset = 15;
   const MAX_PAGE = Math.ceil(totalPostLength / offset);
+
+  const initialPage = index === 0;
+  const lastPage = index + 1 === MAX_PAGE;
 
   const handlePreviewIndex = useCallback(() => {
     index === 0 ? index : setIndex((prev) => prev - 1);
@@ -33,7 +37,10 @@ const Pagination = ({ totalPostLength, index, setIndex, topRef }: Props) => {
   return (
     <div className='flex items-center space-x-8 justify-center mt-10 text-zinc-300'>
       <button
-        className='cursor-pointer hover:text-pink-400 transition-all p-1'
+        className={cls(
+          'cursor-pointer transition-all p-1',
+          initialPage ? 'text-zinc-500' : 'text-zinc-300 hover:text-pink-400 '
+        )}
         onClick={handlePreviewIndex}
       >
         <MdKeyboardArrowLeft size={30} />
@@ -44,7 +51,10 @@ const Pagination = ({ totalPostLength, index, setIndex, topRef }: Props) => {
         <span>{MAX_PAGE}</span>
       </div>
       <button
-        className='cursor-pointer hover:text-pink-400 transition-all p-1'
+        className={cls(
+          'cursor-pointer transition-all p-1',
+          lastPage ? 'text-zinc-500' : 'text-zinc-300 hover:text-pink-400'
+        )}
         onClick={handleNextIndex}
       >
         <MdKeyboardArrowRight size={30} />
