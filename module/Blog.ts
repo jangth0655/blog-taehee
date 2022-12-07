@@ -1,9 +1,12 @@
 import { readdirSync, readFileSync } from 'fs';
+import { BlogCount, DataFileName } from '../model/types';
+
+import { unified } from 'unified';
 import matter from 'gray-matter';
 import remarkHtml from 'remark-html';
 import remarkParse from 'remark-parse/lib';
-import { unified } from 'unified';
-import { BlogCount, DataFileName } from '../model/types';
+import remarkGfm from 'remark-gfm';
+import remarkImages from 'remark-images';
 
 class Blog {
   private root = './data';
@@ -29,6 +32,8 @@ class Blog {
 
     const { value } = await unified()
       .use(remarkParse)
+      .use(remarkGfm)
+      .use(remarkImages)
       .use(remarkHtml)
       .process(content);
 

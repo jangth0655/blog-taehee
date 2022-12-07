@@ -15,6 +15,10 @@ hr {
   @apply my-16 h-1 border-none bg-gray-500 rounded-lg;
 }
 
+.post img {
+  @apply w-[32rem] h-96;
+}
+
 .post h1 {
   @apply text-rose-500 text-2xl font-bold mb-6;
 }
