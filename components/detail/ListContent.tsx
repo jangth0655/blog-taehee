@@ -12,7 +12,7 @@ interface Props {
   pageName: NavId;
 }
 
-const Content = ({ posts, pageName }: Props) => {
+const ListContent = ({ posts, pageName }: Props) => {
   const [index, setIndex] = useState(0);
   const topRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -47,4 +47,4 @@ const Content = ({ posts, pageName }: Props) => {
   );
 };
 
-export default Content;
+export default ListContent;

@@ -12,27 +12,31 @@ ul {
 }
 
 hr {
-  @apply my-16 h-1 border-none bg-gray-500 rounded-lg;
+  @apply my-14 h-[1px] border-none bg-gray-600;
 }
 
 .post img {
-  @apply w-[32rem] h-96;
+  @apply w-full h-[30rem] m-auto rounded-md my-4;
 }
 
 .post h1 {
-  @apply text-rose-500 text-2xl font-bold mb-6;
+  @apply text-red-400 text-xl sm:text-2xl font-bold mb-6;
 }
 
 .post h2 {
-  @apply text-rose-400 text-xl  my-4;
+  @apply text-white text-lg font-bold sm:text-xl  my-4;
 }
 
 .post ul {
-  @apply my-2 sm:text-base text-sm;
+  @apply my-2 sm:text-base text-sm lg:text-base;
 }
 
 .post li {
-  @apply my-2;
+  @apply my-2 text-sm leading-7;
+}
+
+.post p {
+  @apply mt-2 text-sm leading-6;
 }
 
 .post code {
@@ -40,11 +44,7 @@ hr {
 }
 
 strong {
-  @apply text-orange-300 font-bold;
-}
-
-.post p {
-  @apply mt-4;
+  @apply text-teal-500 font-bold;
 }
 
 .post pre {

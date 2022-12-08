@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 
-import Content from '../../../components/detail/Content';
+import ListContent from '../../../components/detail/ListContent';
 import Layout from '../../../components/Layout';
 import PageTitle from '../../../components/PageTitle';
 import UpdatedText from '../../../components/UpdateText';
@@ -11,7 +11,7 @@ const TsPage: NextPage<{ tsContents: Post[] }> = ({ tsContents }) => {
   return (
     <Layout category=''>
       <PageTitle title='Typescript' />
-      <Content pageName='typescript' posts={tsContents} />
+      <ListContent pageName='typescript' posts={tsContents} />
       <UpdatedText />
     </Layout>
   );

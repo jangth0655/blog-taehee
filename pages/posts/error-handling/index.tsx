@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 
-import Content from '../../../components/detail/Content';
+import ListContent from '../../../components/detail/ListContent';
 import Layout from '../../../components/Layout';
 import PageTitle from '../../../components/PageTitle';
 import UpdatedText from '../../../components/UpdateText';
@@ -13,7 +13,7 @@ const ErrorHandlingPage: NextPage<{ errorHandlingContents: Post[] }> = ({
   return (
     <Layout category=''>
       <PageTitle title='Error Handing' />
-      <Content pageName='error-handling' posts={errorHandlingContents} />
+      <ListContent pageName='error-handling' posts={errorHandlingContents} />
       <UpdatedText />
     </Layout>
   );

@@ -4,6 +4,7 @@ import Layout from '../../../components/Layout';
 import { blog } from '../../../module/Blog';
 import { Data } from '../../../model/interface';
 import NextSEO from '../../../components/NextSEO';
+import DetailContent from '../../../components/detail/DetailContent';
 
 const TypescriptDetail: NextPage<{ post: string; data: Data }> = ({
   post,
@@ -12,9 +13,7 @@ const TypescriptDetail: NextPage<{ post: string; data: Data }> = ({
   return (
     <Layout category={data.category}>
       <NextSEO isDetail title={data.title} description={data.subTitle} />
-      <div className=''>
-        <div className='post' dangerouslySetInnerHTML={{ __html: post }} />
-      </div>
+      <DetailContent post={post} />
     </Layout>
   );
 };

@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import DetailContent from '../../../components/detail/DetailContent';
 
 import Layout from '../../../components/Layout';
 import NextSEO from '../../../components/NextSEO';
@@ -12,9 +13,7 @@ const ReactDetailPage: NextPage<{ post: string; data: Data }> = ({
   return (
     <Layout category='react'>
       <NextSEO isDetail title={data.title} description={data.subTitle} />
-      <div className=''>
-        <div className='post' dangerouslySetInnerHTML={{ __html: post }} />
-      </div>
+      <DetailContent post={post} />
     </Layout>
   );
 };

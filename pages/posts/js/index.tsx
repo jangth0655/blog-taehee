@@ -4,15 +4,16 @@ import { Post } from '../../../model/interface';
 
 import Layout from '../../../components/Layout';
 import UpdatedText from '../../../components/UpdateText';
-import Content from '../../../components/detail/Content';
+
 import { blog } from '../../../module/Blog';
 import PageTitle from '../../../components/PageTitle';
+import ListContent from '../../../components/detail/ListContent';
 
 const JavascriptPage: NextPage<{ jsContents: Post[] }> = ({ jsContents }) => {
   return (
     <Layout category=''>
       <PageTitle title='Basic Javascript' />
-      <Content posts={jsContents} pageName='js' />
+      <ListContent posts={jsContents} pageName='js' />
       <UpdatedText />
     </Layout>
   );
