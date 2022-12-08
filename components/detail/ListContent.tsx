@@ -25,9 +25,9 @@ const ListContent = ({ posts, pageName }: Props) => {
     <div ref={topRef}>
       <NextSEO isDetail title={currentPath} />
       <div className='mb-8'>
-        <span className='text-zinc-400'>{`Total (${posts.length})`}</span>
+        <span className='text-zinc-400'>{`Total (${posts?.length})`}</span>
       </div>
-      {posts.slice(index * offset, offset + index * offset).map((file, i) => (
+      {posts?.slice(index * offset, offset + index * offset).map((file, i) => (
         <div key={i} className='mb-8'>
           <Link href={`/posts/${pageName}/${file.slug}`}>
             <a className='cursor-pointer hover:text-teal-400 transition-all'>
@@ -38,7 +38,7 @@ const ListContent = ({ posts, pageName }: Props) => {
         </div>
       ))}
       <Pagination
-        totalPostLength={posts.length}
+        totalPostLength={posts?.length}
         setIndex={setIndex}
         index={index}
         topRef={topRef}

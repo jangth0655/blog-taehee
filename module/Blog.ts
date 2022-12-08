@@ -11,8 +11,8 @@ import remarkImages from 'remark-images';
 class Blog {
   private root = './data';
 
-  parseFileData = (title: DataFileName) => {
-    const files = readdirSync(`${this.root}/${title}`);
+  parseFileData = (title: DataFileName, path?: string) => {
+    const files = this.readDir(title, path);
     const contentInfo = files.map((fileName) => {
       const content = readFileSync(
         `${this.root}/${title}/${fileName}`,
@@ -43,24 +43,26 @@ class Blog {
     };
   };
 
-  parseFilePath = (title: DataFileName) => {
-    const files = readdirSync(`${this.root}/${title}`).map((file) => {
+  parseFilePath = (title: DataFileName, path?: string) => {
+    const files = this.readDir(title, path).map((file) => {
       const [slug, extension] = file.split('.');
       return { params: { slug } };
     });
     return files;
   };
 
-  getFileLength = (title: DataFileName) => {
-    const length = readdirSync(`${this.root}/${title}`).length;
+  getFileLength = (title: DataFileName, path?: string) => {
+    const length = this.readDir(title, path).length;
+    if (!length) return 0;
     return length;
   };
 
   get fileCountData() {
-    const jsCount = this.getFileLength('javascript');
-    const typescriptCount = this.getFileLength('typescript');
-    const reactCount = this.getFileLength('react');
-    const errorCount = this.getFileLength('error-handling');
+    const jsCount = this.getFileLength('javascript') || 0;
+    const typescriptCount = this.getFileLength('typescript') || 0;
+    const reactCount = this.getFileLength('react') || 0;
+    const errorCount = this.getFileLength('error-handling') || 0;
+    const diaryCount = this.getFileLength('dev-diary') || 0;
     const blogFiles: BlogCount[] = [
       {
         id: 'js',
@@ -78,9 +80,19 @@ class Blog {
         id: 'error-handling',
         count: errorCount,
       },
+      {
+        id: 'dev-diary',
+        count: diaryCount | 0,
+      },
     ];
     return [...blogFiles];
   }
+
+  private readDir = (title: DataFileName, path?: string) => {
+    return path
+      ? readdirSync(`${blog.root}/${path}/${title}`)
+      : readdirSync(`${blog.root}/${title}`);
+  };
 }
 
 export const blog = new Blog();
