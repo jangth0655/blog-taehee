@@ -4,7 +4,7 @@ import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
 
 import { ToggleNavProvider } from '../context/toggleNavContext';
-import NextSEO from '../components/NextSEO';
+import SEO from '../seo.config';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <meta content='width=device-width, initial-scale=1' name='viewport' />
       </Head>
-      <DefaultSeo {...NextSEO} />
+      <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </ToggleNavProvider>
   );

@@ -1,12 +1,13 @@
 import type { GetStaticProps, NextPage } from 'next';
 
+import { NextSeo } from 'next-seo';
 import Layout from '../components/Layout';
 import PostBoarder from '../components/home/PostBoarder';
 import Header from '../components/home/Header';
 import useNavbar from '../hooks/useNavbar';
 import { BlogCount } from '../model/types';
-import NextSEO from '../components/NextSEO';
 import { blog } from '../module/Blog';
+import NextSEO from '../components/NextSEO';
 
 const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
   const { navbars } = useNavbar();
