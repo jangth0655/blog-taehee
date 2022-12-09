@@ -1,7 +1,8 @@
 ---
 title: PureComponents / memo & useCallback
 category: react
-name: ""
+createdAt: 2022-8-19
+updatedAt: 2022/10/23
 ---
 
 ## pureComponent와 memo
@@ -53,12 +54,12 @@ function Button({ text, changeValue }) {
 
 // ✨✨✨ state, props가 변경되면, 해당컴포넌트(자식컴포넌트)가 리렌더링된다.
 function App() {
-  const [value, setValue] = React.useState("Save Changes");
-  const changeValue = setValue("Revert Changes");
+  const [value, setValue] = React.useState('Save Changes');
+  const changeValue = setValue('Revert Changes');
   return (
     <div>
       <MemorizedBtn changeValue={changeValue} text={value} />
-      <MemorizedBtn text="Continue" />
+      <MemorizedBtn text='Continue' />
     </div>
   );
 }

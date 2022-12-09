@@ -1,7 +1,8 @@
 ---
 title: Server Components (with Nextjs)
 category: react
-name: ""
+createdAt: 2022/10/14
+updatedAt: 2022/10/23
 ---
 
 # React Server Components
@@ -22,7 +23,7 @@ module.exports = {
   // ...기타 옵션
   experimental: {
     severComponents: true,
-    runtime: "nodejs",
+    runtime: 'nodejs',
     reactRoot: true,
   },
 };

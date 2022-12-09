@@ -1,7 +1,8 @@
 ---
 title: NextJS와 LocalStorage
 category: error-handling
-name: ''
+createdAt: 2022/11/18
+updatedAt:
 ---
 
 # NextJS에서 LocalStorage

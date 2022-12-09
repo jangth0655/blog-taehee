@@ -1,7 +1,8 @@
 ---
 title: Cors Error
 category: error-handling
-name: ""
+createdAt: 2022/10/18
+updatedAt: 2022/11/23
 ---
 
 # CORS

@@ -1,7 +1,8 @@
 ---
 title: Module
 category: typescript
-name: ""
+createdAt: 2022-8-16
+updatedAt:
 ---
 
 # 모듈

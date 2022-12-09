@@ -1,7 +1,8 @@
 ---
 title: Function
 category: typescript
-name: ""
+createdAt: 2022-8-15
+updatedAt:
 ---
 
 # Function
@@ -38,11 +39,11 @@ function printName(firstName: string, lastName?: string) {
   console.log(lastName);
 }
 
-printName("Steve", "Jobs");
-printName("taehee");
+printName('Steve', 'Jobs');
+printName('taehee');
 
 // Default parameter
-function printMessage(message: string = "default message") {
+function printMessage(message: string = 'default message') {
   console.log(message);
 }
 printMessage();

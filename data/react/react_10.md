@@ -1,7 +1,8 @@
 ---
 title: useReducer & context
 category: react
-name: ''
+createdAt: 2022/10/14
+updatedAt: 2022/11/4
 ---
 
 ## useReducer

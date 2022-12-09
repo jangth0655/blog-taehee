@@ -1,7 +1,8 @@
 ---
 title: Type Alias
 category: typescript
-name: ""
+createdAt: 2022-8-15
+updatedAt:
 ---
 
 # ✨✨ Type Alias
@@ -11,8 +12,8 @@ name: ""
 
 ```typescript
 type Text = string;
-const name: string = "tahee";
-const address: Text = "korea";
+const name: string = 'tahee';
+const address: Text = 'korea';
 
 type Student = {
   name: string;
@@ -20,15 +21,15 @@ type Student = {
 };
 
 const student: Student = {
-  name: "taehee",
+  name: 'taehee',
   age: 12,
 };
 
 // String Literal Types
 // 다른 문자열 변경불가
-type Name = "name";
+type Name = 'name';
 let taeheeName: Name;
-taeheeName = "name";
+taeheeName = 'name';
 
 type Boal = true;
 const isCat: Boal = true; // false → error

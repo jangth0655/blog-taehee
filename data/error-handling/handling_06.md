@@ -1,7 +1,8 @@
 ---
 title: ContextAPI 에러
 category: error-handling
-name: ""
+createdAt: 2022/10/28
+updatedAt:
 ---
 
 # ContextAPI

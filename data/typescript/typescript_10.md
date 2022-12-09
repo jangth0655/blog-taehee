@@ -1,7 +1,8 @@
 ---
 title: Type Assertion
 category: typescript
-name: ""
+createdAt: 2022-8-15
+updatedAt:
 ---
 
 # Type Assertion 💩

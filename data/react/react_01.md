@@ -1,7 +1,8 @@
 ---
 title: About react
 category: react
-name: ""
+createdAt: 2022-8-18
+updatedAt: 2022/10/20
 ---
 
 # React

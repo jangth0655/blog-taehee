@@ -1,7 +1,8 @@
 ---
 title: Basic Type
 category: typescript
-name: ""
+createdAt: 2022-8-15
+updatedAt:
 ---
 
 # Basic Type
@@ -16,7 +17,7 @@ name: ""
 const num: number = 1;
 
 // string
-const str: string = "hello";
+const str: string = 'hello';
 
 // boolean
 const boal: boolean = true; // false
@@ -31,16 +32,16 @@ let name: string | null;
 
 // ❌ unknown, 어떤 종류의 데이터가 담길지 알 수 없다.
 let notSure: unknown = 0;
-notSure = "he";
+notSure = 'he';
 notSure = true;
 
 // ❌ any, 어떤 타입도 가능하다.
 let anything: any = 0;
-anything = "hello";
+anything = 'hello';
 
 // void, 아무런 값도 리턴하지 않는다. 생략 가능하다.
 function print(): void {
-  console.log("hello");
+  console.log('hello');
 }
 
 // never,  절대 리턴하지 않는 함수, 호출하면 중지되고 kill된다.

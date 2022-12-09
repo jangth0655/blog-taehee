@@ -1,7 +1,8 @@
 ---
 title: Intersection
 category: typescript
-name: ""
+createdAt: 2022-8-15
+updatedAt:
 ---
 
 # Intersection
@@ -25,7 +26,7 @@ function interWork(person: Student & Worker) {
 }
 
 interWork({
-  name: "taehee",
+  name: 'taehee',
   score: 1,
   employeedId: 123,
   work: () => {},

@@ -1,7 +1,8 @@
 ---
 title: Recoil duplicated key in Nextjs
 category: error-handling
-name: ""
+createdAt: 2022/10/19
+updatedAt:
 ---
 
 # Recoil duplicated key
@@ -29,15 +30,15 @@ name: ""
   → dev상태에서 recoil의 경고를 안전하게 무시할 수 있는 방법
 
 ```javascript
-const intercept = require("intercept-stoudt");
+const intercept = require('intercept-stoudt');
 function interceptStdout(text) {
-  if (text.includes("Duplicate atom key")) {
-    return "";
+  if (text.includes('Duplicate atom key')) {
+    return '';
   }
   return text;
 }
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === 'development') {
   intercept(interceptStdout);
 }
 ```

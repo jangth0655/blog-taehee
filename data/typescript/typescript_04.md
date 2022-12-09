@@ -1,7 +1,8 @@
 ---
 title: Array & Tuple
 category: typescript
-name: ""
+createdAt: 2022-8-15
+updatedAt:
 ---
 
 ## Array
@@ -9,7 +10,7 @@ name: ""
 - 한가지 타입만을 가질 수 있는 배열
 
 ```typescript
-const fruits: string[] = ["apple", "banana"];
+const fruits: string[] = ['apple', 'banana'];
 const scores: Array<number> = [1, 2, 3];
 // readonly 사용하려면 string[]
 function printArray(fruits: readonly string[]) {}
@@ -23,11 +24,11 @@ function printArray(fruits: readonly string[]) {}
 
 ```typescript
 let student = [string, number];
-student = ["name", 123];
+student = ['name', 123];
 student[0]; // name
 student[1]; // 123
 const [name, age] = student;
 
 // tuple 활용 react
-const [string, setString] = useSate("");
+const [string, setString] = useSate('');
 ```

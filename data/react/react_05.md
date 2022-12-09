@@ -1,7 +1,8 @@
 ---
 title: Lifecycle & useEffect
 category: react
-name: ""
+createdAt: 2022-8-20
+updatedAt: 2022/10/23
 ---
 
 ## Lifecycle Method
@@ -57,7 +58,7 @@ class Clock extends React.Component {
 export default function Products() {
   const [products, setProducts] = useState([]);
 
-  fetch("...");
+  fetch('...');
   //....
   setProducts(data);
 }
@@ -72,13 +73,13 @@ export default function Products() {
 
   //해당 컴포넌트가 보여질때 처음 한번만 호출된다.
   useEffect(() => {
-    fetch("...");
+    fetch('...');
     //....
     setProducts(data);
 
     // 컴포넌트가 언마운트될때 (사라질 때)
     return () => {
-      console.log("component unmount");
+      console.log('component unmount');
     };
   }, []);
 }
@@ -95,7 +96,7 @@ export default function Products() {
 
   // check가 업데이트 될때 마다 useEffect가 실행된다.
   useEffect(() => {
-    fetch("...");
+    fetch('...');
     //....
     setProducts(data);
   }, [check]);

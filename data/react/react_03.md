@@ -1,7 +1,8 @@
 ---
 title: useState & Props
 category: react
-name: ""
+createdAt: 2022-8-19
+updatedAt: 2022/10/23
 ---
 
 ## useState

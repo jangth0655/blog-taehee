@@ -1,7 +1,8 @@
 ---
 title: About typescript
 category: typescript
-name: ""
+createdAt: 2022-8-14
+updatedAt:
 ---
 
 # 타입스크립트

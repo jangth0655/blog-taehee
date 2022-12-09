@@ -1,7 +1,8 @@
 ---
 title: Nextjs router Abort fetching component for route
 category: error-handling
-name: ""
+createdAt: 2022/10/19
+updatedAt: 2022/10/20
 ---
 
 # Nextjs router Abort fetching component for route

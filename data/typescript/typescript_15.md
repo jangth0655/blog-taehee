@@ -1,7 +1,8 @@
 ---
 title: Utility Types
 category: typescript
-name: ""
+createdAt: 2022-8-16
+updatedAt:
 ---
 
 # Utility Types
@@ -14,29 +15,29 @@ name: ""
 
 ```typescript
 const obj = {
-  name: "taehee",
+  name: 'taehee',
 };
 // Object 접근 방법
 obj.name;
-obj["name"];
+obj['name'];
 
 type Animal = {
   name: string;
   age: number;
-  gender: "male" | "female";
+  gender: 'male' | 'female';
 };
 
-type Name = Animal["name"]; // Name:string 타입
-type Gender = Animal["gender"]; // "male" | "female"
+type Name = Animal['name']; // Name:string 타입
+type Gender = Animal['gender']; // "male" | "female"
 type Keys = keyof Animal; // 'name'|'age'|'gender'
 
 type Person = {
   name: string;
-  gender: Animal["gender"];
+  gender: Animal['gender'];
 };
 const person: Person = {
-  name: "taehee",
-  gender: "male",
+  name: 'taehee',
+  gender: 'male',
 };
 ```
 
@@ -66,7 +67,7 @@ type Optional<T> = {
 };
 type VideoOptional2 = Optional<Video>;
 const videoOp: VideoOptional2 = {
-  title: "", // optional, 있어도 되고 없어도 된다.
+  title: '', // optional, 있어도 되고 없어도 된다.
 };
 ```
 
@@ -105,19 +106,19 @@ type ToDo = {
   title: string;
   description: string;
   label: string;
-  priority: "high" | "low";
+  priority: 'high' | 'low';
 };
 
 function updateTodo(todo: ToDo, fieldsToUpdate: Partial<ToDo>): ToDo {
   return { ...todo, ...fieldToUpdate };
 }
 const todo: ToDo = {
-  title: "learn Typescript",
-  description: "study hard",
-  label: "study",
-  priority: "high",
+  title: 'learn Typescript',
+  description: 'study hard',
+  label: 'study',
+  priority: 'high',
 };
-updateTodo(todo, { priority: "low" }); // priority만 변경됨
+updateTodo(todo, { priority: 'low' }); // priority만 변경됨
 ```
 
 ---
@@ -131,13 +132,13 @@ updateTodo(todo, { priority: "low" }); // priority만 변경됨
 type Video = {
   id: string;
   title: string;
-  url: "";
+  url: '';
   data: string;
 };
-type VideoMetadata = Pick<Video, "id">;
+type VideoMetadata = Pick<Video, 'id'>;
 function getVideoMetadata(id: string): VideoMetadata {
   return {
-    id: "video",
+    id: 'video',
   };
 }
 ```
@@ -174,11 +175,11 @@ function getVideoMetadata(id: string): VideoMetadata {
 type PageInfo = {
   title: string;
 };
-type Page = "home" | "about" | "contact";
+type Page = 'home' | 'about' | 'contact';
 
 const nav: Record<Page, PageInfo> = {
-  home: { title: "Home" },
-  about: { title: "About" },
+  home: { title: 'Home' },
+  about: { title: 'About' },
   contact: { title: contact },
 };
 ```

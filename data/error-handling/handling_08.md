@@ -1,7 +1,8 @@
 ---
 title: 서버와 client의 매칭 문제 (NextJS)
 category: error-handling
-name: ''
+createdAt: 2022/11/18
+updatedAt:
 ---
 
 # NextJS에서 서버사이드 렌더링과 클라이언트

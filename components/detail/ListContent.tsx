@@ -21,7 +21,8 @@ const ListContent = ({ posts, pageName }: Props) => {
       ? 'javascript'
       : router.asPath.split('/')[2];
 
-  const formateDate = (date: Date) => {
+  const formateDate = (date?: Date) => {
+    if (!date) return;
     return new Date(date).toLocaleDateString('ko', {
       month: 'short',
       day: 'numeric',

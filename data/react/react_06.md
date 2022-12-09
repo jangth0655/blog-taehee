@@ -1,7 +1,8 @@
 ---
 title: React route
 category: react
-name: ""
+createdAt: 2022-8-20
+updatedAt: 2022/10/23
 ---
 
 # Route
@@ -12,12 +13,12 @@ name: ""
 - 즉, HTTP request(사용자가 URL링크를 요청)했을 때 **특정 페이지로 연결할 경로를 결정**해주는 메카니즘
 
 ```javascript
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function APP() {
   <Router>
     <Routes>
       /* path 경로 element 해당 스크린 */
-      <Route path="/" element={<MyScreen />} />
+      <Route path='/' element={<MyScreen />} />
     </Routes>
   </Router>;
 }

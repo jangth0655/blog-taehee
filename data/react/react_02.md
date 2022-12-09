@@ -1,7 +1,8 @@
 ---
 title: 리액트 구조
 category: react
-name: ""
+createdAt: 2022-8-19
+updatedAt: 2022/9/23
 ---
 
 # 리액트 구조
@@ -32,7 +33,7 @@ ReactDom.render(
 
 ```javascript
 function App() {
-  const name = "taehee";
+  const name = 'taehee';
   return (
     //<></>
     <React.fragment>

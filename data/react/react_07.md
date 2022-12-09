@@ -1,7 +1,8 @@
 ---
 title: React Recoil(상태관리)
 category: react
-name: ""
+createdAt: 2022-8-20
+updatedAt: 2022/10/23
 ---
 
 # 상태관리
@@ -81,13 +82,13 @@ function App() {
 ```javascript
 // atom
 export const toDoState = atom({
-  key: "toDo",
+  key: 'toDo',
   default: [],
 });
 
 // selector
 export const toDoSelector = selector({
-  key: "toDoSelector",
+  key: 'toDoSelector',
   get: ({ get }) => {
     const toDos = get(toDoState);
     return [[toDosArray][DoingArray][DoneArray]];

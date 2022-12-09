@@ -1,7 +1,8 @@
 ---
 title: Error Handling
 category: typescript
-name: ""
+createdAt: 2022-8-15
+updatedAt:
 ---
 
 # Error Handling
@@ -71,10 +72,10 @@ service.login();
 
 ```typescript
 function readFile(fileName: string): string {
-  if (fileName === "not exists") {
+  if (fileName === 'not exists') {
     throw new Error(`file not exist ${fileName}`);
   }
-  return "file";
+  return 'file';
 }
 
 function closeFile(fileName: string) {
@@ -82,7 +83,7 @@ function closeFile(fileName: string) {
 }
 
 // error 잡고, closeFile과 "!!!" 코드가 정상적으로 출력된다.
-const fileName = "not exists";
+const fileName = 'not exists';
 try {
   console.log(readFile(fileName));
 } catch (error) {
@@ -92,5 +93,5 @@ try {
   closeFile(fileName);
 }
 
-console.log("!!!");
+console.log('!!!');
 ```

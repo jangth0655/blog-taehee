@@ -1,7 +1,8 @@
 ---
 title: Infinite Scroll
 category: react
-name: ""
+createdAt: 2022/10/31
+updatedAt:
 ---
 
 # infinite scroll hook
@@ -11,7 +12,7 @@ name: ""
 - scrollHeight : 오버플로워 때문에 보여지지 않는 콘텐트를 포함한 element의 높이
 
 ```javascript
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const useInfiniteScroll = () => {
   const [scrollPerPage, setScrollPerPage] = useState(1);
@@ -26,9 +27,9 @@ const useInfiniteScroll = () => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", handlerScroll);
+    window.addEventListener('scroll', handlerScroll);
     return () => {
-      window.removeEventListener("scroll", handlerScroll);
+      window.removeEventListener('scroll', handlerScroll);
     };
   }, []);
 

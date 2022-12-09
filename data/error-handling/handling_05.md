@@ -1,7 +1,8 @@
 ---
 title: Prettier & EsLint
 category: error-handling
-name: ""
+createdAt: 2022/10/28
+updatedAt:
 ---
 
 # Prettier & EsLint

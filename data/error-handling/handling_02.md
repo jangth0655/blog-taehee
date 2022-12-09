@@ -1,7 +1,8 @@
 ---
 title: Netlify - redirection and rewrite Error
 category: error-handling
-name: ""
+createdAt: 2022/10/19
+updatedAt:
 ---
 
 # Netlify - redirection and rewrite (배포 시 에러 발생)

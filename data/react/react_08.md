@@ -1,7 +1,8 @@
 ---
 title: Suspense
 category: react
-name: ""
+createdAt: 2022/10/14
+updatedAt: 2022/10/23
 ---
 
 # Why? Suspense & React.Lazy

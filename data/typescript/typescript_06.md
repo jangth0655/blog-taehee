@@ -1,7 +1,8 @@
 ---
 title: Union Types
 category: typescript
-name: ""
+createdAt: 2022-8-15
+updatedAt:
 ---
 
 # ✨ Union Types
@@ -10,11 +11,11 @@ name: ""
 - **정의한 타입들 중 하나**를 선택할 때 이용할 수 있다.
 
 ```typescript
-type Direction = "left" | "right" | "up" | "down";
+type Direction = 'left' | 'right' | 'up' | 'down';
 function move(direction: Direction) {
   console.log(direction);
 }
-move("left"); // 자동으로 Direction type을 보여준다.
+move('left'); // 자동으로 Direction type을 보여준다.
 
 type TileSize = 8 | 16 | 32;
 const tile: TileSize = 8;
@@ -35,7 +36,7 @@ type LoginState = SuccessState | FailState;
 function login(id: string, password: string): Promise<LoginState> {
   return {
     response: {
-      body: "logged in!!",
+      body: 'logged in!!',
     },
   };
 }
@@ -49,14 +50,14 @@ function login(id: string, password: string): Promise<LoginState> {
 
 ```typescript
 type SuccessState = {
-  result: "success";
+  result: 'success';
   response: {
     body: string;
   };
 };
 
 type FailState = {
-  result: "fail";
+  result: 'fail';
   reason: string;
 };
 
@@ -65,7 +66,7 @@ type LoginState = SuccessState | FailState;
 // printLoginState(state)
 // success => good, fail => uu
 function printLoginState(state: LoginState) {
-  if (state.result === "success") {
+  if (state.result === 'success') {
     console.log(`${state.response.body}`);
   } else {
     console.log(`${state.reason}`);

@@ -1,7 +1,8 @@
 ---
 title: About 객체지향(OOP)
 category: typescript
-name: ''
+createdAt: 2022-8-15
+updatedAt:
 ---
 
 # 객체지향 (OOP, Object Oriented Programing)

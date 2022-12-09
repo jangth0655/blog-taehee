@@ -1,7 +1,8 @@
 ---
 title: 타입 추론(Type Inference)
 category: typescript
-name: ""
+createdAt: 2022-8-15
+updatedAt:
 ---
 
 # 타입추론 Type Inference
@@ -11,7 +12,7 @@ name: ""
 - **원시타입경우를 제외하고는 타입을 정확히 명시하는 것이 중요하다**.
 
 ```typescript
-let text = "string"; // text type = string
+let text = 'string'; // text type = string
 
 // any type ❌ → 타입을 정확히 명시해줘야 한다.
 function print(message) {

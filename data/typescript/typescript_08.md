@@ -1,7 +1,8 @@
 ---
 title: Enum
 category: typescript
-name: ""
+createdAt: 2022-8-15
+updatedAt:
 ---
 
 # Enum

@@ -1,7 +1,8 @@
 ---
 title: Type vs Interface
 category: typescript
-name: ""
+createdAt: 2022-8-16
+updatedAt:
 ---
 
 # Type vs Interface
@@ -42,5 +43,5 @@ type Person = {
   name: string;
   age: number;
 };
-type Name = Person["name"]; // string
+type Name = Person['name']; // string
 ```
