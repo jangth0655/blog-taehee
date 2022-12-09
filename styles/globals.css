@@ -27,6 +27,10 @@ hr {
   @apply text-white text-lg font-bold sm:text-xl  my-4;
 }
 
+.post h3 {
+  @apply font-bold text-zinc-200;
+}
+
 .post ul {
   @apply my-2 sm:text-base text-sm lg:text-base;
 }
@@ -49,4 +53,8 @@ strong {
 
 .post pre {
   @apply p-2 rounded-lg my-4 shadow-black shadow-md bg-zinc-800 overflow-x-scroll;
+}
+
+.post a {
+  @apply border-b-[1px] border-teal-500 text-teal-500;
 }
