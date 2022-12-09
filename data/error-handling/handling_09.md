@@ -1,7 +1,8 @@
 ---
 title: Nextjs에서 'fs' 모듈을 읽지 못하는 에러
 category: error-handling
-name: ''
+data:
+updatedAt: 2022-12-8
 ---
 
 # NextJS에서 'fs' 모듈을 읽지 못하는 에러

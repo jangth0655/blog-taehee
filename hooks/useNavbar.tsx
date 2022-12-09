@@ -7,7 +7,6 @@ const useNavbar = () => {
   const router = useRouter();
   const { setToggleNav } = useActiveNav();
   const { pathname } = useRouter();
-  const currentPage = pathname.split('/')[2] || 'home';
 
   const handlePage = (pageName: NavText) => {
     setToggleNav(false);
@@ -17,8 +16,8 @@ const useNavbar = () => {
 
   return {
     navbars: navbar.category,
-    currentPage,
     handlePage,
+    toggleNavbarBoard: setToggleNav,
   };
 };
 export default useNavbar;

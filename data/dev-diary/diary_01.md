@@ -1,7 +1,8 @@
 ---
 title: Pre-onboading 회고
 category: error-handling
-name: ''
+data:
+updatedAt: 2022-12-9
 ---
 
 # Pre-onboarding

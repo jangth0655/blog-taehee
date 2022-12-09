@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from 'next';
 
 import { Post } from '../../../model/interface';
 
-import Layout from '../../../components/Layout';
+import Layout from '../../../components/Layout/Layout';
 import UpdatedText from '../../../components/UpdateText';
 
 import { blog } from '../../../module/Blog';

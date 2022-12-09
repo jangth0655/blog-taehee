@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 
 import ListContent from '../../../components/detail/ListContent';
-import Layout from '../../../components/Layout';
+import Layout from '../../../components/Layout/Layout';
 import PageTitle from '../../../components/PageTitle';
 import UpdatedText from '../../../components/UpdateText';
 import { blog } from '../../../module/Blog';

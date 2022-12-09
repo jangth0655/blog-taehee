@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
-import Layout from '../../../components/Layout';
+import Layout from '../../../components/Layout/Layout';
 import { blog } from '../../../module/Blog';
 import { Data } from '../../../model/interface';
 import NextSEO from '../../../components/NextSEO';

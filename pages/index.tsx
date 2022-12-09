@@ -1,7 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next';
 
-import { NextSeo } from 'next-seo';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import PostBoarder from '../components/home/PostBoarder';
 import Header from '../components/home/Header';
 import useNavbar from '../hooks/useNavbar';

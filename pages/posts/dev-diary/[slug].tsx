@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import DetailContent from '../../../components/detail/DetailContent';
 
-import Layout from '../../../components/Layout';
+import Layout from '../../../components/Layout/Layout';
 import NextSEO from '../../../components/NextSEO';
 import { Data } from '../../../model/interface';
 import { blog } from '../../../module/Blog';

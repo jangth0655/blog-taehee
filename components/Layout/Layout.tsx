@@ -3,8 +3,9 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation, useScroll, Variants } from 'framer-motion';
 import { AiOutlineArrowLeft, AiOutlineArrowUp } from 'react-icons/ai';
 
-import Navbar from './Layout/navbar/Navbar';
-import Button from './Button';
+import Navbar from './navbar/Navbar';
+import Button from '../Button';
+import useNavbar from '../../hooks/useNavbar';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -25,6 +26,7 @@ const scrollVariant: Variants = {
 const Layout: React.FC<LayoutProps> = ({ children, back = true }) => {
   const router = useRouter();
   const topRef = useRef<HTMLDivElement>(null);
+  const { toggleNavbarBoard } = useNavbar();
 
   const goBack = () => {
     router.back();
@@ -50,7 +52,10 @@ const Layout: React.FC<LayoutProps> = ({ children, back = true }) => {
     <>
       <section ref={topRef} className='bg-zinc-900 text-white'>
         <Navbar />
-        <main className='pt-4 px-6 xs:px-0 max-w-7xl m-auto min-h-screen pb-10'>
+        <main
+          onClick={() => toggleNavbarBoard(false)}
+          className='pt-4 px-6 xs:px-0 max-w-7xl m-auto min-h-screen pb-10'
+        >
           {back && (
             <div
               onClick={() => goBack()}

@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import remarkHtml from 'remark-html';
 import remarkParse from 'remark-parse/lib';
 import { unified } from 'unified';
-import Layout from '../../../components/Layout';
+import Layout from '../../../components/Layout/Layout';
 import { Data } from '../../../model/interface';
 
 const NextJSFileDetail: NextPage<{ post: string; data: Data }> = ({

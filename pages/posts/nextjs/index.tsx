@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
-import Layout from '../../../components/Layout';
+import Layout from '../../../components/Layout/Layout';
 import PageTitle from '../../../components/PageTitle';
 import UpdatedText from '../../../components/UpdateText';
 import { Post } from '../../../model/interface';
