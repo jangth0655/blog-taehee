@@ -37,22 +37,24 @@ const ListContent = ({ posts, pageName }: Props) => {
       </div>
       {posts?.slice(index * offset, offset + index * offset).map((file, i) => (
         <div key={i} className='mb-8'>
-          <Link href={`/posts/${pageName}/${file.slug}`}>
-            <div className='cursor-pointer hover:text-teal-400 transition-all flex'>
-              <span>·</span>
-              <div className='pl-4'>
-                <span>{file.title}</span>
-                <div className='text-xs text-gray-400'>
-                  {file.createdAt && (
-                    <span>Created : {formateDate(file.createdAt)}</span>
-                  )}
-                  {file.updatedAt && (
-                    <span>Updated : {formateDate(file.updatedAt)}</span>
-                  )}
-                </div>
+          <div className='flex'>
+            <span>·</span>
+            <div className='pl-4'>
+              <Link href={`/posts/${pageName}/${file.slug}`}>
+                <span className='cursor-pointer inline-block hover:text-teal-400 transition-all p-1 pl-0'>
+                  {file.title}
+                </span>
+              </Link>
+              <div className='flex flex-col space-y-1 text-xs text-gray-400'>
+                {file.createdAt && (
+                  <span>Created : {formateDate(file.createdAt)}</span>
+                )}
+                {file.updatedAt && (
+                  <span>Updated : {formateDate(file.updatedAt)}</span>
+                )}
               </div>
             </div>
-          </Link>
+          </div>
         </div>
       ))}
       <Pagination
