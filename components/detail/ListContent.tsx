@@ -24,6 +24,7 @@ const ListContent = ({ posts, pageName }: Props) => {
   const formateDate = (date?: Date) => {
     if (!date) return;
     return new Date(date).toLocaleDateString('ko', {
+      year: '2-digit',
       month: 'short',
       day: 'numeric',
     });
