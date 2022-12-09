@@ -1,8 +1,8 @@
 ---
 title: vercel 500 internal Server Error
 category: error-handling
-data:
-updatedAt: 2022-12-8
+createdAt: 2022-12-8
+updatedAt:
 ---
 
 # Vercel에서 500 internal Server Error

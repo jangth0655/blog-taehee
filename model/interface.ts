@@ -3,6 +3,8 @@ export interface Post {
   subTitle?: string;
   category: string;
   slug?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface Data {

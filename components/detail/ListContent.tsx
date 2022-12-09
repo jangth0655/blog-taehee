@@ -21,6 +21,13 @@ const ListContent = ({ posts, pageName }: Props) => {
       ? 'javascript'
       : router.asPath.split('/')[2];
 
+  const formateDate = (date: Date) => {
+    return new Date(date).toLocaleDateString('ko', {
+      month: 'short',
+      day: 'numeric',
+    });
+  };
+
   return (
     <div ref={topRef}>
       <NextSEO isDetail title={currentPath} />
@@ -30,9 +37,19 @@ const ListContent = ({ posts, pageName }: Props) => {
       {posts?.slice(index * offset, offset + index * offset).map((file, i) => (
         <div key={i} className='mb-8'>
           <Link href={`/posts/${pageName}/${file.slug}`}>
-            <div className='cursor-pointer hover:text-teal-400 transition-all'>
-              <span className='mr-4'>·</span>
-              <span>{file.title}</span>
+            <div className='cursor-pointer hover:text-teal-400 transition-all flex'>
+              <span>·</span>
+              <div className='pl-4'>
+                <span>{file.title}</span>
+                <div className='text-xs text-gray-400'>
+                  {file.createdAt && (
+                    <span>Created : {formateDate(file.createdAt)}</span>
+                  )}
+                  {file.updatedAt && (
+                    <span>Updated : {formateDate(file.updatedAt)}</span>
+                  )}
+                </div>
+              </div>
             </div>
           </Link>
         </div>
