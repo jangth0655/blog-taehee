@@ -27,8 +27,8 @@ export const navbars: NavTitle[] = [
     subTitle: '개발 중 에러 발생과 해결',
   },
   {
-    name: '개발일기',
-    id: 'dev-diary',
+    name: 'DevStory',
+    id: 'dev-story',
     path: PAGE.DIARY,
     subTitle: '개발·프로젝트 이야기',
   },

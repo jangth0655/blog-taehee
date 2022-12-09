@@ -62,7 +62,7 @@ class Blog {
     const typescriptCount = this.getFileLength('typescript') || 0;
     const reactCount = this.getFileLength('react') || 0;
     const errorCount = this.getFileLength('error-handling') || 0;
-    const diaryCount = this.getFileLength('dev-diary') || 0;
+    const diaryCount = this.getFileLength('dev-story') || 0;
     const blogFiles: BlogCount[] = [
       {
         id: 'js',
@@ -81,7 +81,7 @@ class Blog {
         count: errorCount,
       },
       {
-        id: 'dev-diary',
+        id: 'dev-story',
         count: diaryCount | 0,
       },
     ];

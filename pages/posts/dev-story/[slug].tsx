@@ -20,14 +20,14 @@ const JsFileDetail: NextPage<{ post: string; data: Data }> = ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: blog.parseFilePath('dev-diary'),
+    paths: blog.parseFilePath('dev-story'),
     fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async (ctx: any) => {
   const { data, value } = await blog.parseMarkdown(
-    'dev-diary',
+    'dev-story',
     ctx.params.slug
   );
   return {

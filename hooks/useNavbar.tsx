@@ -6,7 +6,6 @@ import { navbar } from '../module/navbarItem';
 const useNavbar = () => {
   const router = useRouter();
   const { setToggleNav } = useActiveNav();
-  const { pathname } = useRouter();
 
   const handlePage = (pageName: NavText) => {
     setToggleNav(false);

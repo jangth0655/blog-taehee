@@ -19,7 +19,7 @@ class NavbarItem {
         return PAGE.REACT;
       case 'Error-handling':
         return PAGE.ERRORS;
-      case '개발일기':
+      case 'DevStory':
         return PAGE.DIARY;
       default:
         return '/';

@@ -4,7 +4,7 @@ export type NavText =
   | 'Typescript'
   | 'React'
   | 'Error-handling'
-  | '개발일기';
+  | 'DevStory';
 
 export type DataFileName =
   | 'home'
@@ -12,7 +12,7 @@ export type DataFileName =
   | 'typescript'
   | 'react'
   | 'error-handling'
-  | 'dev-diary';
+  | 'dev-story';
 
 export type NavId =
   | 'home'
@@ -20,7 +20,7 @@ export type NavId =
   | 'typescript'
   | 'react'
   | 'error-handling'
-  | 'dev-diary';
+  | 'dev-story';
 
 export type NavTitle = {
   name: NavText;
@@ -35,7 +35,7 @@ export enum PAGE {
   TS = '/posts/typescript',
   REACT = '/posts/react',
   ERRORS = '/posts/error-handling',
-  DIARY = '/posts/dev-diary',
+  DIARY = '/posts/dev-story',
 }
 
 export type BlogCount = {

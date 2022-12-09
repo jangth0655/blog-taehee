@@ -13,14 +13,14 @@ const DiaryPage: NextPage<{ diaryContents: Post[] }> = ({ diaryContents }) => {
   return (
     <Layout category=''>
       <PageTitle title='개발일기' />
-      <ListContent posts={diaryContents} pageName='dev-diary' />
+      <ListContent posts={diaryContents} pageName='dev-story' />
       <UpdatedText />
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const diaryContents = blog.parseFileData('dev-diary');
+  const diaryContents = blog.parseFileData('dev-story');
 
   return {
     props: {
