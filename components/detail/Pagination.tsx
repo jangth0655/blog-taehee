@@ -35,7 +35,7 @@ const Pagination = ({ totalPostLength, index, setIndex, topRef }: Props) => {
   }, [handleNextIndex, handlePreviewIndex, topRef]);
 
   return (
-    <div className='flex items-center space-x-8 justify-center mt-10 text-zinc-300'>
+    <div className='flex items-center space-x-8 justify-center mt-10 dark:text-zinc-300 text-zinc-700'>
       <button
         className={cls(
           'cursor-pointer transition-all p-1',
@@ -53,7 +53,9 @@ const Pagination = ({ totalPostLength, index, setIndex, topRef }: Props) => {
       <button
         className={cls(
           'cursor-pointer transition-all p-1',
-          lastPage ? 'text-zinc-500' : 'text-zinc-300 hover:text-pink-400'
+          lastPage
+            ? 'text-zinc-500'
+            : 'text-zinc-300 hover:dark:text-pink-400 hover:text-pink-600'
         )}
         onClick={handleNextIndex}
       >

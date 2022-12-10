@@ -39,17 +39,17 @@ const NavbarBoard = () => {
             transition={{
               type: 'linear',
             }}
-            className='origin-top absolute w-full top-16 bg-black py-4 left-0 z-50'
+            className='origin-top absolute w-full top-16 dark:bg-black bg-zinc-300 py-4 left-0 z-50'
           >
             <div className='space-y-6 px-4'>
               {navbars.map((title) => (
                 <div
                   key={title.id}
-                  className='text-zinc-400 transition-all cursor-pointer text-sm flex items-center justify-center'
+                  className='dark:text-zinc-400 text-zinc-800 cursor-pointer text-sm flex items-center justify-center'
                 >
                   <span
                     onClick={() => handlePage(title.name)}
-                    className='hover:text-white inline-block p-1'
+                    className='hover:dark:text-white hover:text-black transition-all inline-block p-1 hover:font-bold'
                   >
                     {title.name}
                   </span>

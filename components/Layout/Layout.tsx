@@ -50,7 +50,10 @@ const Layout: React.FC<LayoutProps> = ({ children, back = true }) => {
 
   return (
     <>
-      <section ref={topRef} className='bg-zinc-900 text-white'>
+      <section
+        ref={topRef}
+        className='bg-zinc-100 dark:bg-zinc-900 text-gray-800 dark:text-white'
+      >
         <Navbar />
         <main
           onClick={() => toggleNavbarBoard(false)}

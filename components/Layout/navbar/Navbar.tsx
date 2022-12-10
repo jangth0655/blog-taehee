@@ -14,7 +14,7 @@ const Navbar = () => {
   const currentPage = pathname.split('/')[2] || 'home';
 
   return (
-    <nav className='flex items-center justify-between p-4 bg-zinc-900'>
+    <nav className='flex items-center justify-between p-4 dark:bg-zinc-900 bg-zinc-100'>
       <Logo />
       <div className='flex items-center'>
         <ThemeSwitch />
@@ -26,7 +26,7 @@ const Navbar = () => {
               <div key={navbar.id}>
                 <div
                   onClick={() => handlePage(navbar.name)}
-                  className='relative px-1 text-zinc-300 hover:text-white transition-all cursor-pointer lg:px-4 '
+                  className='relative px-1 dark:text-zinc-300 text-zinc-500 hover:dark:text-white hover:text-zinc-900 font-bold transition-all cursor-pointer lg:px-4 '
                 >
                   <span className='text-sm'>{navbar.name}</span>
                   {currentPage === navbar.id && (

@@ -20,7 +20,7 @@ const Logo = () => {
       </Link>
       <Link href={`/`}>
         <a>
-          <span>TaeHee</span>
+          <span className='font-bold text-black dark:text-white'>TaeHee</span>
         </a>
       </Link>
     </div>

@@ -11,7 +11,7 @@ const PageTitle: React.FC<PageTitleProps> = ({ title }) => {
         <h1 className='text-3xl font-bold mb-2'>Learned</h1>
         <span className='text-xl text-gray-500'>{title}</span>
       </div>
-      <div className='w-full h-[1.5px] bg-gray-500' />
+      <div className='w-full h-[1.5px] dark:bg-gray-500 bg-gray-300' />
     </div>
   );
 };
