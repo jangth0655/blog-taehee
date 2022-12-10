@@ -5,6 +5,7 @@ import Head from 'next/head';
 
 import { ToggleNavProvider } from '../context/toggleNavContext';
 import SEO from '../seo.config';
+import { ThemeProvider } from 'next-themes';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta content='width=device-width, initial-scale=1' name='viewport' />
       </Head>
       <DefaultSeo {...SEO} />
-      <Component {...pageProps} />
+      <ThemeProvider attribute='class'>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </ToggleNavProvider>
   );
 }

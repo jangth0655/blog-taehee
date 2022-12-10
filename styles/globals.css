@@ -28,7 +28,7 @@ hr {
 }
 
 .post h3 {
-  @apply font-bold text-zinc-200;
+  @apply font-bold text-zinc-200 mt-2;
 }
 
 .post ul {
@@ -52,7 +52,7 @@ strong {
 }
 
 .post pre {
-  @apply p-2 rounded-lg my-4 shadow-black shadow-md bg-zinc-800 overflow-x-scroll;
+  @apply p-2 rounded-lg my-4 shadow-black shadow-md bg-gray-800 overflow-x-scroll;
 }
 
 .post a {
