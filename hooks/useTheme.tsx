@@ -7,7 +7,7 @@ export const ThemeChanger = () => {
 
   useEffect(() => {
     setMounted(true);
-  }, [setTheme]);
+  }, []);
 
   if (!mounted) {
     return {
