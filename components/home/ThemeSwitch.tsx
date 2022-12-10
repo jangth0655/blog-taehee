@@ -15,19 +15,21 @@ const ThemeSwitch = () => {
   };
 
   return (
-    <div
-      className={cls(
-        'flex sm:w-20 w-14 border-2 dark:border-white border-zinc-700 items-center rounded-xl px-1 py-[1px] mr-4 absolute left-40',
-        darkTheme ? 'justify-start' : 'justify-end'
-      )}
-    >
-      <motion.div
-        layoutId='dark'
-        onClick={handleTheme}
-        className='dark:text-zinc-200 text-zinc-700'
-      >
-        {darkTheme ? <HiSun /> : <HiMoon />}
-      </motion.div>
+    <div className='flex sm:w-20 w-14 border-2 dark:border-white border-zinc-700 items-center rounded-xl px-1 py-[1px] mr-4 absolute left-40 dark:text-zinc-200 text-zinc-700 justify-between'>
+      <div onClick={handleTheme}>
+        {darkTheme ? (
+          <motion.div layoutId='dark'>
+            <HiSun />
+          </motion.div>
+        ) : null}
+      </div>
+      <div onClick={handleTheme}>
+        {darkTheme ? null : (
+          <motion.div layoutId='dark'>
+            <HiMoon />
+          </motion.div>
+        )}
+      </div>
     </div>
   );
 };

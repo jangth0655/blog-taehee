@@ -56,5 +56,5 @@ strong {
 }
 
 .post a {
-  @apply border-b-[1px] border-teal-500 text-teal-500;
+  @apply border-b-[1px] dark:border-teal-500 dark:text-teal-500 border-teal-600 text-teal-600 hover:text-teal-500 hover:dark:text-teal-200;
 }
