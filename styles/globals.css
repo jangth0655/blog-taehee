@@ -48,7 +48,7 @@ hr {
 }
 
 strong {
-  @apply dark:text-teal-500 text-teal-600 font-bold;
+  @apply dark:text-teal-400 text-teal-600 font-bold;
 }
 
 .post pre {

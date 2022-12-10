@@ -17,12 +17,12 @@ const ThemeSwitch = () => {
   return (
     <div
       className={cls(
-        'flex w-20 border-2 dark:border-white border-zinc-700 items-center rounded-xl px-1 py-[1px] mr-4',
+        'flex sm:w-20 w-14 border-2 dark:border-white border-zinc-700 items-center rounded-xl px-1 py-[1px] mr-4 absolute left-40',
         darkTheme ? 'justify-start' : 'justify-end'
       )}
     >
       <motion.div
-        layout
+        layoutId='dark'
         onClick={handleTheme}
         className='dark:text-zinc-200 text-zinc-700'
       >

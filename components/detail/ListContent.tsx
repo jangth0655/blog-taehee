@@ -42,7 +42,7 @@ const ListContent = ({ posts, pageName }: Props) => {
             <span>·</span>
             <div className='pl-4'>
               <Link href={`/posts/${pageName}/${file.slug}`}>
-                <span className='cursor-pointer inline-block hover:text-teal-600 font-bold transition-all p-1 pl-0'>
+                <span className='cursor-pointer inline-block hover:text-teal-600 hover:dark:text-teal-400 font-bold transition-all p-1 pl-0'>
                   {file.title}
                 </span>
               </Link>
