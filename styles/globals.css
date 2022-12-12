@@ -16,7 +16,7 @@ hr {
 }
 
 .post img {
-  @apply w-full h-[31rem] m-auto rounded-md my-4;
+  @apply w-auto h-auto m-auto  rounded-md my-4;
 }
 
 .post h1 {
