@@ -32,4 +32,10 @@ export const navbars: NavTitle[] = [
     path: PAGE.DIARY,
     subTitle: '개발·프로젝트 이야기',
   },
+  {
+    name: 'Test(TDD,E2E)',
+    id: 'basic-test',
+    path: PAGE.TEST,
+    subTitle: '(기본) 테스트 작성 및 적용',
+  },
 ];

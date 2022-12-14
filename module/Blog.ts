@@ -63,6 +63,7 @@ class Blog {
     const reactCount = this.getFileLength('react') || 0;
     const errorCount = this.getFileLength('error-handling') || 0;
     const diaryCount = this.getFileLength('dev-story') || 0;
+    const testCount = this.getFileLength('basic-test') || 0;
     const blogFiles: BlogCount[] = [
       {
         id: 'js',
@@ -82,7 +83,11 @@ class Blog {
       },
       {
         id: 'dev-story',
-        count: diaryCount | 0,
+        count: diaryCount,
+      },
+      {
+        id: 'basic-test',
+        count: testCount,
       },
     ];
     return [...blogFiles];
