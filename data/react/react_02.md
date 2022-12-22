@@ -7,27 +7,20 @@ updatedAt: 2022/12/20
 
 ## React에서 작성한 코드가 어떻게 화면에 보여질까?
 
-리액트의 컴포넌트를 정의할 때 jsx문법(자바스크립트 확장)을 많이 사용한다. 이러한 **jsx**은 바벨과 같은 툴에 의해 **자바스크립트로 변환**되는데 이때 `createElement`함수를 호출하게 된다. 이를 통해 **jsx는 자바스크립트 객체로 변환**된다.  
+리액트의 컴포넌트를 정의할 때 jsx문법(자바스크립트 확장)을 많이 사용한다. 이러한 **jsx**은 바벨과 같은 툴에 의해 **자바스크립트로 변환**되는데 이때 `createElement`함수를 호출하게 된다. 이를 통해 **UI 구조를 설명하는 일반적인 js 객체인 React Element를 리턴 한다.**  
 변환된 객체 안에는 type과 props 프로퍼티가 존재한다. type은 DOM노드의 태그 이름이고 props는 jsx에 포함된 모든 속성들이다.(props의 children은 하위 노드들)  
 이렇게 **생성된 자바스크립트 객체**를 활용하여 **VirtualDOM 트리를 구성**하게 된다. 그리고 **객체를 render로 호출**하면 비로소 **실제 DOM요소**가 된다.
 
 ```javascript
-const element = <h1 title='foo'>Hello</h1>;
-// babel
-const element = React.createElement('hi', { title: 'foo' }, 'Hello');
+// 일반적인 jsx문법
+return <SomeComponent a={42} b="testing">Text here</SomeComponent>
 
-// javascript object
-const element = {
-  type: 'h1',
-  props: {
-    title: 'foo',
-    children: 'Hello',
-  },
-};
+// 이것을 호출해서 변환된다.
+return React.createElement(SomeComponent, {a: 42, b: "testing"}, "Text Here")
 
-// render함수 호출하면 실제 DOM요소가 된다.
-const container = document.getElementById('root');
-ReactDOM.render(element, container);
+// 호출결과 element를 나타내는 객체로 변환된다.
+{type: SomeComponent, props: {a: 42, b: "testing"}, children: ["Text Here"]}
+
 ```
 
 https://velog.velcdn.com/images%2Fhanblueblue%2Fpost%2F5cd402f8-39a4-476e-8e30-0be06aeec018%2Fimage.png
