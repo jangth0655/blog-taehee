@@ -19,6 +19,6 @@ export const useWindowSize = () => {
 
   return {
     windowSize,
-    smallWindowSize: windowSize < 765,
+    smallWindowSize: windowSize < 1036,
   };
 };
