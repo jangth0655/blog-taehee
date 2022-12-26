@@ -1,8 +1,8 @@
 ---
-title: React hooks
+title: useState · useEffect
 category: react
 createdAt: 2022-8-19
-updatedAt: 2022/12/23
+updatedAt: 2022/12/26
 ---
 
 # Hook
