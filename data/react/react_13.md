@@ -1,89 +1,113 @@
 ---
-title: React Query (TanStack Query)
+title: useRef
 category: react
-createdAt: 2022/11/5
-updatedAt: 2022/11/8
+createdAt: 2022/12/26
+updatedAt:
 ---
 
-## 커스텀 훅의 문제점
+## 공식 사이트 useRef
 
-- hooks은 **값의 재사용이 아니라 로직을 재사용하기 위함이다**.
-- 글로벌적으로 사용하거나 캐시하기 위한 것이 아니다.
-- 캐시가 되지 않는다. (사용할때마다 네트워크 통신이 발생한다.)
-- 네트워크가 끊겨도 retry 등 재시도 기능이 없다.
-
----
-
-## React Query (TanStack Query)
-
-- hooks의 문제점을 해결해 줄 수 있다.
-- **고유한 키 값에 따라 데이터를 메모리에 보관한다 (캐시)**.
-- **키에 따라 데이터를 불러오고 리패칭한다.**
-- query keys  
-  → 키에 의존하여 캐시를 관리한다.  
-  → **캐시를 잘 사용하려면 키를 잘 명시하고 분리해야한다.**  
-  → 배열의 첫번재는 고유한 키, 두번째, 세번째는 등은 얼마나 세부적으로 키를 조절하는지에 따라 전달한다.
-- **예)**
-- 예를 들어 서로 다른 컴포넌트에서 동일한 키를 사용하여 query를 한다면,  
-  → 패칭이 한 번 일어난다.  
-  → 키가 동일하기 때문에 컴포넌트들은 동일한 캐시데이터를 전달 받는다.  
-  → 즉, 동일한 키라고 하더라도 배열에 더 세부적으로 키를 전달하면 다른 캐시데이터를 전달 받는다.
-
-- react query의 두번째 인자 → 함수전달  
-  → 네트워크에서 받아온 데이터를 전달하는 함수
-  → 값을 바로 return 하던지, promise형태로 값을 리턴해야한다.
-
----
-
-## React Query의 옵션
-
-- **stale(오래된)이 기본적으로 설정됨**  
-  → `Query instances via useQuery or useInfiniteQuery by default consider cached data as stale.`
-- **stale 상태라면**  
-   → The window is refocused  
-   → The network is reconnected
-- staleTime 옵션을 설정해주면된다.
-- query를 사용하지 않는다면 가비지컬렉터가 작동한다.
-- stale 상태라면 다시 데이터를 받아와서 캐시데이터를 업데이트한다.
-- stale 상태  
-  → 동일한 네트워크통신을 요청했을 경우 캐시된 데이터를 사용한다.
-  → 캐시는 되어있지만 stale 상태이기 때문에 백그라운드에서 다시 데이터를 받아온다.
-  → 그 다음 캐시를 업데이트한다.
-
----
+- useRef는 인자로 초기값을 넣어 ref 프로퍼티 current를 초기화 한다. 그리고 ref 객체는 mutable하다.
+- DOM 노드가 변경될 때마다 **current 프로퍼티 값을 해당 DOM 노드로 설정**한다.
 
 ```javascript
-const queryClient = new QueryClient();
+const ref = useRef(value);
 
-export default function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Example />
-    </QueryClientProvider>
-  );
+// return ref object
+{
+  current: value;
 }
+```
 
-function Example() {
-  const { isLoading, error, data } = useQuery({
-    queryKey: ['repoData'],
-    queryFn: () =>
-      fetch('https://api.github.com/repos/tannerlinsley/react-query').then(
-        (res) => res.json()
-      ),
-  });
+useRef를 호출하면 ref 오브젝트를 반환해준다. 반환된 ref는 컴포넌트 전생애주기를 통해 유지된다. 즉 컴포넌트가 언마운트되기 전까지는 그대로 유지할 수 있다.
 
-  if (isLoading) return 'Loading...';
+#
 
-  if (error) return 'An error has occurred: ' + error.message;
+## 언제 사용될까
+
+- state와 비슷하게 어떠한 값을 저장해 두는 저장공간으로 사용된다.  
+  → **state가 변화하면 랜더링**되고 **컴포넌트 내부 변수들은 다시 초기화**된다. 하지만 **ref는** 변화하여도 렌더링이 일어나지 않아 **변수의 값이 유지**된다. 뿐만 아니라 state가 변화하여 렌더링 되어도 ref의 값은 유지된다.
+- DOM 요소에 접근하고 컨트롤할 때 사용된다.
+
+```javascript
+import { useRef, useState } from 'react';
+
+function App() {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(0);
+
+  const increaseCountState = () => {
+    setCount((prev) => prev + 1);
+  };
+
+  const increaseCountRef = () => {
+    countRef.current = countRef.current + 1;
+    console.log('Ref', countRef.current);
+  };
 
   return (
-    <div>
-      <h1>{data.name}</h1>
-      <p>{data.description}</p>
-      <strong>👀 {data.subscribers_count}</strong>{' '}
-      <strong>✨ {data.stargazers_count}</strong>{' '}
-      <strong>🍴 {data.forks_count}</strong>
+    <div className='App'>
+      <p>State : {count}</p>
+      <p>Ref : {countRef.current}</p>
+      <button onClick={increaseCountState}>Plus State</button>
+      <button onClick={increaseCountRef}>Plus Ref</button>
     </div>
   );
 }
+
+export default App;
 ```
+
+위 코드에서 ref의 값을 아무리 증가시켜도 화면에 ref의 값은 나타나지 않는다. 하지만 `console.log`를 통해 확인해보면 `ref.current`는 변경되는 것을 알 수 있고 state(count) 값을 변경하면 렌더링이 발생하면서 ref의 값도 렌더링 즉 화면에 나타나는 것을 확인할 수 있다.
+
+#
+
+## 함수 컴포넌트 내부 변수와 Ref
+
+```javascript
+import { useRef, useState } from 'react';
+
+function App() {
+  const [render, setRender] = useState(0);
+  const countRef = useRef(0);
+  let countVar;
+
+  const increaseRef = () => {
+    countRef.current = countRef.current + 1;
+    console.log('ref', countRef.current);
+  };
+
+  const increaseVar = () => {
+    countVar = countVar + 1;
+    console.log('var', countVar);
+  };
+
+  const doRendering = () => {
+    setRender((prev) => prev + 1);
+  };
+
+  return (
+    <div className='App'>
+      <p>Ref : {countRef.current}</p>
+      <p>Ref : {countVar}</p>
+      <button onClick={doRendering}>렌더!</button>
+      <button onClick={increaseRef}>Ref 올려</button>
+      <button onClick={increaseVar}>Var 올려</button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+위 코드에서 ref 값과 변수의 값을 증가시키고 렌더 버튼을 클릭하여 render의 값을 증가시켜 화면을 렌더링한다.(state가 변화하면 화면이 리렌더링)
+
+여기서 ref와 변수의 차이점을 확인할 수 있는데 ref의 값은 증가시킨 이전 값을 유지(저장)하고 있어 렌더링할 때 화면에 증가된 ref값이 나타난다.  
+왜냐하면 ref의 값은 컴포넌트 전 생애주기를 통해 유지가 되기 때문이다.(컴포넌트 마운트~언마운트)  
+반면 변수의 값은 그대로 0이 되는데 그 이유는 화면이 렌더링되면 함수 컴포넌트 내부의 변수는 다시 초기화가 되기 때문이다.
+
+#
+
+## useRef통해 DOM요소 접근하기
+
+앞서 `const ref = useRef(value)`, useRef를 호출하면 ref 오브젝트 `{current:value}`를 반환한다고 했다. 그리고 ref 오브젝트를 접근하고자 하는 요소(태그)에 ref 속성으로 넣어주면 DOM요소에 접근할 수 있다.
