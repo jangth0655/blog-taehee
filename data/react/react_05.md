@@ -1,104 +1,106 @@
 ---
-title: Lifecycle & useEffect
+title: useContext
 category: react
 createdAt: 2022-8-20
-updatedAt: 2022/10/23
+updatedAt: 2022/12/29
 ---
 
-## Lifecycle Method
+# useContext
 
-- 컴포넌트가 사용자에게 뵤여질때,  
-  → 컴포넌트에 의해 **처음 DOM에 렌더링**될 때 'mounting'  
-  → 컴포넌트에 의해 생성된 **DOM이 제거**될 때 'unmounting'  
-  → 컴포넌트가 업데이트 되었을 때
+리액트는 여러개의 컴포넌트들로 이뤄져 있는 애플리케이션이라고 할 수 있다. 또한 리액트의 데이터 흐름은 일반적으로 위에서 아래 즉 **상위컴포넌트에서 하위 컴포넌트** 내려간다.
 
-```javascript
-class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { date: new Date() };
-  }
+이처럼 여러 컴포넌트에서 **전역적으로 데이터가 필요한** 경우(예를 들어 User, Theme 등) 문제가 발생하는데
 
-  // 컴포넌트 출력이 DOM에 렌더링된 후
-  componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000);
-  }
+- **props drilling** 반복적으로 여러 컴포넌트에 props를 전달한다. 가독성 뿐만 아니라 유지보수에 좋지 않다.
+- props를 업데이트 할때 마다 **해당 props를 갖고 있는 컴포넌트는 리랜더링이 발생**하는데 즉 props drilling을 통해 props가 필요하지 않는 컴포넌트에서도 **불필요한 리렌더링이 발생**하는 문제가 있다.
 
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
+https://blog.logrocket.com/wp-content/uploads/2021/05/react-component-tree.png
 
-  tick() {
-    this.setState({
-      date: new Date(),
-    });
-  }
+따라서 useContext를 props drilling을 하지 않고도 **필요한 데이터를 여러 컴포넌트에 쉽게 공유**해 줄 수 있다.
 
-  render() {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-      </div>
-    );
-  }
-}
-```
+#
 
----
+## 간단하게 다크모드 구현해보기
 
-## **useEffect**
-
-- 필요한 이유 :
-- 리액트는 상태가 업데이트되면 리렌더링이 된다.
-- 만약 fetch를 같이 데이터를 받아오는 **무거운 작업이 필요**하다면,
-- 리액트의 상태가 변경될때 마다 다시 fetch가 작동되기 때문에 성능에 너무 안좋을 수 있다.
+### · context
 
 ```javascript
-export default function Products() {
-  const [products, setProducts] = useState([]);
+import { createContext, useContext, useState } from 'react';
 
-  fetch('...');
-  //....
-  setProducts(data);
-}
-```
+export const ThemeContext = createContext(null);
 
-- useEffect 컴포넌트가 처음 마운트될 때, 혹은 의존성에 따라 사용될 수 있다.
-- 의존성을 주입하여 의존성에 따라 업데이트를 컨트롤 할 수 있다.
+const ThemeProvider = ({ children }) => {
+  const [isDark, setIsDark] = useState(false);
 
-```javascript
-export default function Products() {
-  const [products, setProducts] = useState([]);
-
-  //해당 컴포넌트가 보여질때 처음 한번만 호출된다.
-  useEffect(() => {
-    fetch('...');
-    //....
-    setProducts(data);
-
-    // 컴포넌트가 언마운트될때 (사라질 때)
-    return () => {
-      console.log('component unmount');
-    };
-  }, []);
-}
-```
-
-```javascript
-export default function Products() {
-  const [products, setProducts] = useState([]);
-  const [check, setCheck] = useState(false);
-
-  const handleCheck = () => {
-    setCheck((prev) => !prev);
+  const toggleTheme = () => {
+    console.log('toggle');
+    setIsDark((prev) => !prev);
   };
 
-  // check가 업데이트 될때 마다 useEffect가 실행된다.
-  useEffect(() => {
-    fetch('...');
-    //....
-    setProducts(data);
-  }, [check]);
+  return (
+    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+export default ThemeProvider;
+
+export const useTheme = () => useContext(ThemeContext);
+```
+
+context를 생성하여 context.Provider의 value로 상태 및 함수를 넣어주고 children(하위 컴포넌트)를 wrapping 한다.
+
+- createContext에 초기값을 넣어주고 context를 생성한다.
+- 생성된 context를 통해 Provider로 children(하위 컴포넌트)을 wrapping한다.
+- useContext 훅을 사용하여 해당 데이터를 공유하여 사용한다.
+
+#
+
+### · App.js(useContext 사용)
+
+```javascript
+import ThemeProvider, { useTheme } from './context/themeContext';
+
+function App() {
+  return (
+    <ThemeProvider>
+      <Page />
+    </ThemeProvider>
+  );
 }
+
+export default App;
+
+const Page = () => {
+  const { toggleTheme } = useTheme();
+
+  return (
+    <div className='page'>
+      <Header />
+      <Content />
+      <button onClick={toggleTheme} className='button'>
+        다크모드
+      </button>
+    </div>
+  );
+};
+
+const Header = () => {
+  return (
+    <header className='header'>
+      <h1>Welcome 홍길동 !</h1>
+    </header>
+  );
+};
+
+const Content = () => {
+  const { isDark } = useTheme();
+  return (
+    <div>
+      <h1>{isDark ? '다크모드' : '라이트모드'}</h1>
+      <span>홍길동님, 좋은 하루 되세요.</span>
+    </div>
+  );
+};
 ```
