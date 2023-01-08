@@ -9,6 +9,10 @@ import { blog } from '../module/Blog';
 import NextSEO from '../components/NextSEO';
 
 const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
+  const accumulatorTotalPost = (blogFiles: BlogCount[]) => {
+    const counts = blogFiles.map((item) => item.count);
+    return counts.reduce((acc, cur) => (acc += cur), 0);
+  };
   const { navbars } = useNavbar();
 
   return (
@@ -16,7 +20,11 @@ const Home: NextPage<{ blogFiles: BlogCount[] }> = ({ blogFiles }) => {
       <NextSEO title='Home' />
       <Header />
       <div className='flex flex-col w-full'>
-        <div className='sm:mt-28 mt-20 grid grid-cols-1 gap-16 sm:grid-cols-2 m-auto lg:grid-cols-3'>
+        <div className='mt-10 space-x-4 text-2xl font-bold'>
+          <span className=''>Total Post</span>
+          <span>{accumulatorTotalPost(blogFiles)}</span>
+        </div>
+        <div className='sm:mt-16 mt-10 grid grid-cols-1 gap-16 sm:grid-cols-2 m-auto lg:grid-cols-3'>
           {navbars.slice(1).map((navbar) => (
             <PostBoarder
               key={navbar.id}
