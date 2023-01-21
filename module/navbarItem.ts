@@ -21,8 +21,8 @@ class NavbarItem {
         return PAGE.ERRORS;
       case 'DevStory':
         return PAGE.DIARY;
-      case 'Test(TDD,E2E)':
-        return PAGE.TEST;
+      case 'Basic CS':
+        return PAGE.CS;
       default:
         return '/';
     }

@@ -12,15 +12,15 @@ import ListContent from '../../../components/detail/ListContent';
 const DiaryPage: NextPage<{ testContent: Post[] }> = ({ testContent }) => {
   return (
     <Layout category=''>
-      <PageTitle title='개발일기' />
-      <ListContent posts={testContent} pageName='basic-test' />
+      <PageTitle title='기본 CS지식' />
+      <ListContent posts={testContent} pageName='basic-cs' />
       <UpdatedText />
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const testContent = blog.parseFileData('basic-test');
+  const testContent = blog.parseFileData('basic-cs');
 
   return {
     props: {
