@@ -2,10 +2,10 @@
 title: useState · useEffect
 category: react
 createdAt: 2022-8-19
-updatedAt: 2022/12/26
+updatedAt: 2022/2/6
 ---
 
-# Hook
+# useState, useEffect Hook
 
 ## class형 컴포넌트 단점
 
@@ -80,7 +80,26 @@ setState함수는 newValue를 인자로 받아 hooks배열에 push하고 해당 
 
 ## 2️⃣ useEffect
 
-**useEffect**는 컴포넌트가 **랜더링 될 때마다** side effect 로직을 다루는 훅이다.
+**useEffect**는 컴포넌트를 외부 시스템과 동기화 할 수 있는 React Hook이다.
+
+```javascript
+useEffect(setup, dependencies);
+```
+
+- **setup**
+
+> Effect의 로직이 포함된 함수(콜백함수)이다. 컴포넌트가 처음 **DOM에 추가되었을 때 리액트는 이 함수를 실행**시킬 것이고, 다시 랜더링할 때마다 clear up 함수가 있다면 clear up 함수를 먼저 실행한 다음에 콜백함수가 실행된다.
+
+- **optional(dependencies)**
+
+> setup함수 코드 내에서 참조되는 모든 반응값 리스트이다. 뿐만 아니라 리스트에는 컴포넌트 내에서 직접 선언된 props, 변수, 함수 등 포함될 수 있으며 항상 [dep1, dep2, dep3] 인라인 형식으로 작성해야한다.
+
+### ✔️ 주의 사항
+
+- 외부 시스템과 **동기화하려는 것이 아니라면 필요하지 않다.** 즉 사용하지 않는 것이 좋다.
+  > · 외부 시스템이란 React에 의해 제어되지 않는 모든 코드를 말한다.
+- dependencies로 함수·객체일 경우 자주 실행될 위험이 있다.
+  > · 외부로 추출하여 상태를 업데이트한다.
 
 #
 
@@ -111,10 +130,6 @@ function UserProfile({ name }) {
 }
 ```
 
-### 왜 side effect를 리액트 랜더링과 분리하여 사용하는가 ??
-
-리액트 가상돔은 이전 돔과 변경 이후 돔을 비교하여 실질적으로 업데이트를 진행한다. 하지만 만약 side effect를 야기하는 과정을 가상돔을 만드는 과정에 포함되면 side effect가 발생할 때마다 가상돔을 새로 다시 생성해야하는데 성능이 저하될 수 있다.
-
 #
 
 ### useEffect 의존성 배열
@@ -142,12 +157,13 @@ function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    // count 상태를 의존성 배열로 전달해야 한다.
     const intervalID = setInterval(() => {
       setCount(count + 1);
     }, 1000);
 
     return () => clearInterval(intervalID);
-  }, []);
+  }, [count]);
 
   return (
     <div>
