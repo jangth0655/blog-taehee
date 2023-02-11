@@ -25,59 +25,6 @@ updatedAt: 2022/2/6
 
 ---
 
-## 1️⃣ useState
-
-함수형 컴포넌트는 랜더링이 되면 새로운 컴포넌트가 다시 생성된다. 하지만 상태관리를 하기 위해서 이전 상태를 기억하고 있어야 하는데 useState 덕분에 함수형 컴포넌트에서도 상태를 관리할 수 있게 되었다.
-
-### Closure (클로저 )
-
-[클로저 참고](https://taehee-homepage.vercel.app/posts/js/js_06)
-
-중첩된 함수 중 내부 함수에서 외부함수에 있는 환경(렉시컬환경)에 접근할 수 있는 것을 말한다.  
-✔️ 클로저의 조건  
-· 중첩함수(내부함수)가 상위 스코프의 식별자를 참조하고 있어야한다.  
-· 중첩함수가 외부 함수보다 더 오래 유지 되어야한다.
-
-#
-
-### **useState**는 클로저를 이용해서 함수의 상태를 기억한다
-
-```javascript
-let hooks = [];
-let idx = 0;
-
-function customUseState(initialVal) {
-  hooks.push(initialVal);
-  const state = hooks[idx];
-  const _idx = idx; // 이 훅이 사용해야 하는 인덱스
-  const setState = (newVal) => {
-    // closure
-    hooks[_idx] = newVal; // hooks 배열과 _idx 변수를 기억하여 참조 유지
-  };
-  idx++;
-  return [state, setState];
-}
-```
-
-위 코드에서 useState의 초기값 initialValue를 넣어주고 추후 값을 변경하기 위해 setState를 사용한다.
-setState함수는 newValue를 인자로 받아 hooks배열에 push하고 해당 값을 기억할 수 있다.
-
-#
-
-### setState는 비동기로 동작한다.
-
-리액트는 **이전 VDOM과 이후 VDOM을 비교**하여 변경된 부분이 있다면 **변경 사항만 실제 DOM에 업데이트** 한다. 이벤트 핸들러에서 setState의 인자로 콜백함수를 전달하지 않고 직접적으로 값을 업데이트 한다면 해당 값을 덮어씌워 업데이트하기 때문에 실질적으로 기대하던 변경된 값을 볼 수 없다.
-
-- 동일한 state를 연속적으로 업데이트하는 경우, setState가 배치 처리에 의해서 한번의 랜더링으로 최신 상태를 유지한다.
-- 리액트는 내부적으로 **16ms 단위로** 진행하는 batch update를 통해 setState를 일괄 처리하여 랜더링을 한 번만 발생하게 한다.  
-  (`배치 : 여러개의 state 업데이트를 하나의 렌더링(16ms 기준)으로 묶는 것을 의미한다.`)
-
-- 그럼 **동기적으로 사용하는 방법**은 ??  
-  · useEffect의 의존성 배열을 이용하는 것이다.  
-  · setState의 인자로 함수를 넣는 것이다.
-
----
-
 ## 2️⃣ useEffect
 
 **useEffect**는 컴포넌트를 외부 시스템과 동기화 할 수 있는 React Hook이다.
