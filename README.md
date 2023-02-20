@@ -5,7 +5,7 @@
 
 <br />
 
-- [블로그 링크](https://vercel.com/jangth0655/taehee-homepage)
+- [블로그 링크](https://taehee-homepage.vercel.app/)
 
 ## 🏁 프로젝트 실행 방법
 
